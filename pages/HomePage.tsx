@@ -312,7 +312,7 @@ const HomePage: React.FC = () => {
       <section>
         <div className="mt-12">
           <img 
-            src="media/dashboard.png"
+            src="/media/dashboard.png"
             alt="نمایی از داشبورد مگامیل"
             className="rounded-xl shadow-2xl ring-1 ring-gray-900/10 mx-auto"
           />
