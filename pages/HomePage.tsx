@@ -74,7 +74,7 @@ const templateAccordionData = [
     },
     {
         title: 'طراحی کاملاً واکنش‌گرا',
-        content: 'تمام قالب‌های ساخته شده با میل زیلا به طور خودکار بر روی تمامی دستگاه‌ها، از دسکتاپ تا موبایل، به زیبایی نمایش داده می‌شوند.'
+        content: 'تمام قالب‌های ساخته شده با مگامیل به طور خودکار بر روی تمامی دستگاه‌ها، از دسکتاپ تا موبایل، به زیبایی نمایش داده می‌شوند.'
     },
     {
         title: 'ورود/خروج، پیش‌نمایش و کد',
@@ -275,7 +275,7 @@ const HomePage: React.FC = () => {
                     <span className="block text-blue-600 dark:text-blue-400 mt-2">ساده، هوشمند و قدرتمند</span>
                 </h1>
                 <p className="max-w-xl text-lg sm:text-xl text-gray-600 dark:text-gray-300 ml-auto">
-                    میل زیلا پلتفرمی جامع برای ساخت، ارسال و تحلیل کمپین‌های ایمیلی شماست. به هزاران کسب‌وکار موفق بپیوندید و فروش خود را افزایش دهید.
+                    مگامیل پلتفرمی جامع برای ساخت، ارسال و تحلیل کمپین‌های ایمیلی شماست. به هزاران کسب‌وکار موفق بپیوندید و فروش خود را افزایش دهید.
                 </p>
                 <div className="flex justify-start gap-4 pt-4">
                     <a
@@ -466,11 +466,11 @@ const HomePage: React.FC = () => {
             آماده شروع هستید؟
           </h2>
           <p className="mt-4 max-w-2xl mx-auto text-lg sm:text-xl text-blue-100 dark:text-blue-200">
-            با مدل پرداخت به ازای مصرف، بدون هیچ هزینه ماهانه و فقط برای ایمیل‌هایی که ارسال می‌کنید هزینه پرداخت کنید. همین حالا ثبت نام کنید و اعتبار هدیه دریافت نمایید!
+            با مدل پرداخت به ازای مصرف، بدون هیچ هزینه ماهانه و فقط برای ایمیل‌هایی که ارسال می‌کنید هزینه پرداخت کنید. همین حالا ثبت نام کنید و هدیه دریافت نمایید!
           </p>
           <div className="mt-8">
             <a
-              href="https://my.mailzila.com"
+              href={`${CTA_URL}/`}
               className="inline-block bg-white text-blue-600 font-bold text-lg px-8 py-4 rounded-lg shadow-lg hover:bg-blue-50 transition-transform transform hover:scale-105"
             >
               دریافت هدیه ثبت نام

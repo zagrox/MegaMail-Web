@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { CTA_URL } from '../constants';
 import type { PricingPackage, Module } from '../types';
@@ -36,7 +35,7 @@ const PricingHeroIllustration: React.FC = () => (
         <text x="100" y="158" fontFamily="Vazirmatn, sans-serif" fontSize="24" fill="white" textAnchor="middle" fontWeight="bold">%</text>
         <g transform="translate(380, 280)">
              <path d="M20,0C8.96,0,0,8.96,0,20s8.96,20,20,20s20-8.96,20-20S31.04,0,20,0z M20,34c-7.72,0-14-6.28-14-14S12.28,6,20,6s14,6.28,14,14S27.72,34,20,34z" fill="#A5B4FC"/>
-             <path d="M22.5,15.5h-2.1c-0.2-1.3-0.5-2.5-1-3.6l1.5-1.5c0.4-0.4,0.4-1,0-1.4l-1.4-1.4c-0.4-0.4-1-0.4-1.4,0L16.4,9c-1.1-0.5-2.3-0.8-3.6-1V5.9c0-0.6-0.4-1-1-1h-2c-0.6,0-1,0.4-1,1v2.1c-1.3,0.2-2.5,0.5-3.6,1L3.7,7.6c-0.4-0.4-1-0.4-1.4,0L0.9,9.1c-0.4,0.4-0.4,1,0,1.4l1.5,1.5c-0.5,1.1-0.8,2.3-1,3.6H0.9c-0.6,0-1,0.4-1,1v2c0,0.6,0.4,1,1,1h2.1c0.2,1.3,0.5,2.5,1,3.6l-1.5,1.5c-0.4,0.4-0.4,1,0,1.4l1.4,1.4c0.4,0.4,1,0.4,1.4,0l1.5-1.5c1.1,0.5,2.3,0.8,3.6,1v2.1c0,0.6,0.4,1,1,1h2c0.6,0,1-0.4,1,1v-2.1c1.3-0.2,2.5-0.5,3.6-1l1.5,1.5c0.4,0.4,1,0.4,1.4,0l1.4-1.4c0.4-0.4,0.4,1,0-1.4l-1.5-1.5c0.5-1.1,0.8-2.3,1-3.6h2.1c0.6,0,1-0.4,1-1v-2C23.5,15.9,23.1,15.5,22.5,15.5z M10,18.5c-2.5,0-4.5-2-4.5-4.5s2-4.5,4.5-4.5s4.5,2,4.5,4.5S12.5,18.5,10,18.5z" fill="#A5B4FC" transform="scale(0.8) translate(5,5)"/>
+             <path d="M22.5,15.5h-2.1c-0.2-1.3-0.5-2.5-1-3.6l1.5-1.5c-0.4-0.4-0.4-1,0-1.4l-1.4-1.4c-0.4-0.4-1-0.4-1.4,0L16.4,9c-1.1-0.5-2.3-0.8-3.6-1V5.9c0-0.6-0.4-1-1-1h-2c-0.6,0-1,0.4-1,1v2.1c-1.3,0.2-2.5,0.5-3.6,1L3.7,7.6c-0.4-0.4-1-0.4-1.4,0L0.9,9.1c-0.4,0.4-0.4,1,0,1.4l1.5,1.5c-0.5,1.1-0.8,2.3-1,3.6H0.9c-0.6,0-1,0.4-1,1v2c0,0.6,0.4,1,1,1h2.1c0.2,1.3,0.5,2.5,1,3.6l-1.5,1.5c-0.4,0.4-0.4,1,0,1.4l1.4,1.4c0.4,0.4,1,0.4,1.4,0l1.5-1.5c1.1,0.5,2.3,0.8,3.6,1v2.1c0,0.6,0.4,1,1,1h2c0.6,0,1-0.4,1,1v-2.1c1.3-0.2,2.5-0.5,3.6-1l1.5,1.5c0.4,0.4,1,0.4,1.4,0l1.4-1.4c0.4-0.4,0.4,1,0-1.4l-1.5-1.5c0.5-1.1,0.8-2.3,1-3.6h2.1c0.6,0,1-0.4,1-1v-2C23.5,15.9,23.1,15.5,22.5,15.5z M10,18.5c-2.5,0-4.5-2-4.5-4.5s2-4.5,4.5-4.5s4.5,2,4.5,4.5S12.5,18.5,10,18.5z" fill="#A5B4FC" transform="scale(0.8) translate(5,5)"/>
         </g>
     </svg>
 );
@@ -208,7 +207,7 @@ const PricingPage: React.FC = () => {
                     <span className="font-bold text-gray-900 dark:text-white">{formatNumber(selectedPackage.packrate)} تومان</span>
                 </div>
                 <a
-                    href={`${CTA_URL}/register?package=${selectedPackage.id}`}
+                    href={`${CTA_URL}/?package=${selectedPackage.id}`}
                     className="w-full sm:w-auto inline-flex justify-center items-center px-10 py-3 border border-transparent text-lg font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white dark:ring-offset-gray-800 focus:ring-blue-500 transition-colors"
                     >
                     سفارش
