@@ -262,7 +262,7 @@ const HomePage: React.FC = () => {
   };
 
   return (
-    <div className="py-8 space-y-16 sm:space-y-24">
+    <div className="py-8 space-y-24 sm:space-y-32">
       {/* Hero Section */}
       <section className="pt-8 sm:pt-12">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
@@ -312,7 +312,7 @@ const HomePage: React.FC = () => {
       <section>
         <div className="mt-12">
           <img 
-            src="/public/media/dashboard.png"
+            src="/media/dashboard.png"
             alt="نمایی از داشبورد مگامیل"
             className="rounded-xl shadow-2xl ring-1 ring-gray-900/10 mx-auto"
           />

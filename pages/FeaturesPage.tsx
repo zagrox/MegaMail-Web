@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { CTA_URL } from '../constants';
 
@@ -142,7 +141,7 @@ const FeaturesPage: React.FC = () => {
     };
 
     return (
-        <div className="py-8 space-y-16 sm:space-y-24">
+        <div className="py-8 space-y-24 sm:space-y-32">
             {/* Hero Section */}
             <section className="py-12 sm:py-16">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
