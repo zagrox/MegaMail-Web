@@ -7,6 +7,7 @@ import HomePage from './pages/HomePage';
 import FeaturesPage from './pages/FeaturesPage';
 import PricingPage from './pages/PricingPage';
 import TemplatesPage from './pages/TemplatesPage';
+import ModulesPage from './pages/ModulesPage';
 import { Theme } from './types';
 
 function App() {
@@ -44,6 +45,7 @@ function App() {
             <Route path="/" element={<HomePage />} />
             <Route path="/features" element={<FeaturesPage />} />
             <Route path="/pricing" element={<PricingPage />} />
+            <Route path="/modules" element={<ModulesPage />} />
             <Route path="/templates" element={<TemplatesPage />} />
           </Routes>
         </div>
