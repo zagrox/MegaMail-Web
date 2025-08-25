@@ -13,12 +13,3 @@ export interface PricingPackage {
   packprice: number;
   packrate: number;
 }
-
-export interface Module {
-  id: number;
-  status: string;
-  modulename: string;
-  modulepro: boolean;
-  moduleinfo: string;
-  moduleprice: number;
-}
