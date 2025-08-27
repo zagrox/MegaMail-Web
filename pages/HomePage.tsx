@@ -308,17 +308,6 @@ const HomePage: React.FC = () => {
         </div>
       </section>
 
-      {/* Dashboard Image */}
-      <section>
-        <div className="mt-12">
-          <img 
-            src="/media/dashboard.png"
-            alt="نمایی از داشبورد مگامیل"
-            className="rounded-xl shadow-2xl ring-1 ring-gray-900/10 mx-auto"
-          />
-        </div>
-      </section>
-
       {/* Contact Management Section */}
       <section>
         <div className="text-center mb-12">

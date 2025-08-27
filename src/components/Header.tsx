@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { NavLink as RouterNavLink } from 'react-router-dom';
 import type { Theme } from '../types';
@@ -54,6 +53,7 @@ const Header: React.FC<HeaderProps> = ({ theme, toggleTheme }) => {
 
           <div className="flex items-center space-x-reverse space-x-2">
             
+            <ThemeToggle theme={theme} toggleTheme={toggleTheme} />
             
             {/* Desktop CTA */}
             <div className="hidden md:block">
