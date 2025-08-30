@@ -9,6 +9,7 @@ import PricingPage from './pages/PricingPage';
 import TemplatesPage from './pages/TemplatesPage';
 import ModulesPage from './pages/ModulesPage';
 import { Theme } from './types';
+import { logoSrc } from './components/Logo';
 
 function App() {
   const [theme, setTheme] = useState<Theme>(() => {
@@ -31,6 +32,13 @@ function App() {
     }
     localStorage.setItem('theme', theme);
   }, [theme]);
+  
+  useEffect(() => {
+    const favicon = document.getElementById('favicon') as HTMLLinkElement | null;
+    if (favicon) {
+      favicon.href = logoSrc;
+    }
+  }, []);
 
   const toggleTheme = () => {
     setTheme(prevTheme => (prevTheme === 'light' ? 'dark' : 'light'));
