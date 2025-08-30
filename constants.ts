@@ -8,4 +8,4 @@ export const NAV_LINKS: NavLink[] = [
   { label: 'ویرایشگر', path: '/templates' },
 ];
 
-export const CTA_URL = 'https://my.mailzila.com';
+export const CTA_URL = 'https://app.megamail.ir';
