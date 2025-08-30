@@ -345,7 +345,7 @@ const PricingPage: React.FC = () => {
                     <span className="font-bold text-gray-900 dark:text-white">{formatNumber(selectedPackage.packrate)} تومان</span>
                 </div>
                 <a
-                    href={`${CTA_URL}/?package=${selectedPackage.id}`}
+                    href={`${CTA_URL}&package=${selectedPackage.id}`}
                     className="w-full sm:w-auto inline-flex justify-center items-center px-10 py-3 border border-transparent text-lg font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white dark:ring-offset-gray-800 focus:ring-blue-500 transition-colors"
                     >
                     سفارش

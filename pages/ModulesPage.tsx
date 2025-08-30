@@ -461,7 +461,7 @@ const ModulesPage: React.FC = () => {
                 </p>
                 <div className="mt-8">
                     <a
-                        href={`${CTA_URL}/`}
+                        href={CTA_URL}
                         className="inline-block bg-white text-blue-600 font-bold text-lg px-8 py-4 rounded-lg shadow-lg hover:bg-blue-50 transition-transform transform hover:scale-105"
                     >
                         شروع کنید و ماژول‌ها را کاوش کنید

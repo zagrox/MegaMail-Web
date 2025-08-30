@@ -57,7 +57,7 @@ const Header: React.FC<HeaderProps> = ({ theme, toggleTheme }) => {
             {/* Desktop CTA */}
             <div className="hidden md:block">
               <a
-                href={`${CTA_URL}/`}
+                href={CTA_URL}
                 className="inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
               >
                 ثبت نام رایگان
@@ -107,7 +107,7 @@ const Header: React.FC<HeaderProps> = ({ theme, toggleTheme }) => {
           <div className="pt-4 pb-3 border-t border-gray-200 dark:border-gray-700">
             <div className="flex items-center px-1">
               <a
-                href={`${CTA_URL}/`}
+                href={CTA_URL}
                 className="w-full text-center inline-flex items-center justify-center px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
               >
                 ثبت نام رایگان

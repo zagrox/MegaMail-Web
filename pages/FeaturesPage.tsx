@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { CTA_URL } from '../constants';
 
@@ -67,12 +68,182 @@ const FeaturesHeroIllustration: React.FC = () => (
         </g>
     </svg>
 );
-const PlatformIllustration: React.FC = () => <svg viewBox="0 0 200 200"><rect x="20" y="40" width="160" height="120" rx="10" stroke="#9CA3AF" fill="none" strokeWidth="2" className="dark:stroke-gray-600"/><rect x="20" y="40" width="160" height="30" rx="10" fill="#E5E7EB" className="dark:fill-gray-700"/><circle cx="35" cy="55" r="5" fill="#9CA3AF" className="dark:fill-gray-500"/><rect x="50" y="52" width="40" height="6" rx="3" fill="#9CA3AF" className="dark:fill-gray-500"/><rect x="35" y="85" width="130" height="8" rx="4" fill="#3B82F6" className="dark:fill-blue-500"/><rect x="35" y="105" width="100" height="8" rx="4" fill="#3B82F6" className="dark:fill-blue-500" opacity="0.7"/></svg>;
-const AudienceIllustration: React.FC = () => <svg viewBox="0 0 200 200"><g transform="translate(65, 65) scale(3)"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" fill="none" stroke="#3B82F6" strokeWidth="1.5"/><circle cx="9" cy="7" r="4" fill="none" stroke="#3B82F6" strokeWidth="1.5"/><path d="M23 21v-2a4 4 0 0 0-3-3.87" fill="none" stroke="#3B82F6" strokeWidth="1.5" opacity="0.6"/><path d="M16 3.13a4 4 0 0 1 0 7.75" fill="none" stroke="#3B82F6" strokeWidth="1.5" opacity="0.6"/></g></svg>;
-const EmailCreationIllustration: React.FC = () => <svg viewBox="0 0 200 200"><g transform="translate(10, 10)"><rect x="40" y="40" width="120" height="80" rx="5" fill="#fff" className="dark:fill-gray-700" stroke="#E5E7EB" strokeWidth="2" /><rect x="50" y="50" width="100" height="10" rx="3" fill="#3B82F6" opacity="0.7" /><rect x="50" y="70" width="70" height="8" rx="3" fill="#D1D5DB" className="dark:fill-gray-500"/><rect x="140" y="140" width="40" height="40" rx="5" fill="#3B82F6"/></g></svg>;
-const AnalyticsIllustration: React.FC = () => <svg viewBox="0 0 200 200"><rect x="20" y="20" width="160" height="160" rx="10" fill="none" stroke="#E5E7EB" strokeWidth="2" className="dark:stroke-gray-700"/><path d="M 40 140 L 70 100 L 100 120 L 130 80 L 160 100" stroke="#3B82F6" strokeWidth="4" fill="none" strokeLinecap="round"/><rect x="50" y="50" width="100" height="10" rx="3" fill="#F3F4F6" className="dark:fill-gray-800"/><rect x="50" y="70" width="70" height="8" rx="3" fill="#F3F4F6" className="dark:fill-gray-800"/></svg>;
-const InfrastructureIllustration: React.FC = () => <svg viewBox="0 0 200 200"><rect x="30" y="70" width="140" height="20" rx="5" fill="#fff" className="dark:fill-gray-700" stroke="#E5E7EB" strokeWidth="2"/><circle cx="45" cy="80" r="4" fill="#3B82F6"/><rect x="30" y="110" width="140" height="20" rx="5" fill="#fff" className="dark:fill-gray-700" stroke="#E5E7EB" strokeWidth="2"/><circle cx="45" cy="120" r="4" fill="#3B82F6"/></svg>;
-const BillingIllustration: React.FC = () => <svg viewBox="0 0 200 200"><rect x="30" y="50" width="140" height="100" rx="10" fill="none" stroke="#E5E7EB" strokeWidth="2" className="dark:stroke-gray-600"/><rect x="30" y="80" width="140" height="1" fill="#E5E7EB" className="dark:fill-gray-600"/><rect x="45" y="100" width="60" height="8" rx="3" fill="#D1D5DB" className="dark:fill-gray-500"/><rect x="120" y="100" width="35" height="20" rx="5" fill="#3B82F6"/></svg>;
+
+const PlatformIllustration: React.FC = () => (
+    <svg viewBox="0 0 500 400" role="img" aria-label="تصویر انتزاعی از داشبورد پلتفرم اصلی">
+        <defs>
+            <linearGradient id="plat-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stopColor="#6366F1" />
+                <stop offset="100%" stopColor="#3B82F6" />
+            </linearGradient>
+            <filter id="plat-shadow" x="-50%" y="-50%" width="200%" height="200%">
+                <feDropShadow dx="4" dy="8" stdDeviation="12" floodColor="#3B82F6" floodOpacity="0.2"/>
+            </filter>
+        </defs>
+        <rect x="50" y="80" width="400" height="240" rx="20" className="fill-gray-100 dark:fill-gray-800" />
+        <g style={{ filter: 'url(#plat-shadow)' }}>
+            <rect x="80" y="110" width="340" height="180" rx="15" className="fill-white dark:fill-gray-700/80 stroke-gray-200 dark:stroke-gray-600"/>
+            {/* Sidebar */}
+            <rect x="95" y="125" width="60" height="150" rx="10" className="fill-gray-100 dark:fill-gray-800" />
+            <rect x="105" y="140" width="40" height="8" rx="4" className="fill-blue-300 dark:fill-blue-600" />
+            <rect x="105" y="160" width="40" height="8" rx="4" className="fill-gray-300 dark:fill-gray-500" />
+            {/* Main content */}
+            <rect x="170" y="125" width="235" height="40" rx="10" className="fill-gray-50 dark:fill-gray-800" />
+            <rect x="180" y="135" width="100" height="10" rx="5" className="fill-gray-300 dark:fill-gray-500" />
+            {/* Chart */}
+            <rect x="170" y="180" width="150" height="95" rx="10" className="fill-gray-50 dark:fill-gray-800" />
+            <path d="M 180 250 C 195 220, 215 240, 230 210 S 260 190, 275 220" stroke="url(#plat-grad)" strokeWidth="4" fill="none" strokeLinecap="round" />
+            {/* KPI card */}
+            <rect x="335" y="180" width="70" height="95" rx="10" fill="url(#plat-grad)" />
+            <text x="370" y="215" textAnchor="middle" fill="white" fontSize="18" fontWeight="bold">75%</text>
+        </g>
+    </svg>
+);
+
+const AudienceIllustration: React.FC = () => (
+    <svg viewBox="0 0 500 400" role="img" aria-label="تصویر انتزاعی از مدیریت مخاطبان و سگمنت‌سازی">
+        <defs>
+            <linearGradient id="aud-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stopColor="#2DD4BF" />
+                <stop offset="100%" stopColor="#3B82F6" />
+            </linearGradient>
+        </defs>
+        <circle cx="250" cy="200" r="180" className="fill-blue-50 dark:fill-gray-800/50" />
+        {/* Central user */}
+        <g transform="translate(225, 175)">
+            <circle cx="25" cy="25" r="25" fill="url(#aud-grad)" />
+            <circle cx="25" cy="18" r="8" fill="white"/>
+            <path d="M 10 38 A 15 15 0 0 1 40 38" fill="white"/>
+        </g>
+        {/* Surrounding users */}
+        <g transform="translate(100, 100)" className="opacity-70"><circle cx="15" cy="15" r="15" fill="#A5B4FC" className="dark:fill-indigo-500" /><path d="M 100 115 L 210 180" stroke="#A5B4FC" strokeWidth="2" strokeDasharray="4 4" className="dark:stroke-indigo-500"/></g>
+        <g transform="translate(350, 120)" className="opacity-70"><circle cx="15" cy="15" r="15" fill="#A5B4FC" className="dark:fill-indigo-500" /><path d="M 365 135 L 280 190" stroke="#A5B4FC" strokeWidth="2" strokeDasharray="4 4" className="dark:stroke-indigo-500"/></g>
+        <g transform="translate(120, 280)" className="opacity-70"><circle cx="15" cy="15" r="15" fill="#A5B4FC" className="dark:fill-indigo-500" /><path d="M 135 295 L 220 220" stroke="#A5B4FC" strokeWidth="2" strokeDasharray="4 4" className="dark:stroke-indigo-500"/></g>
+        {/* Segment circles */}
+        <circle cx="150" cy="200" r="80" stroke="#2DD4BF" fill="none" strokeWidth="3" className="opacity-50" strokeDasharray="8 8"/>
+        <circle cx="350" cy="220" r="60" stroke="#3B82F6" fill="none" strokeWidth="3" className="opacity-50" strokeDasharray="8 8"/>
+    </svg>
+);
+
+const EmailCreationIllustration: React.FC = () => (
+    <svg viewBox="0 0 500 400" role="img" aria-label="تصویر انتزاعی از ایمیل‌ساز کشیدن و رها کردن">
+        <defs>
+            <linearGradient id="email-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stopColor="#F472B6" />
+                <stop offset="100%" stopColor="#818CF8" />
+            </linearGradient>
+            <filter id="email-shadow" x="-50%" y="-50%" width="200%" height="200%">
+                <feDropShadow dx="4" dy="8" stdDeviation="12" floodColor="#818CF8" floodOpacity="0.2"/>
+            </filter>
+        </defs>
+        <rect x="50" y="50" width="400" height="300" rx="20" className="fill-gray-100 dark:fill-gray-800" />
+        <g style={{ filter: 'url(#email-shadow)' }}>
+            <rect x="80" y="80" width="340" height="240" rx="15" className="fill-white dark:fill-gray-700"/>
+            {/* Content panel */}
+            <rect x="290" y="95" width="115" height="210" rx="10" className="fill-gray-50 dark:fill-gray-800" />
+            <rect x="305" y="110" width="85" height="40" rx="5" className="fill-gray-200 dark:fill-gray-600" />
+            <rect x="305" y="165" width="85" height="40" rx="5" fill="url(#email-grad)" />
+            {/* Email canvas */}
+            <rect x="95" y="95" width="180" height="210" rx="10" className="fill-gray-50 dark:fill-gray-800" />
+            <rect x="110" y="110" width="150" height="60" rx="5" className="fill-indigo-200 dark:fill-indigo-600" />
+            <rect x="110" y="180" width="150" height="8" rx="4" className="fill-gray-300 dark:fill-gray-500" />
+            <rect x="110" y="200" width="120" height="8" rx="4" className="fill-gray-300 dark:fill-gray-500" />
+        </g>
+    </svg>
+);
+
+const AnalyticsIllustration: React.FC = () => (
+    <svg viewBox="0 0 500 400" role="img" aria-label="تصویر انتزاعی از داشبورد تحلیل و گزارش‌دهی">
+        <defs>
+            <linearGradient id="analytics-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stopColor="#34D399" />
+                <stop offset="100%" stopColor="#2DD4BF" />
+            </linearGradient>
+            <filter id="analytics-shadow" x="-50%" y="-50%" width="200%" height="200%">
+                <feDropShadow dx="4" dy="8" stdDeviation="12" floodColor="#34D399" floodOpacity="0.2"/>
+            </filter>
+        </defs>
+        <rect x="50" y="50" width="400" height="300" rx="20" className="fill-white dark:fill-gray-800/50 stroke-gray-200 dark:stroke-gray-700" />
+        <g style={{ filter: 'url(#analytics-shadow)' }}>
+            {/* Line Chart */}
+            <rect x="80" y="80" width="220" height="120" rx="10" className="fill-white dark:fill-gray-700" />
+            <path d="M 95 180 L 125 140 L 155 160 L 185 120 L 215 140 L 245 100 L 275 120" stroke="url(#analytics-grad)" strokeWidth="4" fill="none" strokeLinecap="round" strokeLinejoin="round" />
+            {/* KPI Cards */}
+            <rect x="315" y="80" width="105" height="55" rx="10" className="fill-white dark:fill-gray-700" />
+            <text x="367" y="105" textAnchor="middle" className="fill-gray-800 dark:fill-gray-200" fontSize="16" fontWeight="bold">42%</text>
+            <rect x="315" y="145" width="105" height="55" rx="10" className="fill-white dark:fill-gray-700" />
+            <text x="367" y="170" textAnchor="middle" className="fill-gray-800 dark:fill-gray-200" fontSize="16" fontWeight="bold">12.5%</text>
+            {/* Pie Chart */}
+            <rect x="80" y="215" width="220" height="105" rx="10" className="fill-white dark:fill-gray-700" />
+            <circle cx="135" cy="267" r="35" className="fill-gray-200 dark:fill-gray-600" />
+            <path d="M 135 232 A 35 35 0 0 1 170 267 L 135 267 Z" fill="url(#analytics-grad)" />
+            <rect x="185" y="247" width="100" height="6" rx="3" className="fill-gray-200 dark:fill-gray-600" />
+            <rect x="185" y="267" width="80" height="6" rx="3" className="fill-gray-200 dark:fill-gray-600" />
+        </g>
+    </svg>
+);
+
+const InfrastructureIllustration: React.FC = () => (
+    <svg viewBox="0 0 500 400" role="img" aria-label="تصویر انتزاعی از زیرساخت فنی و ارسال">
+        <defs>
+            <linearGradient id="infra-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stopColor="#A78BFA" />
+                <stop offset="100%" stopColor="#7C3AED" />
+            </linearGradient>
+        </defs>
+        <circle cx="250" cy="200" r="180" className="fill-purple-50 dark:fill-gray-800/50" />
+        {/* Servers */}
+        <g transform="translate(100, 150)">
+            <rect x="0" y="0" width="80" height="100" rx="10" className="fill-white dark:fill-gray-700 stroke-gray-200 dark:stroke-gray-600" />
+            <rect x="15" y="20" width="50" height="8" rx="4" className="fill-gray-300 dark:fill-gray-500" />
+            <circle cx="25" cy="50" r="5" fill="url(#infra-grad)" />
+            <circle cx="55" cy="50" r="5" className="fill-gray-400" />
+        </g>
+        {/* Globe and shield */}
+        <g transform="translate(250, 150)">
+            <circle cx="100" cy="50" r="80" className="fill-white dark:fill-gray-700" />
+            <circle cx="100" cy="50" r="70" fill="url(#infra-grad)" opacity="0.2" />
+            <path d="M 100 200 s 80-40 80-100 V 70 l -80 -30 -80 30 v 30 c 0 60 80 100 80 100 z" transform="scale(0.5) translate(100, 10)" fill="url(#infra-grad)" />
+            <path d="M90 60 l 10 10 l 20 -20" stroke="white" strokeWidth="6" fill="none" strokeLinecap="round" strokeLinejoin="round"/>
+        </g>
+        {/* Arrows */}
+        <path d="M 180 200 C 220 180, 240 180, 280 200" stroke="url(#infra-grad)" strokeWidth="3" fill="none" strokeDasharray="5 5" />
+        <path d="M 285 195 l 5 5 l -5 5" stroke="url(#infra-grad)" strokeWidth="3" fill="none" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+);
+
+const BillingIllustration: React.FC = () => (
+    <svg viewBox="0 0 500 400" role="img" aria-label="تصویر انتزاعی از سیستم صورتحساب و بازارچه ماژول‌ها">
+        <defs>
+            <linearGradient id="bill-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stopColor="#FBBF24" />
+                <stop offset="100%" stopColor="#F97316" />
+            </linearGradient>
+            <filter id="bill-shadow" x="-50%" y="-50%" width="200%" height="200%">
+                <feDropShadow dx="4" dy="8" stdDeviation="12" floodColor="#F97316" floodOpacity="0.2"/>
+            </filter>
+        </defs>
+        <rect x="50" y="50" width="400" height="300" rx="20" className="fill-gray-100 dark:fill-gray-800" />
+        {/* Credit Card */}
+        <g transform="translate(80, 80)">
+            <rect x="0" y="0" width="150" height="90" rx="10" className="fill-white dark:fill-gray-700" style={{ filter: 'url(#bill-shadow)' }}/>
+            <rect x="15" y="50" width="50" height="8" rx="4" className="fill-gray-300 dark:fill-gray-500"/>
+            <rect x="15" y="20" width="120" height="10" rx="5" fill="url(#bill-grad)" />
+        </g>
+        {/* Module cards */}
+        <g transform="translate(250, 150)">
+            <rect x="0" y="0" width="120" height="150" rx="10" className="fill-white dark:fill-gray-700" style={{ filter: 'url(#bill-shadow)' }}/>
+            <circle cx="60" cy="40" r="20" className="fill-gray-200 dark:fill-gray-600" />
+            <rect x="20" y="80" width="80" height="8" rx="4" className="fill-gray-300 dark:fill-gray-500"/>
+            <rect x="30" y="105" width="60" height="25" rx="12.5" fill="url(#bill-grad)" />
+        </g>
+         <g transform="translate(100, 200)">
+            <rect x="0" y="0" width="120" height="100" rx="10" className="fill-white/70 dark:fill-gray-700/70" />
+            <circle cx="60" cy="30" r="15" className="fill-gray-200 dark:fill-gray-600" />
+            <rect x="20" y="60" width="80" height="6" rx="3" className="fill-gray-300 dark:fill-gray-500"/>
+        </g>
+    </svg>
+);
 
 
 const featureCategories = [
@@ -80,43 +251,109 @@ const featureCategories = [
         Icon: PlatformIcon,
         Illustration: PlatformIllustration,
         title: "پلتفرم اصلی و تجربه کاربری",
-        description: "یک مرکز فرماندهی مدرن با تمام ابزارهای لازم برای مدیریت حساب کاربری و شروعی آسان.",
-        features: ["داشبورد مدرن", "مدیریت کامل پروفایل", "احراز هویت امن", "فرآیند ورود گام به گام", "پشتیبانی از حالت روشن و تاریک", "رابط کاربری چند زبانه", "اپلیکیشن قابل نصب (PWA)", "نماهای قابل جاسازی"]
+        description: "یک مرکز فرماندهی مدرن با تمام ابزارهای لازم برای مدیریت حساب کاربری، تیم و یکپارچه‌سازی‌های خارجی.",
+        features: [
+            "داشبورد مدرن و قابل تنظیم",
+            "مدیریت کامل پروفایل و تنظیمات",
+            "احراز هویت دو عاملی (2FA) برای امنیت",
+            "مدیریت تیم و نقش‌های کاربری",
+            "دسترسی کامل به API برای توسعه‌دهندگان",
+            "وب‌هوک‌ها برای رویدادهای لحظه‌ای",
+            "مرکز اعلان‌ها برای رویدادهای مهم",
+            "پشتیبانی از حالت روشن و تاریک",
+            "رابط کاربری چند زبانه",
+            "اپلیکیشن قابل نصب (PWA)",
+            "نماهای قابل جاسازی (Embeddable)",
+            "مستندات جامع برای توسعه‌دهندگان"
+        ]
     },
     {
         Icon: AudienceIcon,
         Illustration: AudienceIllustration,
         title: "مدیریت مخاطبین و مخاطبان",
-        description: "ابزارهای قدرتمند برای سازماندهی، فیلتر کردن و درک عمیق مخاطبان برای کمپین‌های هدفمند.",
-        features: ["مدیریت کامل مخاطبین", "ورود و خروج آسان CSV", "سازماندهی در لیست‌های ایستا", "بخش‌بندی پیشرفته و پویا"]
+        description: "ابزارهای قدرتمند برای سازماندهی، فیلتر کردن و درک عمیق مخاطبان برای کمپین‌های هدفمند و شخصی‌سازی شده.",
+        features: [
+            "مدیریت کامل پروفایل مخاطبین",
+            "فیلدهای سفارشی نامحدود",
+            "برچسب‌گذاری (Tagging) برای دسته‌بندی",
+            "امتیازدهی به مخاطبین (Contact Scoring)",
+            "ورود و خروج آسان با CSV",
+            "سازماندهی در لیست‌های ایستا",
+            "بخش‌بندی پیشرفته و پویا",
+            "مدیریت لیست‌های سرکوب (Suppression Lists)",
+            "رهگیری فعالیت‌های لحظه‌ای",
+            "بررسی سلامت و کیفیت مخاطبین"
+        ]
     },
     {
         Icon: EmailCreationIcon,
         Illustration: EmailCreationIllustration,
         title: "ساخت ایمیل و ارسال کمپین",
-        description: "یک ویرایشگر بصری پیشرفته برای طراحی ایمیل‌های زیبا و واکنش‌گرا بدون نیاز به کدنویسی.",
-        features: ["ایمیل‌ساز کشیدن و رها کردن", "سفارشی‌سازی کامل استایل‌ها", "پیش‌نمایش زنده موبایل", "ذخیره طرح‌ها به عنوان قالب", "ارسال به لیست‌ها یا سگمنت‌ها", "بهینه‌سازی زمان ارسال", "کنترل رهگیری و UTM"]
+        description: "یک ویرایشگر بصری پیشرفته و مجموعه‌ای از ابزارهای ارسال هوشمند برای طراحی و اجرای کمپین‌های تأثیرگذار.",
+        features: [
+            "ایمیل‌ساز کشیدن و رها کردن",
+            "سفارشی‌سازی کامل استایل‌ها",
+            "پیش‌نمایش زنده موبایل و دسکتاپ",
+            "ذخیره طرح‌ها به عنوان قالب",
+            "تست A/B برای موضوع و محتوا",
+            "محتوای پویا (Merge Tags)",
+            "ارسال به لیست‌ها یا سگمنت‌ها",
+            "زمان‌بندی ارسال بر اساس منطقه زمانی",
+            "دستیار هوش مصنوعی برای تولید محتوا",
+            "بلوک‌های محتوایی قابل استفاده مجدد",
+            "کنترل رهگیری کلیک و UTM",
+            "پشتیبانی از AMP برای ایمیل"
+        ]
     },
     {
         Icon: AnalyticsIcon,
         Illustration: AnalyticsIllustration,
         title: "تحلیل و گزارش‌دهی",
-        description: "گزارش‌های جامع و بصری برای سنجش عملکرد کمپین‌ها و اتخاذ تصمیمات داده‌محور.",
-        features: ["داشبورد آمار با نمودارها", "فیلتر زمانی پیشرفته", "رهگیری کامل (ارسال، باز شدن، کلیک)", "گزارش‌های تفکیکی کمپین"]
+        description: "گزارش‌های جامع و بصری برای سنجش عملکرد کمپین‌ها، درک رفتار مخاطبان و اتخاذ تصمیمات داده‌محور.",
+        features: [
+            "داشبورد آمار با نمودارها",
+            "فیلتر زمانی پیشرفته",
+            "رهگیری کامل (ارسال، باز شدن، کلیک)",
+            "نقشه‌های کلیک (Click Maps)",
+            "گزارش‌های جغرافیایی",
+            "گزارش دستگاه‌ها و کلاینت‌های ایمیل",
+            "تحلیل نرخ پرش و لغو اشتراک",
+            "گزارش‌های تفکیکی کمپین",
+            "خروجی داده‌ها به صورت CSV",
+            "یکپارچه‌سازی با گوگل آنالیتیکس"
+        ]
     },
     {
         Icon: InfrastructureIcon,
         Illustration: InfrastructureIllustration,
         title: "زیرساخت فنی و ارسال",
-        description: "ابزارهای فنی برای افزایش اعتبار ارسال و یکپارچه‌سازی با سایر سرویس‌ها.",
-        features: ["مدیریت و تأیید دامنه‌های ارسال", "ارائه رکوردهای DNS (SPF, DKIM)", "دسترسی به اطلاعات SMTP", "مدیریت رسانه و فایل‌ها"]
+        description: "ابزارهای فنی برای افزایش اعتبار ارسال، تضمین تحویل‌پذیری بالا و یکپارچه‌سازی با سایر سرویس‌ها.",
+        features: [
+            "مدیریت و تأیید دامنه‌های ارسال",
+            "ارائه رکوردهای DNS (SPF, DKIM, DMARC)",
+            "گزینه آی‌پی اختصاصی (Dedicated IP)",
+            "نظارت بر اعتبار آی‌پی (IP Reputation)",
+            "دسترسی به اطلاعات SMTP",
+            "وب‌هوک‌های لحظه‌ای برای رویدادهای ارسال",
+            "مدیریت رسانه و فایل‌ها با CDN جهانی",
+            "راهنمای تنظیم BIMI برای نمایش لوگو"
+        ]
     },
     {
         Icon: BillingIcon,
         Illustration: BillingIllustration,
         title: "صورتحساب و سفارشی‌سازی",
-        description: "یک سیستم منعطف مبتنی بر اعتبار که به شما امکان می‌دهد پلتفرم را مطابق با نیازهای خود شکل دهید.",
-        features: ["سیستم پرداخت به ازای مصرف", "خرید بسته‌های اعتباری", "تاریخچه کامل تراکنش‌ها", "بازارچه ماژول‌ها برای فعال‌سازی ویژگی‌ها"]
+        description: "یک سیستم منعطف مبتنی بر اعتبار که به شما امکان می‌دهد پلتفرم را مطابق با نیازهای خود شکل دهید و هزینه‌ها را مدیریت کنید.",
+        features: [
+            "سیستم پرداخت به ازای مصرف (PAYG)",
+            "خرید بسته‌های اعتباری متنوع",
+            "شارژ خودکار اعتبار در صورت نیاز",
+            "تاریخچه کامل تراکنش‌ها و فاکتورها",
+            "بازارچه ماژول‌ها برای فعال‌سازی ویژگی‌ها",
+            "روش‌های پرداخت متنوع",
+            "تخمین‌گر هزینه برای برنامه‌ریزی",
+            "امکان هدیه دادن اعتبار به کاربران دیگر"
+        ]
     }
 ];
 
@@ -191,7 +428,7 @@ const FeaturesPage: React.FC = () => {
                 </p>
                 <div className="mt-8">
                     <a
-                        href={`${CTA_URL}/`}
+                        href={CTA_URL}
                         className="inline-block bg-white text-blue-600 font-bold text-lg px-8 py-4 rounded-lg shadow-lg hover:bg-blue-50 transition-transform transform hover:scale-105"
                     >
                         رایگان شروع کنید

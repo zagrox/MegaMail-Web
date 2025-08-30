@@ -279,7 +279,7 @@ const HomePage: React.FC = () => {
                 </p>
                 <div className="flex justify-start gap-4 pt-4">
                     <a
-                        href={`${CTA_URL}/`}
+                        href={CTA_URL}
                         className="inline-block bg-blue-600 text-white font-bold text-lg px-8 py-4 rounded-lg shadow-lg hover:bg-blue-700 transition-transform transform hover:scale-105"
                     >
                         شروع رایگان
@@ -470,7 +470,7 @@ const HomePage: React.FC = () => {
           </p>
           <div className="mt-8">
             <a
-              href={`${CTA_URL}/`}
+              href={CTA_URL}
               className="inline-block bg-white text-blue-600 font-bold text-lg px-8 py-4 rounded-lg shadow-lg hover:bg-blue-50 transition-transform transform hover:scale-105"
             >
               دریافت هدیه ثبت نام
