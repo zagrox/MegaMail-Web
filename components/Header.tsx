@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { NavLink as RouterNavLink } from 'react-router-dom';
+import { NavLink as RouterNavLink, Link } from 'react-router-dom';
 import type { Theme } from '../types';
 import { NAV_LINKS, CTA_URL } from '../constants';
 import ThemeToggle from './ThemeToggle';
@@ -30,9 +30,9 @@ const Header: React.FC<HeaderProps> = ({ theme, toggleTheme }) => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center">
-            <a href="/#" className="flex-shrink-0">
-              <Logo theme={theme} />
-            </a>
+            <Link to="/" className="flex-shrink-0">
+              <Logo />
+            </Link>
             {/* Desktop Nav */}
             <nav className="hidden md:flex md:items-center md:space-x-reverse md:space-x-8 md:mr-10">
               {NAV_LINKS.map((link) => (
