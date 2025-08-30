@@ -9,4 +9,4 @@ export const NAV_LINKS: NavLink[] = [
   { label: 'تعرفه‌ها', path: '/pricing' },
 ];
 
-export const CTA_URL = 'https://app.megamail.ir';
+export const CTA_URL = 'https://app.megamail.ir/?register';
