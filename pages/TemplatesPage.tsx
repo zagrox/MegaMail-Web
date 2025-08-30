@@ -1,4 +1,5 @@
 
+
 import React from 'react';
 import { CTA_URL } from '../constants';
 
@@ -125,6 +126,10 @@ const ResponsiveIcon: React.FC<{className?: string}> = (props) => (
 const CodeIcon: React.FC<{className?: string}> = (props) => (
     <svg {...props} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
 );
+const SendTestIcon: React.FC<{className?: string}> = (props) => (
+    <svg {...props} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 2 11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+);
+
 
 const TemplatesPage: React.FC = () => {
     return (
@@ -210,6 +215,9 @@ const TemplatesPage: React.FC = () => {
                                 <li className="flex items-start"><CheckIcon className="w-5 h-5 text-green-500 mt-1 flex-shrink-0" /><span className="mr-3">ساختار چند ستونه و کاملاً واکنش‌گرا</span></li>
                                 <li className="flex items-start"><CheckIcon className="w-5 h-5 text-green-500 mt-1 flex-shrink-0" /><span className="mr-3">بلوک‌های ساختاری از پیش تعریف شده</span></li>
                                 <li className="flex items-start"><CheckIcon className="w-5 h-5 text-green-500 mt-1 flex-shrink-0" /><span className="mr-3">کنترل کامل بر پدینگ، مارجین و حاشیه‌ها</span></li>
+                                <li className="flex items-start"><CheckIcon className="w-5 h-5 text-green-500 mt-1 flex-shrink-0" /><span className="mr-3">ذخیره و استفاده مجدد از ردیف‌های سفارشی</span></li>
+                                <li className="flex items-start"><CheckIcon className="w-5 h-5 text-green-500 mt-1 flex-shrink-0" /><span className="mr-3">تنظیمات نمایش در موبایل و دسکتاپ</span></li>
+                                <li className="flex items-start"><CheckIcon className="w-5 h-5 text-green-500 mt-1 flex-shrink-0" /><span className="mr-3">افزودن جداکننده‌های بصری و اسپیسرها</span></li>
                             </ul>
                         </div>
                     </div>
@@ -225,6 +233,9 @@ const TemplatesPage: React.FC = () => {
                                 <li className="flex items-start"><CheckIcon className="w-5 h-5 text-green-500 mt-1 flex-shrink-0" /><span className="mr-3">بلوک‌های متن، تصویر، دکمه، جداکننده و HTML سفارشی</span></li>
                                 <li className="flex items-start"><CheckIcon className="w-5 h-5 text-green-500 mt-1 flex-shrink-0" /><span className="mr-3">پشتیبانی از محتوای پویا با Merge Tags</span></li>
                                 <li className="flex items-start"><CheckIcon className="w-5 h-5 text-green-500 mt-1 flex-shrink-0" /><span className="mr-3">مدیریت رسانه یکپارچه برای تصاویر</span></li>
+                                <li className="flex items-start"><CheckIcon className="w-5 h-5 text-green-500 mt-1 flex-shrink-0" /><span className="mr-3">افزودن آیکون‌های شبکه‌های اجتماعی</span></li>
+                                <li className="flex items-start"><CheckIcon className="w-5 h-5 text-green-500 mt-1 flex-shrink-0" /><span className="mr-3">بلوک ویدیو با پشتیبانی از لینک</span></li>
+                                <li className="flex items-start"><CheckIcon className="w-5 h-5 text-green-500 mt-1 flex-shrink-0" /><span className="mr-3">تایمر شمارش معکوس برای ایجاد فوریت</span></li>
                             </ul>
                         </div>
                     </div>
@@ -240,6 +251,9 @@ const TemplatesPage: React.FC = () => {
                                 <li className="flex items-start"><CheckIcon className="w-5 h-5 text-green-500 mt-1 flex-shrink-0" /><span className="mr-3">انتخاب فونت، رنگ، اندازه و ترازبندی متن</span></li>
                                 <li className="flex items-start"><CheckIcon className="w-5 h-5 text-green-500 mt-1 flex-shrink-0" /><span className="mr-3">استایل‌های سراسری برای هماهنگی برند</span></li>
                                 <li className="flex items-start"><CheckIcon className="w-5 h-5 text-green-500 mt-1 flex-shrink-0" /><span className="mr-3">کنترل کامل بر رنگ پس‌زمینه و حاشیه‌ها</span></li>
+                                <li className="flex items-start"><CheckIcon className="w-5 h-5 text-green-500 mt-1 flex-shrink-0" /><span className="mr-3">گرد کردن گوشه‌ها برای تصاویر و دکمه‌ها</span></li>
+                                <li className="flex items-start"><CheckIcon className="w-5 h-5 text-green-500 mt-1 flex-shrink-0" /><span className="mr-3">تنظیمات پیشرفته برای فاصله بین حروف و ارتفاع خط</span></li>
+                                <li className="flex items-start"><CheckIcon className="w-5 h-5 text-green-500 mt-1 flex-shrink-0" /><span className="mr-3">افزودن سایه به المان‌ها برای ایجاد عمق</span></li>
                             </ul>
                         </div>
                     </div>
@@ -255,6 +269,9 @@ const TemplatesPage: React.FC = () => {
                                 <li className="flex items-start"><CheckIcon className="w-5 h-5 text-green-500 mt-1 flex-shrink-0" /><span className="mr-3">ذخیره و مدیریت قالب‌های سفارشی</span></li>
                                 <li className="flex items-start"><CheckIcon className="w-5 h-5 text-green-500 mt-1 flex-shrink-0" /><span className="mr-3">پیش‌نمایش زنده برای دسکتاپ و موبایل</span></li>
                                 <li className="flex items-start"><CheckIcon className="w-5 h-5 text-green-500 mt-1 flex-shrink-0" /><span className="mr-3">دسترسی به کد HTML برای تنظیمات پیشرفته</span></li>
+                                <li className="flex items-start"><CheckIcon className="w-5 h-5 text-green-500 mt-1 flex-shrink-0" /><span className="mr-3">تاریخچه تغییرات با قابلیت بازگشت</span></li>
+                                <li className="flex items-start"><CheckIcon className="w-5 h-5 text-green-500 mt-1 flex-shrink-0" /><span className="mr-3">ارسال ایمیل تست برای بررسی نهایی</span></li>
+                                <li className="flex items-start"><CheckIcon className="w-5 h-5 text-green-500 mt-1 flex-shrink-0" /><span className="mr-3">کامنت‌گذاری و همکاری تیمی روی طرح</span></li>
                             </ul>
                         </div>
                     </div>
@@ -271,12 +288,13 @@ const TemplatesPage: React.FC = () => {
                         قالب‌ها فقط برای طراحی نیستند؛ آن‌ها دارایی‌های ارزشمندی هستند که به شما کمک می‌کنند تا پیام برند خود را به طور مداوم و کارآمد منتقل کنید.
                     </p>
                 </div>
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
                     <BenefitCard Icon={SaveIcon} title="ذخیره طرح‌های سفارشی" description="هر ایمیلی که طراحی می‌کنید را می‌توان به عنوان یک قالب سفارشی ذخیره کرد و سنگ بنای کمپین‌های آینده شما خواهد بود." />
                     <BenefitCard Icon={ReuseIcon} title="استفاده مجدد و صرفه‌جویی در زمان" description="به جای شروع از صفر، از قالب‌های ذخیره شده خود استفاده کنید. این کار ثبات برند را تضمین کرده و ساعت‌ها در زمان شما صرفه‌جویی می‌کند." />
                     <BenefitCard Icon={GalleryIcon} title="گالری قالب‌های آماده" description="از مجموعه‌ای از قالب‌های حرفه‌ای و از پیش طراحی شده برای شروع سریع الهام بگیرید و آن‌ها را مطابق با نیاز خود سفارشی کنید." />
                     <BenefitCard Icon={ResponsiveIcon} title="واکنش‌گرایی تضمین شده" description="تمام قالب‌های ساخته شده در مگامیل به طور خودکار برای نمایش بی‌نقص در هر دستگاهی، از موبایل تا دسکتاپ، بهینه‌سازی می‌شوند." />
                     <BenefitCard Icon={CodeIcon} title="ورود و خروج HTML" description="کنترل کامل را در دست بگیرید. قالب‌های HTML خود را وارد کنید یا از طرح‌های ساخته شده در ویرایشگر ما خروجی HTML بگیرید." />
+                    <BenefitCard Icon={SendTestIcon} title="ارسال ایمیل تست" description="قبل از ارسال نهایی، یک نسخه آزمایشی از ایمیل خود را به یک یا چند آدرس ارسال کنید تا از نمایش صحیح آن در کلاینت‌های مختلف ایمیل مطمئن شوید." />
                 </div>
             </section>
 
