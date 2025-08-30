@@ -5,7 +5,7 @@ import { CTA_URL } from '../constants';
 // --- SVG & Icon Components ---
 
 const TemplatesHeroIllustration: React.FC = () => (
-    <svg viewBox="0 0 500 400" xmlns="http://www.w.org/2000/svg" role="img" aria-label="تصویر انتزاعی از ویرایشگر ایمیل و قالب‌ها">
+    <svg viewBox="0 0 500 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="تصویر انتزاعی از ویرایشگر ایمیل و قالب‌ها">
         <defs>
             <linearGradient id="tpl-hero-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
                 <stop offset="0%" stopColor="#3B82F6" />
@@ -197,58 +197,66 @@ const TemplatesPage: React.FC = () => {
                         تمام ابزارهای لازم برای طراحی ایمیل‌های جذاب و مؤثر، از ساختار و محتوا گرفته تا استایل‌دهی و گردش کار، در اختیار شماست.
                     </p>
                 </div>
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div className="space-y-20 md:space-y-28">
                      {/* Feature 1: Layout */}
-                    <div className="lg:order-last flex justify-center"><LayoutIllustration /></div>
-                    <div className="text-right">
-                        <div className="inline-flex items-center gap-4 mb-4">
-                            <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-blue-100 dark:bg-blue-900/50 flex items-center justify-center"><LayoutIcon className="w-7 h-7 text-blue-600 dark:text-blue-400" /></div>
-                            <h3 className="text-2xl font-bold text-gray-900 dark:text-white">چیدمان و ساختار</h3>
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                        <div className="lg:order-last flex justify-center"><LayoutIllustration /></div>
+                        <div className="text-right">
+                            <div className="inline-flex items-center gap-4 mb-4">
+                                <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-blue-100 dark:bg-blue-900/50 flex items-center justify-center"><LayoutIcon className="w-7 h-7 text-blue-600 dark:text-blue-400" /></div>
+                                <h3 className="text-2xl font-bold text-gray-900 dark:text-white">چیدمان و ساختار</h3>
+                            </div>
+                            <ul className="space-y-3">
+                                <li className="flex items-start"><CheckIcon className="w-5 h-5 text-green-500 mt-1 flex-shrink-0" /><span className="mr-3">ساختار چند ستونه و کاملاً واکنش‌گرا</span></li>
+                                <li className="flex items-start"><CheckIcon className="w-5 h-5 text-green-500 mt-1 flex-shrink-0" /><span className="mr-3">بلوک‌های ساختاری از پیش تعریف شده</span></li>
+                                <li className="flex items-start"><CheckIcon className="w-5 h-5 text-green-500 mt-1 flex-shrink-0" /><span className="mr-3">کنترل کامل بر پدینگ، مارجین و حاشیه‌ها</span></li>
+                            </ul>
                         </div>
-                        <ul className="space-y-3">
-                            <li className="flex items-start"><CheckIcon className="w-5 h-5 text-green-500 mt-1 flex-shrink-0" /><span className="mr-3">ساختار چند ستونه و کاملاً واکنش‌گرا</span></li>
-                            <li className="flex items-start"><CheckIcon className="w-5 h-5 text-green-500 mt-1 flex-shrink-0" /><span className="mr-3">بلوک‌های ساختاری از پیش تعریف شده</span></li>
-                            <li className="flex items-start"><CheckIcon className="w-5 h-5 text-green-500 mt-1 flex-shrink-0" /><span className="mr-3">کنترل کامل بر پدینگ، مارجین و حاشیه‌ها</span></li>
-                        </ul>
                     </div>
                      {/* Feature 2: Content */}
-                    <div className="flex justify-center"><ContentIllustration /></div>
-                    <div className="text-right">
-                         <div className="inline-flex items-center gap-4 mb-4">
-                            <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-blue-100 dark:bg-blue-900/50 flex items-center justify-center"><ContentIcon className="w-7 h-7 text-blue-600 dark:text-blue-400" /></div>
-                            <h3 className="text-2xl font-bold text-gray-900 dark:text-white">محتوا و رسانه</h3>
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                        <div className="flex justify-center"><ContentIllustration /></div>
+                        <div className="text-right">
+                            <div className="inline-flex items-center gap-4 mb-4">
+                                <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-blue-100 dark:bg-blue-900/50 flex items-center justify-center"><ContentIcon className="w-7 h-7 text-blue-600 dark:text-blue-400" /></div>
+                                <h3 className="text-2xl font-bold text-gray-900 dark:text-white">محتوا و رسانه</h3>
+                            </div>
+                            <ul className="space-y-3">
+                                <li className="flex items-start"><CheckIcon className="w-5 h-5 text-green-500 mt-1 flex-shrink-0" /><span className="mr-3">بلوک‌های متن، تصویر، دکمه، جداکننده و HTML سفارشی</span></li>
+                                <li className="flex items-start"><CheckIcon className="w-5 h-5 text-green-500 mt-1 flex-shrink-0" /><span className="mr-3">پشتیبانی از محتوای پویا با Merge Tags</span></li>
+                                <li className="flex items-start"><CheckIcon className="w-5 h-5 text-green-500 mt-1 flex-shrink-0" /><span className="mr-3">مدیریت رسانه یکپارچه برای تصاویر</span></li>
+                            </ul>
                         </div>
-                        <ul className="space-y-3">
-                            <li className="flex items-start"><CheckIcon className="w-5 h-5 text-green-500 mt-1 flex-shrink-0" /><span className="mr-3">بلوک‌های متن، تصویر، دکمه، جداکننده و HTML سفارشی</span></li>
-                            <li className="flex items-start"><CheckIcon className="w-5 h-5 text-green-500 mt-1 flex-shrink-0" /><span className="mr-3">پشتیبانی از محتوای پویا با Merge Tags</span></li>
-                            <li className="flex items-start"><CheckIcon className="w-5 h-5 text-green-500 mt-1 flex-shrink-0" /><span className="mr-3">مدیریت رسانه یکپارچه برای تصاویر</span></li>
-                        </ul>
                     </div>
                      {/* Feature 3: Styling */}
-                     <div className="lg:order-last flex justify-center"><StylingIllustration /></div>
-                    <div className="text-right">
-                         <div className="inline-flex items-center gap-4 mb-4">
-                            <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-blue-100 dark:bg-blue-900/50 flex items-center justify-center"><StylingIcon className="w-7 h-7 text-blue-600 dark:text-blue-400" /></div>
-                            <h3 className="text-2xl font-bold text-gray-900 dark:text-white">استایل‌دهی و سفارشی‌سازی</h3>
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                        <div className="lg:order-last flex justify-center"><StylingIllustration /></div>
+                        <div className="text-right">
+                            <div className="inline-flex items-center gap-4 mb-4">
+                                <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-blue-100 dark:bg-blue-900/50 flex items-center justify-center"><StylingIcon className="w-7 h-7 text-blue-600 dark:text-blue-400" /></div>
+                                <h3 className="text-2xl font-bold text-gray-900 dark:text-white">استایل‌دهی و سفارشی‌سازی</h3>
+                            </div>
+                            <ul className="space-y-3">
+                                <li className="flex items-start"><CheckIcon className="w-5 h-5 text-green-500 mt-1 flex-shrink-0" /><span className="mr-3">انتخاب فونت، رنگ، اندازه و ترازبندی متن</span></li>
+                                <li className="flex items-start"><CheckIcon className="w-5 h-5 text-green-500 mt-1 flex-shrink-0" /><span className="mr-3">استایل‌های سراسری برای هماهنگی برند</span></li>
+                                <li className="flex items-start"><CheckIcon className="w-5 h-5 text-green-500 mt-1 flex-shrink-0" /><span className="mr-3">کنترل کامل بر رنگ پس‌زمینه و حاشیه‌ها</span></li>
+                            </ul>
                         </div>
-                        <ul className="space-y-3">
-                            <li className="flex items-start"><CheckIcon className="w-5 h-5 text-green-500 mt-1 flex-shrink-0" /><span className="mr-3">انتخاب فونت، رنگ، اندازه و ترازبندی متن</span></li>
-                            <li className="flex items-start"><CheckIcon className="w-5 h-5 text-green-500 mt-1 flex-shrink-0" /><span className="mr-3">استایل‌های سراسری برای هماهنگی برند</span></li>
-                            <li className="flex items-start"><CheckIcon className="w-5 h-5 text-green-500 mt-1 flex-shrink-0" /><span className="mr-3">کنترل کامل بر رنگ پس‌زمینه و حاشیه‌ها</span></li>
-                        </ul>
                     </div>
                      {/* Feature 4: Workflow */}
-                     <div className="flex justify-center"><WorkflowIllustration /></div>
-                     <div className="text-right">
-                         <div className="inline-flex items-center gap-4 mb-4">
-                            <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-blue-100 dark:bg-blue-900/50 flex items-center justify-center"><WorkflowIcon className="w-7 h-7 text-blue-600 dark:text-blue-400" /></div>
-                            <h3 className="text-2xl font-bold text-gray-900 dark:text-white">گردش کار و ابزارها</h3>
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                        <div className="flex justify-center"><WorkflowIllustration /></div>
+                        <div className="text-right">
+                            <div className="inline-flex items-center gap-4 mb-4">
+                                <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-blue-100 dark:bg-blue-900/50 flex items-center justify-center"><WorkflowIcon className="w-7 h-7 text-blue-600 dark:text-blue-400" /></div>
+                                <h3 className="text-2xl font-bold text-gray-900 dark:text-white">گردش کار و ابزارها</h3>
+                            </div>
+                            <ul className="space-y-3">
+                                <li className="flex items-start"><CheckIcon className="w-5 h-5 text-green-500 mt-1 flex-shrink-0" /><span className="mr-3">ذخیره و مدیریت قالب‌های سفارشی</span></li>
+                                <li className="flex items-start"><CheckIcon className="w-5 h-5 text-green-500 mt-1 flex-shrink-0" /><span className="mr-3">پیش‌نمایش زنده برای دسکتاپ و موبایل</span></li>
+                                <li className="flex items-start"><CheckIcon className="w-5 h-5 text-green-500 mt-1 flex-shrink-0" /><span className="mr-3">دسترسی به کد HTML برای تنظیمات پیشرفته</span></li>
+                            </ul>
                         </div>
-                        <ul className="space-y-3">
-                            <li className="flex items-start"><CheckIcon className="w-5 h-5 text-green-500 mt-1 flex-shrink-0" /><span className="mr-3">ذخیره و مدیریت قالب‌های سفارشی</span></li>
-                            <li className="flex items-start"><CheckIcon className="w-5 h-5 text-green-500 mt-1 flex-shrink-0" /><span className="mr-3">پیش‌نمایش زنده برای دسکتاپ و موبایل</span></li>
-                            <li className="flex items-start"><CheckIcon className="w-5 h-5 text-green-500 mt-1 flex-shrink-0" /><span className="mr-3">دسترسی به کد HTML برای تنظیمات پیشرفته</span></li>
-                        </ul>
                     </div>
                 </div>
             </section>
