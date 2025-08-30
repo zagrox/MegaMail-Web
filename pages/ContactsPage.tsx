@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { CTA_URL } from '../constants';
 
 // --- SVG & Icon Components ---
 
 const ContactsHeroIllustration: React.FC = () => (
-    <svg viewBox="0 0 500 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="تصویر انتزاعی از مدیریت مخاطبان، لیست‌ها و سگمنت‌ها">
+    <svg viewBox="0 0 500 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="تصویر انتزاعی از داشبورد مدیریت مخاطبان">
         <defs>
             <linearGradient id="contacts-hero-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
                 <stop offset="0%" stopColor="#3B82F6" />
@@ -18,24 +18,49 @@ const ContactsHeroIllustration: React.FC = () => (
         {/* Background shape */}
         <path d="M 50,200 C 50,100 150,50 250,50 S 450,100 450,200 S 350,350 250,350 S 50,300 50,200 Z" className="fill-blue-50 dark:fill-gray-800/50" />
 
-        {/* Central Hub (Contacts) */}
+        {/* Central UI (Contacts List) */}
         <g style={{ filter: 'url(#contacts-shadow)' }}>
-            <circle cx="250" cy="200" r="50" className="fill-white dark:fill-gray-700 stroke-gray-200 dark:stroke-gray-600" />
-            <path d="M245 195v-10a4 4 0 0 1 4-4h2a4 4 0 0 1 4 4v10m-10 10v-2a4 4 0 0 1 4-4h2a4 4 0 0 1 4 4v2" fill="none" stroke="#3B82F6" strokeWidth="3" /><circle cx="250" cy="190" r="4" fill="none" stroke="#3B82F6" strokeWidth="3"/>
-        </g>
+            <rect x="125" y="80" width="250" height="240" rx="20" className="fill-white dark:fill-gray-700 stroke-gray-200 dark:stroke-gray-600" />
+            
+            {/* Header */}
+            <rect x="140" y="95" width="220" height="30" rx="8" className="fill-gray-100 dark:fill-gray-800" />
+            <rect x="150" y="105" width="80" height="10" rx="5" className="fill-gray-300 dark:fill-gray-600" />
+            <rect x="300" y="102" width="50" height="16" rx="8" fill="url(#contacts-hero-gradient)" />
+            
+            {/* Contact Row 1 */}
+            <g transform="translate(140, 140)">
+                <circle cx="15" cy="15" r="12" className="fill-gray-200 dark:fill-gray-600" />
+                <rect x="35" y="8" width="100" height="8" rx="4" className="fill-gray-300 dark:fill-gray-500"/>
+                <rect x="35" y="22" width="60" height="5" rx="2.5" className="fill-gray-200 dark:fill-gray-500"/>
+                <circle cx="190" cy="15" r="5" fill="#2DD4BF" />
+            </g>
 
-        {/* Lists */}
-        <g transform="translate(100, 80)" style={{ filter: 'url(#contacts-shadow)' }}>
-             <rect x="0" y="0" width="80" height="60" rx="10" className="fill-white dark:fill-gray-700 stroke-gray-200 dark:stroke-gray-600" />
-             <path d="M 20 20 H 60 M 20 30 H 50 M 20 40 H 60" stroke="#2DD4BF" strokeWidth="3" fill="none" strokeLinecap="round" />
-             <path d="M 170 110 Q 180 140 150 160" stroke="#9CA3AF" strokeWidth="2" fill="none" strokeDasharray="5 5" className="dark:stroke-gray-500" />
+             {/* Contact Row 2 */}
+            <g transform="translate(140, 185)">
+                <circle cx="15" cy="15" r="12" className="fill-gray-200 dark:fill-gray-600" />
+                <rect x="35" y="8" width="120" height="8" rx="4" className="fill-gray-300 dark:fill-gray-500"/>
+                <rect x="35" y="22" width="80" height="5" rx="2.5" className="fill-gray-200 dark:fill-gray-500"/>
+                 <circle cx="190" cy="15" r="5" fill="#3B82F6" />
+            </g>
+            
+             {/* Contact Row 3 */}
+            <g transform="translate(140, 230)">
+                <circle cx="15" cy="15" r="12" className="fill-gray-200 dark:fill-gray-600" />
+                <rect x="35" y="8" width="90" height="8" rx="4" className="fill-gray-300 dark:fill-gray-500"/>
+                <rect x="35" y="22" width="50" height="5" rx="2.5" className="fill-gray-200 dark:fill-gray-500"/>
+                 <circle cx="190" cy="15" r="5" fill="#A5B4FC" />
+            </g>
         </g>
         
-        {/* Segments */}
-        <g transform="translate(320, 260)" style={{ filter: 'url(#contacts-shadow)' }}>
-             <rect x="0" y="0" width="80" height="60" rx="10" className="fill-white dark:fill-gray-700 stroke-gray-200 dark:stroke-gray-600" />
-             <path d="M20.5 25H19V21a2 2 0 0 0-2-2h-1a2 2 0 0 0-2 2v2a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1V21a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v4.5" transform="translate(20, 10) scale(1.5)" fill="none" stroke="#818CF8" strokeWidth="1.5"/>
-             <path d="M -160 190 Q -130 190 -110 200" stroke="#9CA3AF" strokeWidth="2" fill="none" strokeDasharray="5 5" className="dark:stroke-gray-500" />
+        {/* Floating elements */}
+        <g transform="translate(60, 100)" style={{ filter: 'url(#contacts-shadow)' }}>
+             <rect x="0" y="0" width="60" height="40" rx="10" className="fill-white dark:fill-gray-700 stroke-gray-200 dark:stroke-gray-600" />
+             <path d="M 15 15 H 45 M 15 25 H 35" stroke="#2DD4BF" strokeWidth="3" fill="none" strokeLinecap="round" />
+        </g>
+        
+        <g transform="translate(400, 250)" style={{ filter: 'url(#contacts-shadow)' }}>
+             <rect x="0" y="0" width="60" height="40" rx="10" className="fill-white dark:fill-gray-700 stroke-gray-200 dark:stroke-gray-600" />
+             <path d="M20.5 10H19V6a2 2 0 0 0-2-2h-1a2 2 0 0 0-2 2v2a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v4.5" transform="translate(10, 5) scale(1.2)" fill="none" stroke="#818CF8" strokeWidth="1.5"/>
         </g>
     </svg>
 );
@@ -75,15 +100,6 @@ const MarketingBenefitsIllustration: React.FC = () => (
     </svg>
 );
 
-const ContactsIcon: React.FC<{ className?: string }> = ({ className }) => (
-  <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
-);
-const ListIcon: React.FC<{ className?: string }> = ({ className }) => (
-  <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="8" y1="6" x2="21" y2="6"></line><line x1="8" y1="12" x2="21" y2="12"></line><line x1="8" y1="18" x2="21" y2="18"></line><line x1="3" y1="6" x2="3.01" y2="6"></line><line x1="3" y1="12" x2="3.01" y2="12"></line><line x1="3" y1="18" x2="3.01" y2="18"></line></svg>
-);
-const SegmentIcon: React.FC<{ className?: string }> = ({ className }) => (
-  <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20.5 11H19V7a2 2 0 0 0-2-2h-1a2 2 0 0 0-2 2v2a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1V7a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v4.5"/><path d="M3.5 11H5v4a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-2a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2V11z"/></svg>
-);
 const CheckIcon: React.FC<{ className?: string }> = ({ className }) => (
     <svg xmlns="http://www.w3.org/2000/svg" className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor">
       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
@@ -125,14 +141,6 @@ const BenefitCard: React.FC<{ Icon: React.FC<{className?: string}>, title: strin
     </div>
 );
 
-type Tab = 'contacts' | 'lists' | 'segments';
-
-const tabs: { id: Tab; label: string; Icon: React.FC<{className?: string}> }[] = [
-    { id: 'contacts', label: 'مخاطبین', Icon: ContactsIcon },
-    { id: 'lists', label: 'لیست‌ها', Icon: ListIcon },
-    { id: 'segments', label: 'سگمنت‌ها', Icon: SegmentIcon },
-];
-
 const useCases = [
     { Icon: VipIcon, title: "مشتریان VIP", description: "مخاطبانی که در لیست «مشتریان» هستند و مجموع خریدشان بیش از ۱٬۰۰۰٬۰۰۰ تومان است." },
     { Icon: EngagedIcon, title: "خوانندگان درگیر", description: "مخاطبانی که حداقل ۵ خبرنامه از ۱۰ خبرنامه اخیر را باز کرده‌اند." },
@@ -163,7 +171,6 @@ const marketingBenefits = [
 ];
 
 const ContactsPage: React.FC = () => {
-    const [activeTab, setActiveTab] = useState<Tab>('contacts');
 
     return (
         <div className="py-8 space-y-24 sm:space-y-32">
@@ -192,102 +199,63 @@ const ContactsPage: React.FC = () => {
                     </div>
                 </div>
             </section>
-
-            {/* Synergy Section */}
-            <section>
-                <div className="text-center mb-16">
-                    <h2 className="text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl">
-                        قدرت هماهنگی: یک اکوسیستم یکپارچه
-                    </h2>
-                    <p className="mt-4 max-w-3xl mx-auto text-lg text-gray-600 dark:text-gray-400">
-                        این سه ماژول به عنوان یک مجموعه قدرتمند و یکپارچه طراحی شده‌اند تا به شما امکان مدیریت، سازماندهی و هدف‌گیری مخاطبان با دقت و اتوماسیون فزاینده را بدهند.
-                    </p>
-                </div>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-right">
-                    <div className="bg-white dark:bg-gray-800 p-6 rounded-xl border border-gray-200 dark:border-gray-700 text-center">
-                        <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-blue-100 dark:bg-blue-900/50 mb-4"><span className="text-2xl font-bold text-blue-600 dark:text-blue-400">۱</span></div>
-                        <h3 className="text-xl font-bold text-gray-900 dark:text-white">مخاطبین: پایه و اساس</h3>
-                        <p className="mt-2 text-gray-600 dark:text-gray-400">هر فردی که با شما در ارتباط است در یک پایگاه داده متمرکز و واحد قرار می‌گیرد.</p>
+            
+            {/* Contacts Features Section */}
+            <section className="bg-gray-100 dark:bg-gray-800/50 rounded-2xl py-16 sm:py-20 px-4">
+                <div className="max-w-5xl mx-auto text-right">
+                    <div className="mb-12 text-center">
+                        <h2 className="text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl">مخاطبین: مرکز فرماندهی شما</h2>
+                        <p className="mt-4 max-w-3xl mx-auto text-lg text-gray-600 dark:text-gray-400">
+                            این ماژول لایه بنیادی سیستم مدیریت مخاطبان شماست و به عنوان منبع اصلی حقیقت عمل می‌کند - یک پایگاه داده اصلی که شامل هر فردی است که شما اجازه ایمیل زدن به او را دارید.
+                        </p>
                     </div>
-                    <div className="bg-white dark:bg-gray-800 p-6 rounded-xl border border-gray-200 dark:border-gray-700 text-center">
-                         <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-blue-100 dark:bg-blue-900/50 mb-4"><span className="text-2xl font-bold text-blue-600 dark:text-blue-400">۲</span></div>
-                        <h3 className="text-xl font-bold text-gray-900 dark:text-white">لیست‌ها: سازماندهی اولیه</h3>
-                        <p className="mt-2 text-gray-600 dark:text-gray-400">مخاطبان خود را در گروه‌های ثابت و مشخص دسته‌بندی کنید، مانند «مشترکین خبرنامه».</p>
-                    </div>
-                    <div className="bg-white dark:bg-gray-800 p-6 rounded-xl border border-gray-200 dark:border-gray-700 text-center">
-                         <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-blue-100 dark:bg-blue-900/50 mb-4"><span className="text-2xl font-bold text-blue-600 dark:text-blue-400">۳</span></div>
-                        <h3 className="text-xl font-bold text-gray-900 dark:text-white">سگمنت‌ها: هدف‌گیری هوشمند</h3>
-                        <p className="mt-2 text-gray-600 dark:text-gray-400">گروه‌های پویا و خودکار بر اساس رفتار و داده‌ها بسازید، مانند «مشتریان وفادار».</p>
-                    </div>
+                    <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-5">
+                        <li className="flex items-start"><CheckIcon className="w-6 h-6 text-green-500 mt-1 flex-shrink-0" /><span className="mr-3">پروفایل یکپارچه با نمای ۳۶۰ درجه</span></li>
+                        <li className="flex items-start"><CheckIcon className="w-6 h-6 text-green-500 mt-1 flex-shrink-0" /><span className="mr-3">تاریخچه کامل فعالیت و تعامل</span></li>
+                        <li className="flex items-start"><CheckIcon className="w-6 h-6 text-green-500 mt-1 flex-shrink-0" /><span className="mr-3">ورود و خروج آسان با فایل CSV</span></li>
+                        <li className="flex items-start"><CheckIcon className="w-6 h-6 text-green-500 mt-1 flex-shrink-0" /><span className="mr-3">مدیریت جزئی (افزودن، ویرایش، حذف)</span></li>
+                        <li className="flex items-start"><CheckIcon className="w-6 h-6 text-green-500 mt-1 flex-shrink-0" /><span className="mr-3">عملیات گروهی برای صرفه‌جویی در زمان</span></li>
+                        <li className="flex items-start"><CheckIcon className="w-6 h-6 text-green-500 mt-1 flex-shrink-0" /><span className="mr-3">جستجو و فیلترینگ پیشرفته</span></li>
+                    </ul>
                 </div>
             </section>
-
-            {/* Features Tabs Section */}
-            <section>
-                 <div className="border-b border-gray-200 dark:border-gray-700 mb-8">
-                    <nav className="-mb-px flex justify-center gap-6" aria-label="Tabs">
-                        {tabs.map((tab) => (
-                            <button
-                                key={tab.id}
-                                onClick={() => setActiveTab(tab.id)}
-                                className={`group inline-flex items-center justify-center gap-2 py-4 px-1 border-b-2 font-medium text-lg transition-colors
-                                    ${activeTab === tab.id
-                                        ? 'border-blue-500 text-blue-600 dark:text-blue-400'
-                                        : 'border-transparent text-gray-500 hover:text-gray-700 dark:hover:text-gray-300 hover:border-gray-300 dark:hover:border-gray-600'
-                                    }`
-                                }
-                                aria-current={activeTab === tab.id ? 'page' : undefined}
-                            >
-                                <tab.Icon className="w-6 h-6"/>
-                                {tab.label}
-                            </button>
-                        ))}
-                    </nav>
-                </div>
-
-                {/* Tab Content */}
-                <div className="text-right">
-                    {activeTab === 'contacts' && (
-                        <div className="space-y-4">
-                            <h3 className="text-2xl font-bold text-gray-900 dark:text-white">مخاطبین: مرکز فرماندهی شما</h3>
-                            <p className="text-lg text-gray-600 dark:text-gray-400">این ماژول لایه بنیادی سیستم مدیریت مخاطبان شماست و به عنوان منبع اصلی حقیقت عمل می‌کند - یک پایگاه داده اصلی که شامل هر فردی است که شما اجازه ایمیل زدن به او را دارید.</p>
-                            <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-4 pt-4">
-                                <li className="flex items-start"><CheckIcon className="w-5 h-5 text-green-500 mt-1 flex-shrink-0" /><span className="mr-3">پروفایل یکپارچه با نمای ۳۶۰ درجه</span></li>
-                                <li className="flex items-start"><CheckIcon className="w-5 h-5 text-green-500 mt-1 flex-shrink-0" /><span className="mr-3">تاریخچه کامل فعالیت و تعامل</span></li>
-                                <li className="flex items-start"><CheckIcon className="w-5 h-5 text-green-500 mt-1 flex-shrink-0" /><span className="mr-3">ورود و خروج آسان با فایل CSV</span></li>
-                                <li className="flex items-start"><CheckIcon className="w-5 h-5 text-green-500 mt-1 flex-shrink-0" /><span className="mr-3">مدیریت جزئی (افزودن، ویرایش، حذف)</span></li>
-                                <li className="flex items-start"><CheckIcon className="w-5 h-5 text-green-500 mt-1 flex-shrink-0" /><span className="mr-3">عملیات گروهی برای صرفه‌جویی در زمان</span></li>
-                                <li className="flex items-start"><CheckIcon className="w-5 h-5 text-green-500 mt-1 flex-shrink-0" /><span className="mr-3">جستجو و فیلترینگ پیشرفته</span></li>
-                            </ul>
-                        </div>
-                    )}
-                    {activeTab === 'lists' && (
-                         <div className="space-y-4">
-                            <h3 className="text-2xl font-bold text-gray-900 dark:text-white">لیست‌های ایمیل: سازماندهی ساده و ایستا</h3>
-                            <p className="text-lg text-gray-600 dark:text-gray-400">لیست‌ها سرراست‌ترین راه برای گروه‌بندی مخاطبین شما هستند. یک لیست مجموعه‌ای ایستا از مخاطبین است که شما به صورت دستی آن را تشکیل می‌دهید و برای دسته‌بندی‌های گسترده و مشخص ایده‌آل است.</p>
-                            <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-4 pt-4">
-                               <li className="flex items-start"><CheckIcon className="w-5 h-5 text-green-500 mt-1 flex-shrink-0" /><span className="mr-3">کنترل کامل و دستی بر اعضای لیست</span></li>
-                               <li className="flex items-start"><CheckIcon className="w-5 h-5 text-green-500 mt-1 flex-shrink-0" /><span className="mr-3">روش‌های چندگانه گروه‌بندی (تکی، گروهی، CSV)</span></li>
-                               <li className="flex items-start"><CheckIcon className="w-5 h-5 text-green-500 mt-1 flex-shrink-0" /><span className="mr-3">مدیریت مستقل (حذف لیست، مخاطبین را حذف نمی‌کند)</span></li>
-                               <li className="flex items-start"><CheckIcon className="w-5 h-5 text-green-500 mt-1 flex-shrink-0" /><span className="mr-3">پایه‌ای برای سگمنت‌سازی پیشرفته</span></li>
-                            </ul>
-                        </div>
-                    )}
-                    {activeTab === 'segments' && (
-                         <div className="space-y-4">
-                            <h3 className="text-2xl font-bold text-gray-900 dark:text-white">سگمنت‌ها: هوش پویا و مبتنی بر قوانین</h3>
-                            <p className="text-lg text-gray-600 dark:text-gray-400">سگمنت‌ها قدرتمندترین ابزار مدیریت مخاطب در پلتفرم ما هستند. سگمنت یک گروه پویا است که به طور خودکار بر اساس مجموعه‌ای از قوانین و شرایطی که شما تعریف می‌کنید، پر می‌شود. آن‌ها اساساً «لیست‌های هوشمند» هستند.</p>
-                             <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-4 pt-4">
-                               <li className="flex items-start"><CheckIcon className="w-5 h-5 text-green-500 mt-1 flex-shrink-0" /><span className="mr-3">قانون‌ساز بصری و ساده</span></li>
-                               <li className="flex items-start"><CheckIcon className="w-5 h-5 text-green-500 mt-1 flex-shrink-0" /><span className="mr-3">معیارهای غنی هدف‌گیری (مشخصات، رفتار، عضویت)</span></li>
-                               <li className="flex items-start"><CheckIcon className="w-5 h-5 text-green-500 mt-1 flex-shrink-0" /><span className="mr-3">به‌روزرسانی خودکار و لحظه‌ای</span></li>
-                               <li className="flex items-start"><CheckIcon className="w-5 h-5 text-green-500 mt-1 flex-shrink-0" /><span className="mr-3">بدون نیاز به نگهداری دستی</span></li>
-                            </ul>
-                        </div>
-                    )}
+            
+            {/* Lists Features Section */}
+            <section className="py-16 sm:py-20 px-4">
+                <div className="max-w-5xl mx-auto text-right">
+                    <div className="mb-12 text-center">
+                        <h2 className="text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl">لیست‌های ایمیل: سازماندهی ساده و ایستا</h2>
+                        <p className="mt-4 max-w-3xl mx-auto text-lg text-gray-600 dark:text-gray-400">
+                            لیست‌ها سرراست‌ترین راه برای گروه‌بندی مخاطبین شما هستند. یک لیست مجموعه‌ای ایستا از مخاطبین است که شما به صورت دستی آن را تشکیل می‌دهید و برای دسته‌بندی‌های گسترده و مشخص ایده‌آل است.
+                        </p>
+                    </div>
+                    <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-5">
+                       <li className="flex items-start"><CheckIcon className="w-6 h-6 text-green-500 mt-1 flex-shrink-0" /><span className="mr-3">کنترل کامل و دستی بر اعضای لیست</span></li>
+                       <li className="flex items-start"><CheckIcon className="w-6 h-6 text-green-500 mt-1 flex-shrink-0" /><span className="mr-3">روش‌های چندگانه گروه‌بندی (تکی، گروهی، CSV)</span></li>
+                       <li className="flex items-start"><CheckIcon className="w-6 h-6 text-green-500 mt-1 flex-shrink-0" /><span className="mr-3">مدیریت مستقل (حذف لیست، مخاطبین را حذف نمی‌کند)</span></li>
+                       <li className="flex items-start"><CheckIcon className="w-6 h-6 text-green-500 mt-1 flex-shrink-0" /><span className="mr-3">پایه‌ای برای سگمنت‌سازی پیشرفته</span></li>
+                    </ul>
                 </div>
             </section>
-
+            
+            {/* Segments Features Section */}
+            <section className="bg-gray-100 dark:bg-gray-800/50 rounded-2xl py-16 sm:py-20 px-4">
+                <div className="max-w-5xl mx-auto text-right">
+                    <div className="mb-12 text-center">
+                        <h2 className="text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl">سگمنت‌ها: هوش پویا و مبتنی بر قوانین</h2>
+                        <p className="mt-4 max-w-3xl mx-auto text-lg text-gray-600 dark:text-gray-400">
+                           سگمنت‌ها قدرتمندترین ابزار مدیریت مخاطب در پلتفرم ما هستند. سگمنت یک گروه پویا است که به طور خودکار بر اساس مجموعه‌ای از قوانین و شرایطی که شما تعریف می‌کنید، پر می‌شود. آن‌ها اساساً «لیست‌های هوشمند» هستند.
+                        </p>
+                    </div>
+                     <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-5">
+                       <li className="flex items-start"><CheckIcon className="w-6 h-6 text-green-500 mt-1 flex-shrink-0" /><span className="mr-3">قانون‌ساز بصری و ساده</span></li>
+                       <li className="flex items-start"><CheckIcon className="w-6 h-6 text-green-500 mt-1 flex-shrink-0" /><span className="mr-3">معیارهای غنی هدف‌گیری (مشخصات، رفتار، عضویت)</span></li>
+                       <li className="flex items-start"><CheckIcon className="w-6 h-6 text-green-500 mt-1 flex-shrink-0" /><span className="mr-3">به‌روزرسانی خودکار و لحظه‌ای</span></li>
+                       <li className="flex items-start"><CheckIcon className="w-6 h-6 text-green-500 mt-1 flex-shrink-0" /><span className="mr-3">بدون نیاز به نگهداری دستی</span></li>
+                    </ul>
+                </div>
+            </section>
+             
              {/* Marketing Benefits Section */}
             <section>
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
