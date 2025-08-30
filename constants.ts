@@ -5,6 +5,7 @@ export const NAV_LINKS: NavLink[] = [
   { label: 'ویژگی‌ها', path: '/features' },
   { label: 'ماژول‌ها', path: '/modules' },
   { label: 'ویرایشگر', path: '/templates' },
+    { label: 'مخاطبان', path: '/contacts' },
   { label: 'تعرفه‌ها', path: '/pricing' },
 ];
 

@@ -8,6 +8,7 @@ import FeaturesPage from './pages/FeaturesPage';
 import PricingPage from './pages/PricingPage';
 import TemplatesPage from './pages/TemplatesPage';
 import ModulesPage from './pages/ModulesPage';
+import ContactsPage from './pages/ContactsPage';
 import { Theme } from './types';
 import { logoSrc } from './components/Logo';
 
@@ -55,6 +56,7 @@ function App() {
             <Route path="/pricing" element={<PricingPage />} />
             <Route path="/modules" element={<ModulesPage />} />
             <Route path="/templates" element={<TemplatesPage />} />
+            <Route path="/contacts" element={<ContactsPage />} />
           </Routes>
         </div>
       </main>
