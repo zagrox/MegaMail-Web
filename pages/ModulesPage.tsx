@@ -1,4 +1,5 @@
-import React from 'react';
+
+import React, { useState } from 'react';
 import { CTA_URL } from '../constants';
 
 // --- SVG & Icon Components ---
@@ -62,53 +63,84 @@ const ModulesHeroIllustration: React.FC = () => (
     </svg>
 );
 
-
-const StepIcon: React.FC<{ number: number, children: React.ReactNode }> = ({ number, children }) => (
-    <div className="flex items-center">
-        <div className="flex-shrink-0 w-12 h-12 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold text-xl">
-            {number}
-        </div>
-        <div className="ml-4 rtl:mr-4 rtl:ml-0">
-            {children}
-        </div>
-    </div>
+// --- NEW ILLUSTRATIONS ---
+const StartupsIllustration: React.FC = () => (
+    <svg viewBox="0 0 500 400" role="img" aria-label="تصویر انتزاعی از یک راکت که نماد استارتاپ است">
+        <defs>
+            <linearGradient id="startup-rocket-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stopColor="#3B82F6" />
+                <stop offset="100%" stopColor="#818CF8" />
+            </linearGradient>
+            <linearGradient id="startup-flame-grad" x1="0%" y1="100%" x2="0%" y2="0%">
+                <stop offset="0%" stopColor="#FBBF24" />
+                <stop offset="100%" stopColor="#F87171" />
+            </linearGradient>
+        </defs>
+        <path d="M 100,400 C 150,300 200,350 250,250 C 300,150 350,200 400,100" stroke="#E5E7EB" className="dark:stroke-gray-700" strokeWidth="2" fill="none" strokeDasharray="5 5" />
+        <g transform="translate(250, 200) rotate(-45)">
+            <path d="M 0 -80 L 40 40 C 40 60 20 80 0 80 C -20 80 -40 60 -40 40 Z" fill="url(#startup-rocket-grad)" />
+            <circle cx="0" cy="-35" r="15" fill="#fff" className="dark:fill-gray-700" />
+            <path d="M -40 40 C -40 20 -20 20 0 40 Z" fill="#A5B4FC" className="dark:fill-indigo-400" />
+            <path d="M 40 40 C 40 20 20 20 0 40 Z" fill="#A5B4FC" className="dark:fill-indigo-400" />
+            <path d="M 0 80 C 20 100 10 140 0 160 C -10 140 -20 100 0 80" fill="url(#startup-flame-grad)" />
+        </g>
+        <circle cx="150" cy="150" r="10" fill="#FBBF24" opacity="0.8" />
+        <circle cx="400" cy="300" r="15" fill="#A5B4FC" opacity="0.8" />
+        <circle cx="120" cy="350" r="8" fill="#818CF8" opacity="0.8" />
+    </svg>
 );
 
-const BenefitCard: React.FC<{ Icon: React.FC<{className?: string}>, title: string, description: string }> = ({ Icon, title, description }) => (
-    <div className="bg-white dark:bg-gray-800 p-6 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
-        <div className="flex items-start gap-4">
-            <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-blue-100 dark:bg-blue-900/50 flex items-center justify-center">
-                <Icon className="w-6 h-6 text-blue-600 dark:text-blue-400" />
-            </div>
-            <div>
-                <h3 className="text-lg font-bold text-gray-900 dark:text-white">{title}</h3>
-                <p className="mt-1 text-base text-gray-600 dark:text-gray-400">{description}</p>
-            </div>
-        </div>
-    </div>
+const EnterprisesIllustration: React.FC = () => (
+    <svg viewBox="0 0 500 400" role="img" aria-label="تصویر انتزاعی از چرخ‌دنده‌ها که نماد شرکت‌های بزرگ است">
+        <defs>
+            <linearGradient id="enterprise-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stopColor="#2DD4BF" />
+                <stop offset="100%" stopColor="#3B82F6" />
+            </linearGradient>
+            <symbol id="gear">
+                <path d="M 0 -50 L 10 -50 L 15 -40 L -15 -40 L -10 -50 Z" />
+                <path d="M 0 50 L 10 50 L 15 40 L -15 40 L -10 50 Z" />
+                <path d="M 50 0 L 50 10 L 40 15 L 40 -15 L 50 -10 Z" />
+                <path d="M -50 0 L -50 10 L -40 15 L -40 -15 L -50 -10 Z" />
+                <path d="M 35.35 -35.35 L 42.42 -28.28 L 28.28 -28.28 L 28.28 -42.42 Z" transform="rotate(45)" />
+                <path d="M -35.35 35.35 L -42.42 28.28 L -28.28 28.28 L -28.28 42.42 Z" transform="rotate(45)" />
+                <path d="M 35.35 35.35 L 42.42 28.28 L 28.28 28.28 L 28.28 42.42 Z" transform="rotate(-45)" />
+                <path d="M -35.35 -35.35 L -42.42 -28.28 L -28.28 -28.28 L -28.28 -42.42 Z" transform="rotate(-45)" />
+            </symbol>
+        </defs>
+        <rect x="50" y="50" width="400" height="300" rx="20" className="fill-blue-50 dark:fill-gray-800/50" />
+        <g transform="translate(250, 200)" fill="url(#enterprise-grad)" opacity="0.2">
+            <use href="#gear" transform="scale(2.5)" />
+        </g>
+        <g transform="translate(150, 150)" fill="url(#enterprise-grad)" opacity="0.5">
+            <use href="#gear" transform="scale(1.5)" />
+        </g>
+        <g transform="translate(350, 250)" fill="url(#enterprise-grad)" opacity="0.8">
+            <use href="#gear" transform="scale(1)" />
+        </g>
+        <circle cx="250" cy="200" r="30" fill="#fff" className="dark:fill-gray-800" />
+        <circle cx="150" cy="150" r="20" fill="#fff" className="dark:fill-gray-800" />
+        <circle cx="350" cy="250" r="15" fill="#fff" className="dark:fill-gray-800" />
+    </svg>
 );
 
-// Icons
-const FlexibilityIcon: React.FC<{className?: string}> = (props) => (
-  <svg {...props} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20 12V8a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v4"/><path d="M4 12v4a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2v-4"/><path d="M12 18v4"/><path d="M12 2v4"/></svg>
+// --- NEW ICONS ---
+const CorePlatformIcon: React.FC<{className?: string}> = (props) => (
+    <svg {...props} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
 );
-const CostIcon: React.FC<{className?: string}> = (props) => (
-  <svg {...props} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8"/><path d="M12 18V6"/></svg>
+const ModularExpansionIcon: React.FC<{className?: string}> = (props) => (
+    <svg {...props} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M14.5 10.5h-5v-5h5v5zm-5 5h5v5h-5v-5zm5 0h5v5h-5v-5zm0-10.5h5v5h-5v-5zm-5 5H5v-5h4.5v5zM5 10.5H0v5h5v-5zm10.5 5H24v-5h-4.5v5zm5-10.5H24v5h-5v-5z"/></svg>
 );
-const TransparencyIcon: React.FC<{className?: string}> = (props) => (
-  <svg {...props} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+const CreditBasedUnlockingIcon: React.FC<{className?: string}> = (props) => (
+    <svg {...props} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><path d="M16 12h-4a2 2 0 100 4h4a2 2 0 100-4h-4a2 2 0 110-4h4a2 2 0 110 4z"/></svg>
 );
-const InstantIcon: React.FC<{className?: string}> = (props) => (
-  <svg {...props} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-);
-const ScalabilityIcon: React.FC<{className?: string}> = (props) => (
-  <svg {...props} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 3v18h18"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></svg>
-);
-const DiscoveryIcon: React.FC<{className?: string}> = (props) => (
-  <svg {...props} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M15.09 14.37a5 5 0 0 1-6.18 0M1.05 14.37a10 10 0 0 1 1.95-3.03M21 11.34a10 10 0 0 1-1.95 3.03"/><path d="M8 14.37V9a4 4 0 0 1 8 0v5.37"/><path d="M12 19.37V14.37"/></svg>
+const CheckIcon: React.FC<{ className?: string }> = ({ className }) => (
+    <svg xmlns="http://www.w3.org/2000/svg" className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+    </svg>
 );
 
-// --- MOVED ICONS & DATA ---
+// --- MODULE ICONS (Existing) ---
 const ListIcon: React.FC<{ className?: string }> = ({ className }) => (
   <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
     <line x1="8" y1="6" x2="21" y2="6"></line><line x1="8" y1="12" x2="21" y2="12"></line><line x1="8" y1="18" x2="21" y2="18"></line><line x1="3" y1="6" x2="3.01" y2="6"></line><line x1="3" y1="12" x2="3.01" y2="12"></line><line x1="3" y1="18" x2="3.01" y2="18"></line>
@@ -186,7 +218,64 @@ const features = [
     { title: 'دستیار هوش مصنوعی', description: 'با کمک هوش مصنوعی، موضوع و محتوای جذاب برای ایمیل‌های خود بنویسید و بهترین زمان ارسال را پیدا کنید.', Icon: AIAssistantIcon },
 ];
 
+type ModuleCategoryKey = 'core' | 'advanced' | 'technical';
+
+interface ModuleCategory {
+    label: string;
+    description: string;
+    modules: string[];
+}
+
+const moduleCategories: Record<ModuleCategoryKey, ModuleCategory> = {
+    core: {
+        label: 'ابزارهای اصلی',
+        description: 'ماژول‌های ضروری برای شروع و اجرای کمپین‌های موفق ایمیلی.',
+        modules: ['گزارشات', 'مخاطبین', 'ارسال ایمیل', 'لیست ایمیل', 'کمپین‌ها', 'قالب‌ها', 'ایمیل ساز']
+    },
+    advanced: {
+        label: 'رشد و اتوماسیون',
+        description: 'ابزارهای پیشرفته برای هدف‌گیری دقیق‌تر و بهینه‌سازی فرآیندها.',
+        modules: ['سگمنت', 'دستیار هوش مصنوعی', 'مدیریت رسانه']
+    },
+    technical: {
+        label: 'فنی و یکپارچه‌سازی',
+        description: 'ماژول‌هایی برای افزایش اعتبار ارسال و اتصال به سرویس‌های دیگر.',
+        modules: ['دامنه‌ها', 'اتصال خارجی']
+    }
+};
+
+const startupsAdvantages = [
+    { title: "سرمایه‌گذاری اولیه کم و مقرون‌به‌صرفه", description: "استارتاپ‌ها می‌توانند با هزینه ورودی بسیار پایین شروع به کار کنند و فقط برای ویژگی‌های پیشرفته‌ای که نیاز دارند، در زمان نیاز هزینه پرداخت کنند." },
+    { title: "عملیات ناب و چابک", description: "پلتفرم فاقد ویژگی‌های اضافی و بلااستفاده است که منجر به تجربه کاربری تمیزتر و شهودی‌تر می‌شود و منحنی یادگیری را کاهش می‌دهد." },
+    { title: "مقیاس‌پذیری بر اساس تقاضا", description: "پلتفرم همراه با استارتاپ رشد می‌کند. با رشد کسب‌وکار، می‌توانند به صورت استراتژیک در باز کردن ماژول‌های جدید سرمایه‌گذاری کنند." },
+    { title: "بودجه‌بندی شفاف و بازگشت سرمایه (ROI) مشخص", description: "سیستم اعتباری هزینه‌ها را کاملاً قابل پیش‌بینی می‌کند. ROI هر ماژول به راحتی قابل ردیابی است زیرا خرید آن به یک نیاز تجاری خاص گره خورده است." }
+];
+
+const enterprisesAdvantages = [
+    { title: "راه‌حل‌های سفارشی و متناسب", description: "شرکت‌ها می‌توانند یک راه‌حل بازاریابی ایمیلی سفارشی بسازند که کاملاً با گردش کار پیچیده آن‌ها مطابقت دارد." },
+    { title: "کنترل کامل بر هزینه کل مالکیت (TCO)", description: "مدل ما تضمین می‌کند که شرکت‌ها فقط برای قابلیت‌هایی که تیم‌هایشان فعالانه استفاده می‌کنند، هزینه پرداخت کرده و TCO را به شدت کاهش می‌دهد." },
+    { title: "پیاده‌سازی و آموزش مرحله‌ای", description: "رویکرد ماژولار امکان پیاده‌سازی مرحله‌ای را فراهم می‌کند و مدیریت تغییر و آموزش کاربران را بسیار ساده‌تر می‌سازد." },
+    { title: "امنیت و انطباق پیشرفته", description: "با فعال‌سازی فقط ماژول‌های ضروری، سطح حمله کلی پلتفرم کاهش می‌یابد و امکان کنترل دقیق دسترسی تیم‌ها فراهم می‌شود." },
+    { title: "آینده‌نگری و نوآوری", description: "پلتفرم اصلی پایدار باقی می‌ماند، در حالی که نوآوری‌های جدید به عنوان ماژول‌های اختیاری اضافه می‌شوند و شرکت‌ها می‌توانند با سرعت خود فناوری‌های جدید را بپذیرند." },
+    { title: "برچسب‌گذاری سفید (White-Labeling) و یکپارچه‌سازی عمیق", description: "معماری ما ذاتاً برای برچسب‌گذاری سفید مناسب است و ماژول‌ها می‌توانند برای یکپارچه‌سازی عمیق با سیستم‌های موجود مانند CRM و ERP طراحی شوند." }
+];
+
 const ModulesPage: React.FC = () => {
+    const [activeTab, setActiveTab] = useState<ModuleCategoryKey>('core');
+
+    const handleScroll = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
+        e.preventDefault();
+        const targetId = e.currentTarget.href.split('#')[1];
+        const targetElement = document.getElementById(targetId);
+        if (targetElement) {
+            targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    };
+
+    const filteredModules = features.filter(feature => 
+        moduleCategories[activeTab].modules.includes(feature.title)
+    );
+
     return (
         <div className="py-8 space-y-24 sm:space-y-32">
             {/* Hero Section */}
@@ -203,87 +292,162 @@ const ModulesPage: React.FC = () => {
                         <p className="max-w-xl text-lg sm:text-xl text-gray-600 dark:text-gray-300 ml-auto">
                             با بازارچه ماژول‌های مگامیل، شما کنترل کامل را در دست دارید. فقط ویژگی‌هایی را که واقعاً به آن‌ها نیاز دارید با استفاده از اعتبار خود فعال کنید.
                         </p>
+                         <div className="flex justify-start pt-4 gap-4">
+                            <a
+                                href={CTA_URL}
+                                className="inline-block bg-blue-600 text-white font-bold text-lg px-8 py-4 rounded-lg shadow-lg hover:bg-blue-700 transition-transform transform hover:scale-105"
+                            >
+                                شروع کنید
+                            </a>
+                            <a
+                                href="#explore-modules"
+                                onClick={handleScroll}
+                                className="inline-block bg-transparent border-2 border-blue-600 text-blue-600 dark:border-blue-400 dark:text-blue-400 font-bold text-lg px-8 py-4 rounded-lg shadow-lg hover:bg-blue-600 hover:text-white dark:hover:bg-blue-400 dark:hover:text-gray-900 transition-colors transform hover:scale-105"
+                            >
+                                کاوش ماژول‌ها
+                            </a>
+                        </div>
                     </div>
                 </div>
             </section>
 
-            {/* How It Works Section */}
+            {/* Business Model Section */}
             <section>
                 <div className="text-center mb-16">
                     <h2 className="text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl">
-                        چگونه کار می‌کند؟
+                      ابزارهای بازاریابی شما
                     </h2>
-                    <p className="mt-4 max-w-2xl mx-auto text-lg text-gray-600 dark:text-gray-400">
-                        فعال‌سازی ماژول‌ها ساده، شفاف و فوری است.
+                    <p className="mt-4 max-w-3xl mx-auto text-lg text-gray-600 dark:text-gray-400">
+                        مدل کسب‌وکار ما بر یک فلسفه مدرن و انعطاف‌پذیر بنا شده است: ارائه یک پلتفرم اصلی قدرتمند و امکان ارتقاء آن با قابلیت‌های مشخص از طریق سیستم ماژول‌های قابل بازگشایی. این رویکرد یک راه‌حل سفارشی، مقرون‌به‌صرفه و مقیاس‌پذیر ارائه می‌دهد.
                     </p>
                 </div>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12">
-                     <StepIcon number={1}>
-                        <h3 className="text-lg font-semibold">کشف ماژول‌ها</h3>
-                        <p className="text-gray-600 dark:text-gray-400">در بخش «حساب کاربری» به تب «ماژول‌ها» بروید و کاتالوگ ابزارها را مشاهده کنید.</p>
-                     </StepIcon>
-                     <StepIcon number={2}>
-                        <h3 className="text-lg font-semibold">بررسی گزینه‌ها</h3>
-                        <p className="text-gray-600 dark:text-gray-400">هر ماژول دارای توضیحات، قیمت (به اعتبار) و وضعیت فعلی (قفل/باز) است.</p>
-                     </StepIcon>
-                     <StepIcon number={3}>
-                        <h3 className="text-lg font-semibold">باز کردن با یک کلیک</h3>
-                        <p className="text-gray-600 dark:text-gray-400">روی دکمه «باز کردن» کلیک کنید. پس از تایید، اعتبار از حساب شما کسر و ماژول فعال می‌شود.</p>
-                     </StepIcon>
-                     <StepIcon number={4}>
-                        <h3 className="text-lg font-semibold">شارژ آسان اعتبار</h3>
-                        <p className="text-gray-600 dark:text-gray-400">اگر اعتبار کافی ندارید، به راحتی به صفحه خرید اعتبار هدایت می‌شوید تا حساب خود را شارژ کنید.</p>
-                     </StepIcon>
-                     <StepIcon number={5}>
-                        <h3 className="text-lg font-semibold">دسترسی فوری</h3>
-                        <p className="text-gray-600 dark:text-gray-400">پس از فعال‌سازی، ماژول بلافاصله قابل استفاده است. بدون هیچ‌گونه تاخیر!</p>
-                     </StepIcon>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-right">
+                    <div className="bg-white dark:bg-gray-800 p-6 rounded-xl border border-gray-200 dark:border-gray-700">
+                        <CorePlatformIcon className="w-10 h-10 text-blue-600 dark:text-blue-400 mb-4"/>
+                        <h3 className="text-xl font-bold text-gray-900 dark:text-white">۱. پلتفرم اصلی</h3>
+                        <p className="mt-2 text-gray-600 dark:text-gray-400">هر کاربر به ویژگی‌های اساسی مانند داشبورد، مدیریت مخاطبین و آمار کمپین دسترسی دارد تا بتواند فوراً شروع به کار کند.</p>
+                    </div>
+                    <div className="bg-white dark:bg-gray-800 p-6 rounded-xl border border-gray-200 dark:border-gray-700">
+                        <ModularExpansionIcon className="w-10 h-10 text-blue-600 dark:text-blue-400 mb-4"/>
+                        <h3 className="text-xl font-bold text-gray-900 dark:text-white">۲. توسعه ماژولار</h3>
+                        <p className="mt-2 text-gray-600 dark:text-gray-400">کتابخانه‌ای از ویژگی‌های پیشرفته در قالب ماژول‌های فردی ارائه می‌شود که می‌توانید بر اساس نیازهای خاص خود آن‌ها را فعال کنید.</p>
+                    </div>
+                    <div className="bg-white dark:bg-gray-800 p-6 rounded-xl border border-gray-200 dark:border-gray-700">
+                        <CreditBasedUnlockingIcon className="w-10 h-10 text-blue-600 dark:text-blue-400 mb-4"/>
+                        <h3 className="text-xl font-bold text-gray-900 dark:text-white">۳. بازگشایی مبتنی بر اعتبار</h3>
+                        <p className="mt-2 text-gray-600 dark:text-gray-400">به جای طرح‌های اشتراک گران‌قیمت، از یک سیستم اعتباری یک‌باره برای باز کردن دائمی ماژول‌های مورد نیاز خود استفاده کنید.</p>
+                    </div>
                 </div>
             </section>
 
-             {/* Key Benefits Section */}
+          {/* Image Section */}
             <section>
-                <div className="text-center mb-16">
+                <img 
+                    src="https://crm.mailzila.com/assets/872381dc-d61c-4305-a920-e1a995677860"
+                    alt="نمایی از ماژول های بازاریابی ایمیل مگامیل"
+                    className="rounded-xl shadow-2xl ring-1 ring-gray-900/10 mx-auto"
+                />
+            </section>
+
+
+            {/* Explore Modules Section */}
+            <section id="explore-modules">
+                <div className="text-center mb-12">
                     <h2 className="text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl">
-                        مزایای کلیدی برای شما
+                        بازارچه ماژول‌های ما
                     </h2>
-                    <p className="mt-4 max-w-2xl mx-auto text-lg text-gray-600 dark:text-gray-400">
-                        این سیستم جدید برای ارائه حداکثر ارزش و کنترل به شما طراحی شده است.
+                    <p className="mt-4 max-w-3xl mx-auto text-lg text-gray-600 dark:text-gray-400">
+                        پلتفرم خود را با فعال‌سازی ماژول‌های قدرتمند، مطابق با نیازهای کسب‌وکار خود سفارشی کنید.
                     </p>
                 </div>
+
+                <div className="flex justify-center border-b border-gray-200 dark:border-gray-700 mb-8">
+                    {(Object.keys(moduleCategories) as ModuleCategoryKey[]).map(key => (
+                        <button
+                            key={key}
+                            onClick={() => setActiveTab(key)}
+                            className={`px-4 sm:px-6 py-3 text-sm sm:text-base font-medium transition-colors duration-300 -mb-px border-b-2
+                                ${activeTab === key 
+                                    ? 'border-blue-500 text-blue-600 dark:text-blue-400' 
+                                    : 'border-transparent text-gray-500 hover:text-gray-800 dark:hover:text-gray-200'
+                                }`
+                            }
+                            aria-current={activeTab === key ? 'page' : undefined}
+                        >
+                            {moduleCategories[key].label}
+                        </button>
+                    ))}
+                </div>
+
+                <div className="text-center mb-12 min-h-[4rem]">
+                    <p className="text-gray-600 dark:text-gray-400">{moduleCategories[activeTab].description}</p>
+                </div>
+
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                    <BenefitCard Icon={FlexibilityIcon} title="انعطاف‌پذیری و کنترل کامل" description="یک جعبه ابزار سفارشی بسازید که کاملاً با گردش کار شما مطابقت دارد و ویژگی‌های پیشرفته را فقط در صورت نیاز اضافه کنید." />
-                    <BenefitCard Icon={CostIcon} title="مقرون‌به‌صرفه" description="با مدل پرداخت به ازای مصرف، شما فقط برای عملکردی که استفاده می‌کنید هزینه پرداخت می‌کنید و از هزینه‌های اضافی جلوگیری می‌کنید." />
-                    <BenefitCard Icon={TransparencyIcon} title="شفافیت کامل" description="قبل از هرگونه تعهد، هزینه دقیق را به اعتبار و موجودی خود مشاهده کنید. هیچ هزینه پنهان یا غافلگیری وجود ندارد." />
-                    <BenefitCard Icon={InstantIcon} title="دسترسی آنی" description="هیچ دوره انتظاری وجود ندارد. هنگامی که به ابزار جدیدی نیاز دارید، می‌توانید در چند ثانیه آن را باز کرده و استفاده کنید." />
-                    <BenefitCard Icon={ScalabilityIcon} title="مقیاس‌پذیری" description="با رشد کسب‌وکارتان، مگامیل نیز رشد می‌کند. با ویژگی‌های اصلی شروع کنید و ماژول‌های قدرتمندتر را به راحتی اضافه کنید." />
-                    <BenefitCard Icon={DiscoveryIcon} title="کشف آسان" description="بازارچه، کشف ویژگی‌های جدید و قدرتمندی را که ممکن است از وجود آن‌ها بی‌خبر باشید، آسان می‌کند." />
-                </div>
-            </section>
-            
-            {/* Explore Tools Section - MOVED FROM FEATURES PAGE */}
-            <section id="explore-tools">
-                <div className="text-center mb-16">
-                    <h2 className="text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl">
-                        برخی از ماژول‌های ما
-                    </h2>
-                    <p className="mt-4 max-w-2xl mx-auto text-lg text-gray-600 dark:text-gray-400">
-                        با اعتبار خود می‌توانید ماژول‌های زیر و بسیاری دیگر را فعال کنید.
-                    </p>
-                </div>
-
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-                    {features.map((feature) => (
-                        <div key={feature.title} className="bg-white dark:bg-gray-800 p-6 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
-                            <div className="flex justify-between items-start">
-                                <div>
-                                    <h3 className="text-lg font-bold text-gray-900 dark:text-white">{feature.title}</h3>
-                                    <p className="mt-2 text-base text-gray-600 dark:text-gray-400">{feature.description}</p>
+                    {filteredModules.map((feature) => (
+                        <div key={feature.title} className="bg-white dark:bg-gray-800 p-6 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 flex flex-col text-right">
+                            <div className="flex-shrink-0 mb-4">
+                                <div className="w-12 h-12 rounded-lg bg-blue-100 dark:bg-blue-900/50 flex items-center justify-center">
+                                    <feature.Icon className="w-7 h-7 text-blue-600 dark:text-blue-400" />
                                 </div>
-                                <feature.Icon className="w-10 h-10 text-blue-500 dark:text-blue-400 flex-shrink-0" />
+                            </div>
+                            <h3 className="text-lg font-bold text-gray-900 dark:text-white">{feature.title}</h3>
+                            <p className="mt-2 text-base text-gray-600 dark:text-gray-400 flex-grow">{feature.description}</p>
+                            <div className="mt-4">
+                                <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-blue-600 bg-blue-200 dark:bg-blue-900 dark:text-blue-300">
+                                    فعال‌سازی با اعتبار
+                                </span>
                             </div>
                         </div>
                     ))}
+                </div>
+            </section>
+
+            {/* Advantages for Startups Section */}
+            <section>
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <StartupsIllustration />
+                    </div>
+                    <div className="text-right">
+                        <h2 className="text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl">مزایا برای استارتاپ‌ها</h2>
+                        <p className="mt-4 text-lg text-gray-600 dark:text-gray-400">برای استارتاپ‌ها که چابکی، کنترل بودجه و سرعت در اولویت است، مدل ماژولار ما مزایای قابل توجهی ارائه می‌دهد:</p>
+                        <ul className="mt-6 space-y-4">
+                            {startupsAdvantages.map(item => (
+                                <li key={item.title} className="flex items-start">
+                                    <CheckIcon className="w-6 h-6 text-green-500 mt-1 flex-shrink-0" />
+                                    <div className="mr-4 rtl:mr-4 rtl:ml-0">
+                                        <h4 className="font-semibold text-gray-800 dark:text-gray-200">{item.title}</h4>
+                                        <p className="text-gray-600 dark:text-gray-400">{item.description}</p>
+                                    </div>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            {/* Advantages for Enterprises Section */}
+            <section>
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    <div className="lg:order-last">
+                        <EnterprisesIllustration />
+                    </div>
+                    <div className="text-right">
+                        <h2 className="text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl">مزایا برای شرکت‌های بزرگ</h2>
+                        <p className="mt-4 text-lg text-gray-600 dark:text-gray-400">برای شرکت‌های بزرگی که سفارشی‌سازی، امنیت، کنترل هزینه و یکپارچه‌سازی را در اولویت قرار می‌دهند، این مدل به همان اندازه قدرتمند است:</p>
+                        <ul className="mt-6 space-y-4">
+                            {enterprisesAdvantages.map(item => (
+                                <li key={item.title} className="flex items-start">
+                                    <CheckIcon className="w-6 h-6 text-green-500 mt-1 flex-shrink-0" />
+                                    <div className="mr-4 rtl:mr-4 rtl:ml-0">
+                                        <h4 className="font-semibold text-gray-800 dark:text-gray-200">{item.title}</h4>
+                                        <p className="text-gray-600 dark:text-gray-400">{item.description}</p>
+                                    </div>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
                 </div>
             </section>
 
