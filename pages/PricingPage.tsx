@@ -1,3 +1,5 @@
+
+
 import React, { useState, useEffect } from 'react';
 import { CTA_URL } from '../constants';
 import type { PricingPackage } from '../types';
@@ -164,6 +166,28 @@ const BenefitItem: React.FC<{icon: React.ReactNode, title: string, description: 
     </div>
 );
 
+const businessModelSteps = [
+    {
+      number: 1,
+      title: 'پلتفرم رایگان',
+      description: 'ثبت‌نام کنید و به ابزارهای پایه‌ای به صورت رایگان دسترسی پیدا کنید.',
+    },
+    {
+      number: 2,
+      title: 'اقتصاد اعتباری',
+      description: <>بسته‌های اعتبار را خریداری کنید. اعتبارها فوراً به حساب شما اضافه شده و برای <strong className="text-blue-400">ارسال هر ایمیل (۱ اعتبار)</strong> یا فعال‌سازی ماژول‌ها استفاده می‌شوند.</>,
+    },
+    {
+      number: 3,
+      title: 'بازارچه ماژول‌ها',
+      description: 'ویژگی‌های مورد نیاز خود را با قیمت شفاف (به اعتبار) در بازارچه ما انتخاب کنید.',
+    },
+    {
+      number: 4,
+      title: 'پرداخت و فعال‌سازی',
+      description: 'با پرداخت هزینه یک‌باره، اعتبار فوراً از حساب شما کسر شده و ماژول برای همیشه فعال می‌شود.',
+    },
+];
 
 const PricingPage: React.FC = () => {
   const [packages, setPackages] = useState<PricingPackage[]>([]);
@@ -235,7 +259,7 @@ const PricingPage: React.FC = () => {
                         <span className="block text-blue-600 dark:text-blue-400 mt-2">و منعطف</span>
                     </h1>
                     <p className="max-w-xl text-lg sm:text-xl text-gray-600 dark:text-gray-300 ml-auto">
-                       با مدل پرداخت به ازای مصرف، بدون هزینه‌های ماهانه و پنهان، فقط برای آنچه استفاده می‌کنید هزینه پرداخت کنید. هر ارسال ایمیل معادل یک اعتبار است.
+                       با مدل پرداخت به ازای مصرف, بدون هزینه‌های ماهانه و پنهان, فقط برای آنچه استفاده می‌کنید هزینه پرداخت کنید. هر ارسال ایمیل معادل یک اعتبار است.
                     </p>
                     <div className="flex justify-start pt-4">
                         <a
@@ -273,26 +297,46 @@ const PricingPage: React.FC = () => {
                 </div>
 
                 <div className="mt-12">
-                <div className="relative">
-                    <input
-                    type="range"
-                    min="0"
-                    max={packages.length > 0 ? packages.length - 1 : 0}
-                    step="1"
-                    value={selectedIndex}
-                    onChange={handleSliderChange}
-                    className="w-full h-2 bg-gray-200 dark:bg-gray-600 rounded-lg appearance-none cursor-pointer range-slider"
-                    style={{ direction: 'rtl' }}
-                    aria-label="انتخاب بسته اعتباری"
-                    />
-                </div>
-                <div className="flex justify-between text-xs text-gray-500 dark:text-gray-400 mt-3 px-1" aria-hidden="true">
-                    {packages.map((pkg) => (
-                    <span key={pkg.id} className="text-center flex-1">
-                        {pkg.packname}
-                    </span>
-                    ))}
-                </div>
+                    <div className="relative py-2">
+                        {/* Dots on the track */}
+                        <div className="absolute top-1/2 left-0 w-full flex justify-between -translate-y-1/2 px-1.5 pointer-events-none">
+                            {packages.map((_, index) => (
+                                <div key={index} className="w-2 h-2 bg-white/50 dark:bg-gray-800/50 rounded-full"></div>
+                            ))}
+                        </div>
+                        <input
+                            type="range"
+                            min="0"
+                            max={packages.length > 0 ? packages.length - 1 : 0}
+                            step="1"
+                            value={selectedIndex}
+                            onChange={handleSliderChange}
+                            className="w-full appearance-none cursor-pointer range-slider"
+                            style={{ '--progress': `${packages.length > 1 ? (selectedIndex / (packages.length - 1)) * 100 : 0}%` } as React.CSSProperties}
+                            aria-label="انتخاب بسته اعتباری"
+                        />
+                    </div>
+                    <div className="relative h-8 mt-2 text-sm font-medium">
+                        {packages.map((pkg, index) => {
+                            const position = (index / (packages.length - 1)) * 100;
+                            return (
+                                <button
+                                    key={pkg.id}
+                                    onClick={() => setSelectedIndex(index)}
+                                    className={`absolute top-1/2 transform -translate-y-1/2 translate-x-1/2 text-center transition-all duration-200 px-1 py-2 rounded-md focus:outline-none focus:ring-2 ring-offset-2 ring-offset-white dark:ring-offset-gray-800 focus:ring-blue-500 ${
+                                        selectedIndex === index
+                                            ? 'text-blue-600 dark:text-blue-400 font-bold scale-110'
+                                            : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100'
+                                    }`}
+                                    style={{
+                                        right: `${position}%`,
+                                    }}
+                                >
+                                    {pkg.packname}
+                                </button>
+                            );
+                        })}
+                    </div>
                 </div>
                 
                 <div className="mt-10 pt-8 border-t border-gray-200 dark:border-gray-700 flex flex-col sm:flex-row justify-between items-center gap-6">
@@ -311,43 +355,32 @@ const PricingPage: React.FC = () => {
         </section>
 
         {/* Business Model Section */}
-        <section id="business-model" className="py-12">
-            <div className="text-center mb-16 px-4">
-                <h2 className="text-3xl font-extrabold tracking-tight text-gray-900 dark:text-white sm:text-4xl lg:text-5xl">
-                    <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-cyan-500 dark:from-blue-400 dark:to-cyan-300">
+        <section id="business-model" className="py-16 sm:py-20 bg-slate-900 rounded-2xl">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="text-center mb-16">
+                    <h2 className="text-3xl font-extrabold tracking-tight text-white sm:text-4xl lg:text-5xl">
                         آشنایی با مدل کسب‌وکار ما
-                    </span>
-                </h2>
-                <p className="mt-4 max-w-3xl mx-auto text-lg text-gray-600 dark:text-gray-400">
-                    ما یک مدل ترکیبی از پرداخت به ازای مصرف (PAYG) و بازارچه ماژولار ارائه می‌دهیم تا حداکثر انعطاف‌پذیری و کنترل را به شما بدهیم.
-                </p>
-            </div>
+                    </h2>
+                    <p className="mt-4 max-w-3xl mx-auto text-lg text-gray-300">
+                        ما یک مدل ترکیبی از پرداخت به ازای مصرف (PAYG) و بازارچه ماژولار ارائه می‌دهیم تا حداکثر انعطاف‌پذیری و کنترل را به شما بدهیم.
+                    </p>
+                </div>
 
-            <div className="bg-gray-50 dark:bg-gray-900/50 rounded-2xl py-16">
-                <h3 className="text-2xl font-bold text-center mb-12 text-gray-800 dark:text-gray-200">چگونه کار می‌کند؟</h3>
-                <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-center gap-y-8 lg:gap-x-4 px-4">
-                    <div className="flex-1 text-center">
-                        <div className="mb-2 inline-flex items-center justify-center w-16 h-16 rounded-full bg-blue-100 dark:bg-blue-900/50 border-2 border-blue-500 text-blue-600 dark:text-blue-300 font-bold text-2xl">1</div>
-                        <h4 className="font-bold text-lg text-gray-900 dark:text-white">پلتفرم رایگان</h4>
-                        <p className="mt-1 text-gray-600 dark:text-gray-400 text-sm">ثبت‌نام کنید و به ابزارهای پایه‌ای به صورت رایگان دسترسی پیدا کنید.</p>
-                    </div>
-                    <StepArrow className="w-8 h-8 text-gray-300 dark:text-gray-600 rotate-90 lg:rotate-0" />
-                    <div className="flex-1 text-center">
-                        <div className="mb-2 inline-flex items-center justify-center w-16 h-16 rounded-full bg-blue-100 dark:bg-blue-900/50 border-2 border-blue-500 text-blue-600 dark:text-blue-300 font-bold text-2xl">2</div>
-                        <h4 className="font-bold text-lg text-gray-900 dark:text-white">اقتصاد اعتباری</h4>
-                        <p className="mt-1 text-gray-600 dark:text-gray-400 text-sm">بسته‌های اعتبار را خریداری کنید و از آن‌ها برای ارسال و فعال‌سازی استفاده کنید.</p>
-                    </div>
-                    <StepArrow className="w-8 h-8 text-gray-300 dark:text-gray-600 rotate-90 lg:rotate-0" />
-                    <div className="flex-1 text-center">
-                        <div className="mb-2 inline-flex items-center justify-center w-16 h-16 rounded-full bg-blue-100 dark:bg-blue-900/50 border-2 border-blue-500 text-blue-600 dark:text-blue-300 font-bold text-2xl">3</div>
-                        <h4 className="font-bold text-lg text-gray-900 dark:text-white">بازارچه ماژول‌ها</h4>
-                        <p className="mt-1 text-gray-600 dark:text-gray-400 text-sm">ویژگی‌های مورد نیاز خود را با قیمت شفاف (به اعتبار) در بازارچه ما انتخاب کنید.</p>
-                    </div>
-                    <StepArrow className="w-8 h-8 text-gray-300 dark:text-gray-600 rotate-90 lg:rotate-0" />
-                    <div className="flex-1 text-center">
-                        <div className="mb-2 inline-flex items-center justify-center w-16 h-16 rounded-full bg-blue-100 dark:bg-blue-900/50 border-2 border-blue-500 text-blue-600 dark:text-blue-300 font-bold text-2xl">4</div>
-                        <h4 className="font-bold text-lg text-gray-900 dark:text-white">پرداخت و فعال‌سازی</h4>
-                        <p className="mt-1 text-gray-600 dark:text-gray-400 text-sm">با پرداخت هزینه یک‌باره از اعتبار خود، ماژول را برای همیشه و آنی فعال کنید.</p>
+                <div>
+                    <h3 className="text-2xl font-bold text-center mb-16 text-white">چگونه کار می‌کند؟</h3>
+                    <div className="flex flex-col lg:flex-row items-center justify-between gap-y-12 lg:gap-x-4 text-white">
+                        {businessModelSteps.map((step, index) => (
+                            <React.Fragment key={step.number}>
+                                <div className="flex-1 text-center">
+                                    <div className="mb-4 inline-flex items-center justify-center w-16 h-16 rounded-full bg-blue-600 text-white font-bold text-2xl ring-4 ring-blue-500/30">{step.number}</div>
+                                    <h4 className="font-bold text-lg">{step.title}</h4>
+                                    <p className="mt-1 text-gray-400 text-sm">{step.description}</p>
+                                </div>
+                                {index < businessModelSteps.length - 1 && (
+                                    <StepArrow className="w-8 h-8 text-gray-600 rotate-90 lg:rotate-0" />
+                                )}
+                            </React.Fragment>
+                        ))}
                     </div>
                 </div>
             </div>
