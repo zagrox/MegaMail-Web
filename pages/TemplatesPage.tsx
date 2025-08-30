@@ -51,11 +51,11 @@ const TemplatesHeroIllustration: React.FC = () => (
 
 const StepIcon: React.FC<{ number: number, children: React.ReactNode }> = ({ number, children }) => (
     <div className="flex items-center">
+        <div className="mr-4 rtl:ml-4 rtl:mr-0">
+            {children}
+        </div>
         <div className="flex-shrink-0 w-12 h-12 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold text-xl">
             {number}
-        </div>
-        <div className="ml-4 rtl:mr-4 rtl:ml-0">
-            {children}
         </div>
     </div>
 );
@@ -161,7 +161,7 @@ const TemplatesPage: React.FC = () => {
             </section>
 
             {/* How it works section */}
-            <section>
+            <section className="bg-gray-100 dark:bg-gray-800/50 rounded-2xl py-16 sm:py-20 px-4">
                 <div className="text-center mb-16">
                     <h2 className="text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl">
                       سریع و آسان ایمیل بسازید
@@ -170,20 +170,20 @@ const TemplatesPage: React.FC = () => {
                         تنها در سه مرحله ساده، از ایده تا یک ایمیل حرفه‌ای و آماده ارسال پیش بروید.
                     </p>
                 </div>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-12 text-right">
-                    <div className="flex flex-col items-center text-center">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+                    <div className="flex flex-col items-center text-center px-4">
                          <StepIcon number={1}>
                             <h3 className="text-xl font-bold text-gray-900 dark:text-white">انتخاب کنید</h3>
                         </StepIcon>
                         <p className="mt-4 text-gray-600 dark:text-gray-400">از گالری قالب‌های آماده یکی را انتخاب کنید، از قالب‌های ذخیره شده خود استفاده نمایید یا از یک صفحه خالی شروع کنید.</p>
                     </div>
-                    <div className="flex flex-col items-center text-center">
+                    <div className="flex flex-col items-center text-center px-4">
                          <StepIcon number={2}>
                             <h3 className="text-xl font-bold text-gray-900 dark:text-white">طراحی کنید</h3>
                         </StepIcon>
                         <p className="mt-4 text-gray-600 dark:text-gray-400">با ویرایشگر بصری، محتوای خود را اضافه کرده، استایل‌ها را سفارشی کنید و پیش‌نمایش زنده را در موبایل و دسکتاپ ببینید.</p>
                     </div>
-                    <div className="flex flex-col items-center text-center">
+                    <div className="flex flex-col items-center text-center px-4">
                          <StepIcon number={3}>
                             <h3 className="text-xl font-bold text-gray-900 dark:text-white">ذخیره و ارسال کنید</h3>
                         </StepIcon>
