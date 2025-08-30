@@ -478,6 +478,11 @@ const HomePage: React.FC = () => {
           </div>
       </section>
 
+      {/* eNamad Trust Seal */}
+      <div className="flex justify-center py-8">
+        <div dangerouslySetInnerHTML={{ __html: `<a referrerpolicy='origin' target='_blank' href='https://trustseal.enamad.ir/?id=641485&Code=eeZy5j3VovoLv7VfXxG8kgOU7Lysebts'><img referrerpolicy='origin' src='https://trustseal.enamad.ir/logo.aspx?id=641485&Code=eeZy5j3VovoLv7VfXxG8kgOU7Lysebts' alt='' style='cursor:pointer' code='eeZy5j3VovoLv7VfXxG8kgOU7Lysebts'></a>` }} />
+      </div>
+
     </div>
   );
 };
