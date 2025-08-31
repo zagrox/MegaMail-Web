@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import { CTA_URL } from '../constants';
 import type { PricingPackage } from '../types';
 
-const PACKAGES_API_URL = 'https://crm.mailzila.com/items/packages';
+const PACKAGES_API_URL = 'https://crm.megamail.ir/items/packages';
 
 const formatNumber = (num: number) => new Intl.NumberFormat('fa-IR').format(num);
 

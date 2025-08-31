@@ -343,7 +343,7 @@ const ModulesPage: React.FC = () => {
           {/* Image Section */}
             <section>
                 <img 
-                    src="https://crm.mailzila.com/assets/872381dc-d61c-4305-a920-e1a995677860"
+                    src="https://crm.megamail.ir/assets/fd937622-c055-4bf2-9ab7-5dcbc54b4964"
                     alt="نمایی از ماژول های بازاریابی ایمیل مگامیل"
                     className="rounded-xl shadow-2xl ring-1 ring-gray-900/10 mx-auto"
                 />

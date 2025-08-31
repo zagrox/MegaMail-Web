@@ -312,7 +312,7 @@ const HomePage: React.FC = () => {
       <section>
         <div className="mt-12">
           <img 
-            src="https://crm.mailzila.com/assets/da53a14c-4e20-4dd7-a976-85a419c3f258"
+            src="https://crm.megamail.ir/assets/4e840e43-9923-4441-a2cd-3a5de9d8adbd"
             alt="نمایی از داشبورد مگامیل"
             className="rounded-xl shadow-2xl ring-1 ring-gray-900/10 mx-auto"
           />
