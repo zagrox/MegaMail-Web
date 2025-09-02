@@ -3,6 +3,8 @@
 import React, { useState, useEffect } from 'react';
 import { CTA_URL } from '../constants';
 import type { PricingPackage } from '../types';
+import SEO from '../components/SEO';
+import { logoSrc } from '../components/Logo';
 
 const PACKAGES_API_URL = 'https://crm.megamail.ir/items/packages';
 
@@ -189,6 +191,48 @@ const businessModelSteps = [
     },
 ];
 
+const faqData = [
+    {
+        question: 'هر اعتبار معادل چند ایمیل است؟',
+        answer: 'هر یک اعتبار برای ارسال یک ایمیل به یک گیرنده مصرف می‌شود.'
+    },
+    {
+        question: 'آیا اعتبارها تاریخ انقضا دارند؟',
+        answer: 'خیر، اعتبارهای خریداری شده هیچ‌گاه منقضی نمی‌شوند و تا زمان مصرف در حساب شما باقی می‌مانند.'
+    },
+    {
+        question: 'پس از فعال‌سازی یک ماژول چه اتفاقی می‌افتد؟ آیا هزینه آن یک‌باره است؟',
+        answer: 'بله، هزینه فعال‌سازی هر ماژول یک بار برای همیشه از اعتبار شما کسر می‌شود و پس از آن، ماژول به صورت دائمی به حساب شما اضافه می‌گردد.'
+    },
+    {
+        question: 'چرا به جای اشتراک ماهانه از سیستم اعتبار استفاده می‌کنید؟',
+        answer: 'برای ارائه حداکثر انعطاف‌پذیری و صرفه‌جویی در هزینه‌ها. با این مدل شما فقط برای ویژگی‌هایی که واقعاً استفاده می‌کنید هزینه پرداخت می‌کنید و از هدررفت بودجه برای ابزارهای غیرضروری جلوگیری می‌شود.'
+    },
+    {
+        question: 'آیا ماژول‌های رایگان هم وجود دارند؟',
+        answer: 'بله، پلتفرم اصلی مگامیل شامل مجموعه‌ای از ابزارهای ضروری و رایگان است. بازارچه ماژول‌ها به شما این امکان را می‌دهد که ابزارهای تخصصی‌تر را بر حسب نیاز به مجموعه خود اضافه کنید.'
+    }
+];
+
+const organizationSchema = {
+    "@type": "Organization",
+    "name": "مگامیل",
+    "url": "https://www.megamail.ir",
+    "logo": logoSrc,
+};
+
+const faqPageSchema = {
+    "@type": "FAQPage",
+    "mainEntity": faqData.map(item => ({
+        "@type": "Question",
+        "name": item.question,
+        "acceptedAnswer": {
+            "@type": "Answer",
+            "text": item.answer
+        }
+    }))
+};
+
 const PricingPage: React.FC = () => {
   const [packages, setPackages] = useState<PricingPackage[]>([]);
   const [selectedIndex, setSelectedIndex] = useState(0);
@@ -246,212 +290,205 @@ const PricingPage: React.FC = () => {
   if (!selectedPackage) return <div className="py-8"><ErrorMessage message="بسته انتخاب شده معتبر نیست."/></div>;
   
   return (
-    <div className="py-8 space-y-24 sm:space-y-32">
-        {/* Hero Section */}
-        <section className="py-12 sm:py-16">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-                <div className="md:order-last">
-                    <PricingHeroIllustration />
-                </div>
-                <div className="text-right space-y-6">
-                    <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-gray-900 dark:text-white leading-tight">
-                        <span className="block">قیمت‌گذاری شفاف</span>
-                        <span className="block text-blue-600 dark:text-blue-400 mt-2">و منعطف</span>
-                    </h1>
-                    <p className="max-w-xl text-lg sm:text-xl text-gray-600 dark:text-gray-300 ml-auto">
-                       با مدل پرداخت به ازای مصرف, بدون هزینه‌های ماهانه و پنهان, فقط برای آنچه استفاده می‌کنید هزینه پرداخت کنید. هر ارسال ایمیل معادل یک اعتبار است.
-                    </p>
-                    <div className="flex justify-start pt-4">
-                        <a
-                            href="#pricing-calculator"
-                            onClick={handleScroll}
-                            className="inline-block bg-blue-600 text-white font-bold text-lg px-8 py-4 rounded-lg shadow-lg hover:bg-blue-700 transition-transform transform hover:scale-105"
-                        >
-                            مشاهده بسته‌ها
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        {/* Pricing Calculator Section */}
-        <section id="pricing-calculator" className="py-12">
-            <div className="text-center mb-12">
-                <h2 className="text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl">
-                    یک بسته برای شارژ انتخاب کنید
-                </h2>
-                <p className="mt-4 max-w-2xl mx-auto text-lg text-gray-500 dark:text-gray-400">
-                    با سیستم پرداخت به ازای مصرف، فقط به اندازه نیازتان هزینه کنید. هر اعتبار برای ارسال یک ایمیل مصرف می‌شود.
-                </p>
-            </div>
+    <>
+      <SEO
+        title="تعرفه‌ها و قیمت‌گذاری | مگامیل"
+        description="قیمت‌گذاری شفاف و منعطف مگامیل با مدل پرداخت به ازای مصرف. بسته‌های اعتباری را مشاهده و هزینه کمپین‌های خود را مدیریت کنید."
+        schemas={[organizationSchema, faqPageSchema]}
+      />
+      <div className="py-8 space-y-24 sm:space-y-32">
+          {/* Hero Section */}
+          <section className="py-12 sm:py-16">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                  <div className="md:order-last">
+                      <PricingHeroIllustration />
+                  </div>
+                  <div className="text-right space-y-6">
+                      <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-gray-900 dark:text-white leading-tight">
+                          <span className="block">قیمت‌گذاری شفاف</span>
+                          <span className="block text-blue-600 dark:text-blue-400 mt-2">و منعطف</span>
+                      </h1>
+                      <p className="max-w-xl text-lg sm:text-xl text-gray-600 dark:text-gray-300 ml-auto">
+                         با مدل پرداخت به ازای مصرف, بدون هزینه‌های ماهانه و پنهان, فقط برای آنچه استفاده می‌کنید هزینه پرداخت کنید. هر ارسال ایمیل معادل یک اعتبار است.
+                      </p>
+                      <div className="flex justify-start pt-4">
+                          <a
+                              href="#pricing-calculator"
+                              onClick={handleScroll}
+                              className="inline-block bg-blue-600 text-white font-bold text-lg px-8 py-4 rounded-lg shadow-lg hover:bg-blue-700 transition-transform transform hover:scale-105"
+                          >
+                              مشاهده بسته‌ها
+                          </a>
+                      </div>
+                  </div>
+              </div>
+          </section>
+          
+          {/* Pricing Calculator Section */}
+          <section id="pricing-calculator" className="py-12">
+              <div className="text-center mb-12">
+                  <h2 className="text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl">
+                      یک بسته برای شارژ انتخاب کنید
+                  </h2>
+                  <p className="mt-4 max-w-2xl mx-auto text-lg text-gray-500 dark:text-gray-400">
+                      با سیستم پرداخت به ازای مصرف، فقط به اندازه نیازتان هزینه کنید. هر اعتبار برای ارسال یک ایمیل مصرف می‌شود.
+                  </p>
+              </div>
 
-            <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl border border-gray-200 dark:border-gray-700 p-8 sm:p-12">
-                <div className="text-center">
-                <h3 className="text-5xl sm:text-6xl font-bold text-gray-900 dark:text-white tracking-tight">
-                    {formatNumber(selectedPackage.packsize)}
-                </h3>
-                <p className="text-lg text-gray-500 dark:text-gray-400 mt-2">اعتبار</p>
-                <p className="text-2xl sm:text-3xl text-gray-700 dark:text-gray-300 mt-4">
-                    ({formatNumber(selectedPackage.packprice)} تومان)
-                </p>
-                </div>
+              <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl border border-gray-200 dark:border-gray-700 p-8 sm:p-12">
+                  <div className="text-center">
+                  <h3 className="text-5xl sm:text-6xl font-bold text-gray-900 dark:text-white tracking-tight">
+                      {formatNumber(selectedPackage.packsize)}
+                  </h3>
+                  <p className="text-lg text-gray-500 dark:text-gray-400 mt-2">اعتبار</p>
+                  <p className="text-2xl sm:text-3xl text-gray-700 dark:text-gray-300 mt-4">
+                      ({formatNumber(selectedPackage.packprice)} تومان)
+                  </p>
+                  </div>
 
-                <div className="mt-12">
-                    <div className="relative py-2">
-                        {/* Dots on the track */}
-                        <div className="absolute top-1/2 left-0 w-full flex justify-between -translate-y-1/2 px-1.5 pointer-events-none">
-                            {packages.map((_, index) => (
-                                <div key={index} className="w-2 h-2 bg-white/50 dark:bg-gray-800/50 rounded-full"></div>
-                            ))}
-                        </div>
-                        <input
-                            type="range"
-                            min="0"
-                            max={packages.length > 0 ? packages.length - 1 : 0}
-                            step="1"
-                            value={selectedIndex}
-                            onChange={handleSliderChange}
-                            className="w-full appearance-none cursor-pointer range-slider"
-                            style={{ '--progress': `${packages.length > 1 ? (selectedIndex / (packages.length - 1)) * 100 : 0}%` } as React.CSSProperties}
-                            aria-label="انتخاب بسته اعتباری"
-                        />
-                    </div>
-                    <div className="relative h-8 mt-2 text-sm font-medium">
-                        {packages.map((pkg, index) => {
-                            const position = (index / (packages.length - 1)) * 100;
-                            return (
-                                <button
-                                    key={pkg.id}
-                                    onClick={() => setSelectedIndex(index)}
-                                    className={`absolute top-1/2 transform -translate-y-1/2 translate-x-1/2 text-center transition-all duration-200 px-1 py-2 rounded-md focus:outline-none focus:ring-2 ring-offset-2 ring-offset-white dark:ring-offset-gray-800 focus:ring-blue-500 ${
-                                        selectedIndex === index
-                                            ? 'text-blue-600 dark:text-blue-400 font-bold scale-110'
-                                            : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100'
-                                    }`}
-                                    style={{
-                                        right: `${position}%`,
-                                    }}
-                                >
-                                    {pkg.packname}
-                                </button>
-                            );
-                        })}
-                    </div>
-                </div>
-                
-                <div className="mt-10 pt-8 border-t border-gray-200 dark:border-gray-700 flex flex-col sm:flex-row justify-between items-center gap-6">
-                <div className="text-lg">
-                    <span className="text-gray-600 dark:text-gray-400">قیمت هر اعتبار: </span>
-                    <span className="font-bold text-gray-900 dark:text-white">{formatNumber(selectedPackage.packrate)} تومان</span>
-                </div>
-                <a
-                    href={`${CTA_URL}&package=${selectedPackage.id}`}
-                    className="w-full sm:w-auto inline-flex justify-center items-center px-10 py-3 border border-transparent text-lg font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white dark:ring-offset-gray-800 focus:ring-blue-500 transition-colors"
-                    >
-                    سفارش
-                    </a>
-                </div>
-            </div>
-        </section>
+                  <div className="mt-12">
+                      <div className="relative py-2">
+                          {/* Dots on the track */}
+                          <div className="absolute top-1/2 left-0 w-full flex justify-between -translate-y-1/2 px-1.5 pointer-events-none">
+                              {packages.map((_, index) => (
+                                  <div key={index} className="w-2 h-2 bg-white/50 dark:bg-gray-800/50 rounded-full"></div>
+                              ))}
+                          </div>
+                          <input
+                              type="range"
+                              min="0"
+                              max={packages.length > 0 ? packages.length - 1 : 0}
+                              step="1"
+                              value={selectedIndex}
+                              onChange={handleSliderChange}
+                              className="w-full appearance-none cursor-pointer range-slider"
+                              style={{ '--progress': `${packages.length > 1 ? (selectedIndex / (packages.length - 1)) * 100 : 0}%` } as React.CSSProperties}
+                              aria-label="انتخاب بسته اعتباری"
+                          />
+                      </div>
+                      <div className="relative h-8 mt-2 text-sm font-medium">
+                          {packages.map((pkg, index) => {
+                              const position = (index / (packages.length - 1)) * 100;
+                              return (
+                                  <button
+                                      key={pkg.id}
+                                      onClick={() => setSelectedIndex(index)}
+                                      className={`absolute top-1/2 transform -translate-y-1/2 translate-x-1/2 text-center transition-all duration-200 px-1 py-2 rounded-md focus:outline-none focus:ring-2 ring-offset-2 ring-offset-white dark:ring-offset-gray-800 focus:ring-blue-500 ${
+                                          selectedIndex === index
+                                              ? 'text-blue-600 dark:text-blue-400 font-bold scale-110'
+                                              : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100'
+                                      }`}
+                                      style={{
+                                          right: `${position}%`,
+                                      }}
+                                  >
+                                      {pkg.packname}
+                                  </button>
+                              );
+                          })}
+                      </div>
+                  </div>
+                  
+                  <div className="mt-10 pt-8 border-t border-gray-200 dark:border-gray-700 flex flex-col sm:flex-row justify-between items-center gap-6">
+                  <div className="text-lg">
+                      <span className="text-gray-600 dark:text-gray-400">قیمت هر اعتبار: </span>
+                      <span className="font-bold text-gray-900 dark:text-white">{formatNumber(selectedPackage.packrate)} تومان</span>
+                  </div>
+                  <a
+                      href={`${CTA_URL}&package=${selectedPackage.id}`}
+                      className="w-full sm:w-auto inline-flex justify-center items-center px-10 py-3 border border-transparent text-lg font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white dark:ring-offset-gray-800 focus:ring-blue-500 transition-colors"
+                      >
+                      سفارش
+                      </a>
+                  </div>
+              </div>
+          </section>
 
-        {/* Business Model Section */}
-        <section id="business-model" className="py-16 sm:py-20 bg-slate-900 rounded-2xl">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="text-center mb-16">
-                    <h2 className="text-3xl font-extrabold tracking-tight text-white sm:text-4xl lg:text-5xl">
-                        آشنایی با مدل کسب‌وکار ما
-                    </h2>
-                    <p className="mt-4 max-w-3xl mx-auto text-lg text-gray-300">
-                        ما یک مدل ترکیبی از پرداخت به ازای مصرف (PAYG) و بازارچه ماژولار ارائه می‌دهیم تا حداکثر انعطاف‌پذیری و کنترل را به شما بدهیم.
-                    </p>
-                </div>
+          {/* Business Model Section */}
+          <section id="business-model" className="py-16 sm:py-20 bg-slate-900 rounded-2xl">
+              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                  <div className="text-center mb-16">
+                      <h2 className="text-3xl font-extrabold tracking-tight text-white sm:text-4xl lg:text-5xl">
+                          آشنایی با مدل کسب‌وکار ما
+                      </h2>
+                      <p className="mt-4 max-w-3xl mx-auto text-lg text-gray-300">
+                          ما یک مدل ترکیبی از پرداخت به ازای مصرف (PAYG) و بازارچه ماژولار ارائه می‌دهیم تا حداکثر انعطاف‌پذیری و کنترل را به شما بدهیم.
+                      </p>
+                  </div>
 
-                <div>
-                    <h3 className="text-2xl font-bold text-center mb-16 text-white">چگونه کار می‌کند؟</h3>
-                    <div className="flex flex-col lg:flex-row items-center justify-between gap-y-12 lg:gap-x-4 text-white">
-                        {businessModelSteps.map((step, index) => (
-                            <React.Fragment key={step.number}>
-                                <div className="flex-1 text-center">
-                                    <div className="mb-4 inline-flex items-center justify-center w-16 h-16 rounded-full bg-blue-600 text-white font-bold text-2xl ring-4 ring-blue-500/30">{step.number}</div>
-                                    <h4 className="font-bold text-lg">{step.title}</h4>
-                                    <p className="mt-1 text-gray-400 text-sm">{step.description}</p>
-                                </div>
-                                {index < businessModelSteps.length - 1 && (
-                                    <StepArrow className="w-8 h-8 text-gray-600 rotate-90 lg:rotate-0" />
-                                )}
-                            </React.Fragment>
-                        ))}
-                    </div>
-                </div>
-            </div>
-        </section>
+                  <div>
+                      <h3 className="text-2xl font-bold text-center mb-16 text-white">چگونه کار می‌کند؟</h3>
+                      <div className="flex flex-col lg:flex-row items-center justify-between gap-y-12 lg:gap-x-4 text-white">
+                          {businessModelSteps.map((step, index) => (
+                              <React.Fragment key={step.number}>
+                                  <div className="flex-1 text-center">
+                                      <div className="mb-4 inline-flex items-center justify-center w-16 h-16 rounded-full bg-blue-600 text-white font-bold text-2xl ring-4 ring-blue-500/30">{step.number}</div>
+                                      <h4 className="font-bold text-lg">{step.title}</h4>
+                                      <p className="mt-1 text-gray-400 text-sm">{step.description}</p>
+                                  </div>
+                                  {index < businessModelSteps.length - 1 && (
+                                      <StepArrow className="w-8 h-8 text-gray-600 rotate-90 lg:rotate-0" />
+                                  )}
+                              </React.Fragment>
+                          ))}
+                      </div>
+                  </div>
+              </div>
+          </section>
 
-        {/* Customer Benefits Section */}
-        <section>
-             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                <div className="lg:order-last">
-                    <CustomerBenefitsIllustration />
-                </div>
-                <div className="text-right">
-                    <h2 className="text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl mb-8">مزایا برای شما (مشتریان)</h2>
-                    <div className="space-y-6">
-                        <BenefitItem icon={<FlexibilityIcon className="w-6 h-6 text-blue-600 dark:text-blue-400" />} title="انعطاف‌پذیری و کنترل کامل" description="ابزار خود را دقیقاً مطابق با نیازتان بسازید و فقط برای آنچه استفاده می‌کنید هزینه کنید." />
-                        <BenefitItem icon={<CostIcon className="w-6 h-6 text-blue-600 dark:text-blue-400" />} title="مقرون‌به‌صرفه و شفاف" description="بدون هزینه اشتراک ماهانه برای ویژگی‌های بلااستفاده. هزینه هر ماژول به صورت شفاف نمایش داده می‌شود." />
-                        <BenefitItem icon={<ScalabilityIcon className="w-6 h-6 text-blue-600 dark:text-blue-400" />} title="مقیاس‌پذیری یکپارچه" description="با ابزارهای اصلی شروع کنید و با گسترش کسب‌وکارتان، ماژول‌های پیشرفته‌تری را به راحتی فعال کنید." />
-                        <BenefitItem icon={<NoCommitmentIcon className="w-6 h-6 text-blue-600 dark:text-blue-400" />} title="بدون تعهد بلندمدت" description="مانند اشتراک‌های سالانه محدود نیستید. بر اساس برنامه خود اعتبار بخرید و ماژول‌ها را فعال کنید." />
-                        <BenefitItem icon={<InstantIcon className="w-6 h-6 text-blue-600 dark:text-blue-400" />} title="دسترسی فوری و چابکی" description="وقتی به ابزار جدیدی نیاز دارید، در چند ثانیه آن را فعال کرده و استفاده نمایید؛ بدون هیچ‌گونه تاخیر." />
-                    </div>
-                </div>
-            </div>
-        </section>
+          {/* Customer Benefits Section */}
+          <section>
+               <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                  <div className="lg:order-last">
+                      <CustomerBenefitsIllustration />
+                  </div>
+                  <div className="text-right">
+                      <h2 className="text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl mb-8">مزایا برای شما (مشتریان)</h2>
+                      <div className="space-y-6">
+                          <BenefitItem icon={<FlexibilityIcon className="w-6 h-6 text-blue-600 dark:text-blue-400" />} title="انعطاف‌پذیری و کنترل کامل" description="ابزار خود را دقیقاً مطابق با نیازتان بسازید و فقط برای آنچه استفاده می‌کنید هزینه کنید." />
+                          <BenefitItem icon={<CostIcon className="w-6 h-6 text-blue-600 dark:text-blue-400" />} title="مقرون‌به‌صرفه و شفاف" description="بدون هزینه اشتراک ماهانه برای ویژگی‌های بلااستفاده. هزینه هر ماژول به صورت شفاف نمایش داده می‌شود." />
+                          <BenefitItem icon={<ScalabilityIcon className="w-6 h-6 text-blue-600 dark:text-blue-400" />} title="مقیاس‌پذیری یکپارچه" description="با ابزارهای اصلی شروع کنید و با گسترش کسب‌وکارتان، ماژول‌های پیشرفته‌تری را به راحتی فعال کنید." />
+                          <BenefitItem icon={<NoCommitmentIcon className="w-6 h-6 text-blue-600 dark:text-blue-400" />} title="بدون تعهد بلندمدت" description="مانند اشتراک‌های سالانه محدود نیستید. بر اساس برنامه خود اعتبار بخرید و ماژول‌ها را فعال کنید." />
+                          <BenefitItem icon={<InstantIcon className="w-6 h-6 text-blue-600 dark:text-blue-400" />} title="دسترسی فوری و چابکی" description="وقتی به ابزار جدیدی نیاز دارید، در چند ثانیه آن را فعال کرده و استفاده نمایید؛ بدون هیچ‌گونه تاخیر." />
+                      </div>
+                  </div>
+              </div>
+          </section>
 
-        {/* Business Benefits Section */}
-        <section>
-             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                <div>
-                    <BusinessBenefitsIllustration />
-                </div>
-                <div className="text-right">
-                    <h2 className="text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl mb-8">مزایا برای ما (شفافیت)</h2>
-                    <div className="space-y-6">
-                        <BenefitItem icon={<UserAcquisitionIcon className="w-6 h-6 text-gray-600 dark:text-gray-400" />} title="جذب کاربر بالاتر" description="هسته رایگان پلتفرم مخاطبان گسترده‌تری را جذب می‌کند و کاربران می‌توانند ارزش محصول را بدون تعهد مالی کشف کنند." />
-                        <BenefitItem icon={<LtvIcon className="w-6 h-6 text-gray-600 dark:text-gray-400" />} title="ارزش طول عمر مشتری (LTV) بالاتر" description="این مدل با ایجاد مسیر هموار برای ارتقاء، کاربران را به تعامل بلندمدت تشویق می‌کند." />
-                        <BenefitItem icon={<CashFlowIcon className="w-6 h-6 text-gray-600 dark:text-gray-400" />} title="بهبود جریان نقدی" description="سیستم اعتبار یک مدل پیش‌پرداخت است که برای پیش‌بینی مالی و پایداری کسب‌وکار بسیار مفید است." />
-                        <BenefitItem icon={<DataDrivenIcon className="w-6 h-6 text-gray-600 dark:text-gray-400" />} title="توسعه محصول داده‌محور" description="بازارچه ماژول‌ها داده‌های مستقیمی در مورد ویژگی‌های پرتقاضا ارائه می‌دهد و به اولویت‌بندی نقشه راه توسعه کمک می‌کند." />
-                        <BenefitItem icon={<ChurnIcon className="w-6 h-6 text-gray-600 dark:text-gray-400" />} title="کاهش نرخ ریزش مشتری" description="از آنجایی که مشتریان برای ساختن پلتفرم سفارشی خود سرمایه‌گذاری می‌کنند، «چسبندگی» بیشتری پیدا کرده و وفادارتر می‌مانند." />
-                    </div>
-                </div>
-            </div>
-        </section>
+          {/* Business Benefits Section */}
+          <section>
+               <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                  <div>
+                      <BusinessBenefitsIllustration />
+                  </div>
+                  <div className="text-right">
+                      <h2 className="text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl mb-8">مزایا برای ما (شفافیت)</h2>
+                      <div className="space-y-6">
+                          <BenefitItem icon={<UserAcquisitionIcon className="w-6 h-6 text-gray-600 dark:text-gray-400" />} title="جذب کاربر بالاتر" description="هسته رایگان پلتفرم مخاطبان گسترده‌تری را جذب می‌کند و کاربران می‌توانند ارزش محصول را بدون تعهد مالی کشف کنند." />
+                          <BenefitItem icon={<LtvIcon className="w-6 h-6 text-gray-600 dark:text-gray-400" />} title="ارزش طول عمر مشتری (LTV) بالاتر" description="این مدل با ایجاد مسیر هموار برای ارتقاء، کاربران را به تعامل بلندمدت تشویق می‌کند." />
+                          <BenefitItem icon={<CashFlowIcon className="w-6 h-6 text-gray-600 dark:text-gray-400" />} title="بهبود جریان نقدی" description="سیستم اعتبار یک مدل پیش‌پرداخت است که برای پیش‌بینی مالی و پایداری کسب‌وکار بسیار مفید است." />
+                          <BenefitItem icon={<DataDrivenIcon className="w-6 h-6 text-gray-600 dark:text-gray-400" />} title="توسعه محصول داده‌محور" description="بازارچه ماژول‌ها داده‌های مستقیمی در مورد ویژگی‌های پرتقاضا ارائه می‌دهد و به اولویت‌بندی نقشه راه توسعه کمک می‌کند." />
+                          <BenefitItem icon={<ChurnIcon className="w-6 h-6 text-gray-600 dark:text-gray-400" />} title="کاهش نرخ ریزش مشتری" description="از آنجایی که مشتریان برای ساختن پلتفرم سفارشی خود سرمایه‌گذاری می‌کنند، «چسبندگی» بیشتری پیدا کرده و وفادارتر می‌مانند." />
+                      </div>
+                  </div>
+              </div>
+          </section>
 
 
-        {/* FAQ Section */}
-        <section className="bg-gray-100 dark:bg-gray-800/50 p-8 rounded-2xl border border-gray-200 dark:border-gray-700">
-            <h2 className="text-3xl font-bold text-center text-gray-900 dark:text-white">سوالات متداول</h2>
-            <div className="mt-8 max-w-4xl mx-auto space-y-6">
-                <div className="p-4 bg-white dark:bg-gray-800 rounded-lg">
-                    <h4 className="font-semibold text-lg">هر اعتبار معادل چند ایمیل است؟</h4>
-                    <p className="text-gray-600 dark:text-gray-400 mt-1">هر یک اعتبار برای ارسال یک ایمیل به یک گیرنده مصرف می‌شود.</p>
-                </div>
-                <div className="p-4 bg-white dark:bg-gray-800 rounded-lg">
-                    <h4 className="font-semibold text-lg">آیا اعتبارها تاریخ انقضا دارند؟</h4>
-                    <p className="text-gray-600 dark:text-gray-400 mt-1">خیر، اعتبارهای خریداری شده هیچ‌گاه منقضی نمی‌شوند و تا زمان مصرف در حساب شما باقی می‌مانند.</p>
-                </div>
-                <div className="p-4 bg-white dark:bg-gray-800 rounded-lg">
-                    <h4 className="font-semibold text-lg">پس از فعال‌سازی یک ماژول چه اتفاقی می‌افتد؟ آیا هزینه آن یک‌باره است؟</h4>
-                    <p className="text-gray-600 dark:text-gray-400 mt-1">بله، هزینه فعال‌سازی هر ماژول یک بار برای همیشه از اعتبار شما کسر می‌شود و پس از آن، ماژول به صورت دائمی به حساب شما اضافه می‌گردد.</p>
-                </div>
-                 <div className="p-4 bg-white dark:bg-gray-800 rounded-lg">
-                    <h4 className="font-semibold text-lg">چرا به جای اشتراک ماهانه از سیستم اعتبار استفاده می‌کنید؟</h4>
-                    <p className="text-gray-600 dark:text-gray-400 mt-1">برای ارائه حداکثر انعطاف‌پذیری و صرفه‌جویی در هزینه‌ها. با این مدل شما فقط برای ویژگی‌هایی که واقعاً استفاده می‌کنید هزینه پرداخت می‌کنید و از هدررفت بودجه برای ابزارهای غیرضروری جلوگیری می‌شود.</p>
-                </div>
-                 <div className="p-4 bg-white dark:bg-gray-800 rounded-lg">
-                    <h4 className="font-semibold text-lg">آیا ماژول‌های رایگان هم وجود دارند؟</h4>
-                    <p className="text-gray-600 dark:text-gray-400 mt-1">بله، پلتفرم اصلی مگامیل شامل مجموعه‌ای از ابزارهای ضروری و رایگان است. بازارچه ماژول‌ها به شما این امکان را می‌دهد که ابزارهای تخصصی‌تر را بر حسب نیاز به مجموعه خود اضافه کنید.</p>
-                </div>
-            </div>
-        </section>
-    </div>
+          {/* FAQ Section */}
+          <section className="bg-gray-100 dark:bg-gray-800/50 p-8 rounded-2xl border border-gray-200 dark:border-gray-700">
+              <h2 className="text-3xl font-bold text-center text-gray-900 dark:text-white">سوالات متداول</h2>
+              <div className="mt-8 max-w-4xl mx-auto space-y-6">
+                  {faqData.map((faq, index) => (
+                      <div key={index} className="p-4 bg-white dark:bg-gray-800 rounded-lg">
+                          <h4 className="font-semibold text-lg">{faq.question}</h4>
+                          <p className="text-gray-600 dark:text-gray-400 mt-1">{faq.answer}</p>
+                      </div>
+                  ))}
+              </div>
+          </section>
+      </div>
+    </>
   );
 };
 

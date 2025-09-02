@@ -1,6 +1,8 @@
 
 import React from 'react';
 import { CTA_URL } from '../constants';
+import SEO from '../components/SEO';
+import { logoSrc } from '../components/Logo';
 
 // --- Icon Components ---
 const PlatformIcon: React.FC<{ className?: string }> = (props) => (
@@ -357,85 +359,110 @@ const featureCategories = [
     }
 ];
 
+const organizationSchema = {
+    "@type": "Organization",
+    "name": "مگامیل",
+    "url": "https://www.megamail.ir",
+    "logo": logoSrc,
+};
+
+const serviceSchema = {
+    "@type": "Service",
+    "serviceType": "Email Marketing Platform",
+    "provider": {
+        "@type": "Organization",
+        "name": "مگامیل"
+    },
+    "name": "ویژگی‌های پلتفرم ایمیل مارکتینگ مگامیل",
+    "description": "مگامیل یک پلتفرم کامل با ویژگی‌هایی برای مدیریت مخاطبین، ساخت ایمیل‌های حرفه‌ای، ارسال کمپین‌های هوشمند، تحلیل دقیق نتایج، و زیرساخت ارسال قدرتمند است."
+};
+
 const FeaturesPage: React.FC = () => {
     return (
-        <div className="py-8 space-y-24 sm:space-y-32">
-            {/* Hero Section */}
-            <section className="py-12 sm:py-16">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-                    <div className="md:order-last">
-                        <FeaturesHeroIllustration />
-                    </div>
-                    <div className="text-right space-y-6">
-                        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-gray-900 dark:text-white leading-tight">
-                            <span className="block">یک پلتفرم،</span>
-                            <span className="block text-blue-600 dark:text-blue-400 mt-2">تمام نیازهای شما</span>
-                        </h1>
-                        <p className="max-w-xl text-lg sm:text-xl text-gray-600 dark:text-gray-300 ml-auto">
-                            مگامیل ترکیبی از ابزارهای اصلی بازاریابی با یک سیستم ماژولار و مبتنی بر اعتبار است که به شما امکان می‌دهد پلتفرم را دقیقاً مطابق با نیازهای خود سفارشی کنید.
-                        </p>
-                        <div className="flex justify-start pt-4">
-                            <a
-                                href={CTA_URL}
-                                className="inline-block bg-blue-600 text-white font-bold text-lg px-8 py-4 rounded-lg shadow-lg hover:bg-blue-700 transition-transform transform hover:scale-105"
-                            >
-                                رایگان شروع کنید
-                            </a>
+        <>
+            <SEO
+                title="ویژگی‌های مگامیل | پلتفرم کامل ایمیل مارکتینگ"
+                description="با تمام ویژگی‌های مگامیل آشنا شوید: از مدیریت مخاطبین و ایمیل‌ساز پیشرفته تا تحلیل‌های دقیق و زیرساخت ارسال قدرتمند."
+                schemas={[organizationSchema, serviceSchema]}
+            />
+            <div className="py-8 space-y-24 sm:space-y-32">
+                {/* Hero Section */}
+                <section className="py-12 sm:py-16">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                        <div className="md:order-last">
+                            <FeaturesHeroIllustration />
+                        </div>
+                        <div className="text-right space-y-6">
+                            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-gray-900 dark:text-white leading-tight">
+                                <span className="block">یک پلتفرم،</span>
+                                <span className="block text-blue-600 dark:text-blue-400 mt-2">تمام نیازهای شما</span>
+                            </h1>
+                            <p className="max-w-xl text-lg sm:text-xl text-gray-600 dark:text-gray-300 ml-auto">
+                                مگامیل ترکیبی از ابزارهای اصلی بازاریابی با یک سیستم ماژولار و مبتنی بر اعتبار است که به شما امکان می‌دهد پلتفرم را دقیقاً مطابق با نیازهای خود سفارشی کنید.
+                            </p>
+                            <div className="flex justify-start pt-4">
+                                <a
+                                    href={CTA_URL}
+                                    className="inline-block bg-blue-600 text-white font-bold text-lg px-8 py-4 rounded-lg shadow-lg hover:bg-blue-700 transition-transform transform hover:scale-105"
+                                >
+                                    رایگان شروع کنید
+                                </a>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </section>
+                </section>
 
-            {/* Features Section */}
-            <section>
-                <div className="space-y-20 md:space-y-28">
-                    {featureCategories.map((category, index) => (
-                        <div key={category.title} className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                            <div className={`lg:order-${index % 2 === 0 ? 'last' : 'first'}`}>
-                                <div className="flex items-center justify-center">
-                                    <category.Illustration />
-                                </div>
-                            </div>
-                            <div className="text-right">
-                                <div className="inline-flex items-center gap-4 mb-4">
-                                    <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-blue-100 dark:bg-blue-900/50 flex items-center justify-center">
-                                        <category.Icon className="w-7 h-7 text-blue-600 dark:text-blue-400" />
+                {/* Features Section */}
+                <section>
+                    <div className="space-y-20 md:space-y-28">
+                        {featureCategories.map((category, index) => (
+                            <div key={category.title} className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                                <div className={`lg:order-${index % 2 === 0 ? 'last' : 'first'}`}>
+                                    <div className="flex items-center justify-center">
+                                        <category.Illustration />
                                     </div>
-                                    <h2 className="text-2xl font-bold text-gray-900 dark:text-white">{category.title}</h2>
                                 </div>
-                                <p className="text-lg text-gray-600 dark:text-gray-400">{category.description}</p>
-                                <ul className="mt-6 grid grid-cols-2 gap-x-6 gap-y-4">
-                                    {category.features.map((feature, idx) => (
-                                        <li key={idx} className="flex items-start">
-                                            <CheckIcon className="w-5 h-5 text-green-500 mt-1 flex-shrink-0" />
-                                            <span className="mr-3 rtl:mr-3 rtl:ml-0 text-gray-700 dark:text-gray-300">{feature}</span>
-                                        </li>
-                                    ))}
-                                </ul>
+                                <div className="text-right">
+                                    <div className="inline-flex items-center gap-4 mb-4">
+                                        <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-blue-100 dark:bg-blue-900/50 flex items-center justify-center">
+                                            <category.Icon className="w-7 h-7 text-blue-600 dark:text-blue-400" />
+                                        </div>
+                                        <h2 className="text-2xl font-bold text-gray-900 dark:text-white">{category.title}</h2>
+                                    </div>
+                                    <p className="text-lg text-gray-600 dark:text-gray-400">{category.description}</p>
+                                    <ul className="mt-6 grid grid-cols-2 gap-x-6 gap-y-4">
+                                        {category.features.map((feature, idx) => (
+                                            <li key={idx} className="flex items-start">
+                                                <CheckIcon className="w-5 h-5 text-green-500 mt-1 flex-shrink-0" />
+                                                <span className="mr-3 rtl:mr-3 rtl:ml-0 text-gray-700 dark:text-gray-300">{feature}</span>
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </div>
                             </div>
-                        </div>
-                    ))}
-                </div>
-            </section>
+                        ))}
+                    </div>
+                </section>
 
-            {/* CTA Section */}
-            <section className="bg-gradient-to-r from-blue-600 to-cyan-500 dark:from-blue-800 dark:to-cyan-700 text-white rounded-xl shadow-2xl py-12 sm:py-16 text-center">
-                <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight">
-                    ابزارهای قدرتمند ایمیل مارکتینگ در دستان شما
-                </h2>
-                <p className="mt-4 max-w-2xl mx-auto text-lg sm:text-xl text-blue-100 dark:text-blue-200">
-                    همین حالا ثبت نام کنید و با یک کلیک، کمپین‌های ایملی خود را به سطح بالاتری ببرید.
-                </p>
-                <div className="mt-8">
-                    <a
-                        href={CTA_URL}
-                        className="inline-block bg-white text-blue-600 font-bold text-lg px-8 py-4 rounded-lg shadow-lg hover:bg-blue-50 transition-transform transform hover:scale-105"
-                    >
-                        رایگان شروع کنید
-                    </a>
-                </div>
-            </section>
-        </div>
+                {/* CTA Section */}
+                <section className="bg-gradient-to-r from-blue-600 to-cyan-500 dark:from-blue-800 dark:to-cyan-700 text-white rounded-xl shadow-2xl py-12 sm:py-16 text-center">
+                    <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight">
+                        ابزارهای قدرتمند ایمیل مارکتینگ در دستان شما
+                    </h2>
+                    <p className="mt-4 max-w-2xl mx-auto text-lg sm:text-xl text-blue-100 dark:text-blue-200">
+                        همین حالا ثبت نام کنید و با یک کلیک، کمپین‌های ایملی خود را به سطح بالاتری ببرید.
+                    </p>
+                    <div className="mt-8">
+                        <a
+                            href={CTA_URL}
+                            className="inline-block bg-white text-blue-600 font-bold text-lg px-8 py-4 rounded-lg shadow-lg hover:bg-blue-50 transition-transform transform hover:scale-105"
+                        >
+                            رایگان شروع کنید
+                        </a>
+                    </div>
+                </section>
+            </div>
+        </>
     );
 };
 

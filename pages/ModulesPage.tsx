@@ -1,6 +1,8 @@
 
 import React, { useState } from 'react';
 import { CTA_URL } from '../constants';
+import SEO from '../components/SEO';
+import { logoSrc } from '../components/Logo';
 
 // --- SVG & Icon Components ---
 
@@ -260,6 +262,24 @@ const enterprisesAdvantages = [
     { title: "برچسب‌گذاری سفید (White-Labeling) و یکپارچه‌سازی عمیق", description: "معماری ما ذاتاً برای برچسب‌گذاری سفید مناسب است و ماژول‌ها می‌توانند برای یکپارچه‌سازی عمیق با سیستم‌های موجود مانند CRM و ERP طراحی شوند." }
 ];
 
+const organizationSchema = {
+    "@type": "Organization",
+    "name": "مگامیل",
+    "url": "https://www.megamail.ir",
+    "logo": logoSrc,
+};
+
+const serviceSchema = {
+    "@type": "Service",
+    "serviceType": "Email Marketing Platform",
+    "provider": {
+        "@type": "Organization",
+        "name": "مگامیل"
+    },
+    "name": "بازارچه ماژول‌های مگامیل",
+    "description": "با بازارچه ماژول‌های مگامیل، پلتفرم ایمیل مارکتینگ خود را با فعال‌سازی ویژگی‌های مورد نیاز بر اساس سیستم اعتباری، سفارشی‌سازی کنید."
+};
+
 const ModulesPage: React.FC = () => {
     const [activeTab, setActiveTab] = useState<ModuleCategoryKey>('core');
 
@@ -277,198 +297,205 @@ const ModulesPage: React.FC = () => {
     );
 
     return (
-        <div className="py-8 space-y-24 sm:space-y-32">
-            {/* Hero Section */}
-            <section className="py-12 sm:py-16">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-                    <div className="md:order-last">
-                        <ModulesHeroIllustration />
-                    </div>
-                    <div className="text-right space-y-6">
-                        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-gray-900 dark:text-white leading-tight">
-                            <span className="block">ابزار خود را بسازید</span>
-                            <span className="block text-blue-600 dark:text-blue-400 mt-2">فقط برای آنچه نیاز دارید هزینه کنید</span>
-                        </h1>
-                        <p className="max-w-xl text-lg sm:text-xl text-gray-600 dark:text-gray-300 ml-auto">
-                            با بازارچه ماژول‌های مگامیل، شما کنترل کامل را در دست دارید. فقط ویژگی‌هایی را که واقعاً به آن‌ها نیاز دارید با استفاده از اعتبار خود فعال کنید.
-                        </p>
-                         <div className="flex justify-start pt-4 gap-4">
-                            <a
-                                href={CTA_URL}
-                                className="inline-block bg-blue-600 text-white font-bold text-lg px-8 py-4 rounded-lg shadow-lg hover:bg-blue-700 transition-transform transform hover:scale-105"
-                            >
-                                شروع کنید
-                            </a>
-                            <a
-                                href="#explore-modules"
-                                onClick={handleScroll}
-                                className="inline-block bg-transparent border-2 border-blue-600 text-blue-600 dark:border-blue-400 dark:text-blue-400 font-bold text-lg px-8 py-4 rounded-lg shadow-lg hover:bg-blue-600 hover:text-white dark:hover:bg-blue-400 dark:hover:text-gray-900 transition-colors transform hover:scale-105"
-                            >
-                                کاوش ماژول‌ها
-                            </a>
+        <>
+            <SEO
+                title="ماژول‌ها | ابزار ایمیل مارکتینگ خود را بسازید"
+                description="با بازارچه ماژول‌های مگامیل، فقط ویژگی‌هایی را که نیاز دارید فعال کنید و پلتفرم ایمیل مارکتینگ خود را سفارشی‌سازی کنید."
+                schemas={[organizationSchema, serviceSchema]}
+            />
+            <div className="py-8 space-y-24 sm:space-y-32">
+                {/* Hero Section */}
+                <section className="py-12 sm:py-16">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                        <div className="md:order-last">
+                            <ModulesHeroIllustration />
+                        </div>
+                        <div className="text-right space-y-6">
+                            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-gray-900 dark:text-white leading-tight">
+                                <span className="block">ابزار خود را بسازید</span>
+                                <span className="block text-blue-600 dark:text-blue-400 mt-2">فقط برای آنچه نیاز دارید هزینه کنید</span>
+                            </h1>
+                            <p className="max-w-xl text-lg sm:text-xl text-gray-600 dark:text-gray-300 ml-auto">
+                                با بازارچه ماژول‌های مگامیل، شما کنترل کامل را در دست دارید. فقط ویژگی‌هایی را که واقعاً به آن‌ها نیاز دارید با استفاده از اعتبار خود فعال کنید.
+                            </p>
+                             <div className="flex justify-start pt-4 gap-4">
+                                <a
+                                    href={CTA_URL}
+                                    className="inline-block bg-blue-600 text-white font-bold text-lg px-8 py-4 rounded-lg shadow-lg hover:bg-blue-700 transition-transform transform hover:scale-105"
+                                >
+                                    شروع کنید
+                                </a>
+                                <a
+                                    href="#explore-modules"
+                                    onClick={handleScroll}
+                                    className="inline-block bg-transparent border-2 border-blue-600 text-blue-600 dark:border-blue-400 dark:text-blue-400 font-bold text-lg px-8 py-4 rounded-lg shadow-lg hover:bg-blue-600 hover:text-white dark:hover:bg-blue-400 dark:hover:text-gray-900 transition-colors transform hover:scale-105"
+                                >
+                                    کاوش ماژول‌ها
+                                </a>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </section>
+                </section>
 
-            {/* Business Model Section */}
-            <section>
-                <div className="text-center mb-16">
-                    <h2 className="text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl">
-                      ابزارهای بازاریابی شما
-                    </h2>
-                    <p className="mt-4 max-w-3xl mx-auto text-lg text-gray-600 dark:text-gray-400">
-                        مدل کسب‌وکار ما بر یک فلسفه مدرن و انعطاف‌پذیر بنا شده است: ارائه یک پلتفرم اصلی قدرتمند و امکان ارتقاء آن با قابلیت‌های مشخص از طریق سیستم ماژول‌های قابل بازگشایی. این رویکرد یک راه‌حل سفارشی، مقرون‌به‌صرفه و مقیاس‌پذیر ارائه می‌دهد.
-                    </p>
-                </div>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-right">
-                    <div className="bg-white dark:bg-gray-800 p-6 rounded-xl border border-gray-200 dark:border-gray-700">
-                        <CorePlatformIcon className="w-10 h-10 text-blue-600 dark:text-blue-400 mb-4"/>
-                        <h3 className="text-xl font-bold text-gray-900 dark:text-white">۱. پلتفرم اصلی</h3>
-                        <p className="mt-2 text-gray-600 dark:text-gray-400">هر کاربر به ویژگی‌های اساسی مانند داشبورد، مدیریت مخاطبین و آمار کمپین دسترسی دارد تا بتواند فوراً شروع به کار کند.</p>
+                {/* Business Model Section */}
+                <section>
+                    <div className="text-center mb-16">
+                        <h2 className="text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl">
+                          ابزارهای بازاریابی شما
+                        </h2>
+                        <p className="mt-4 max-w-3xl mx-auto text-lg text-gray-600 dark:text-gray-400">
+                            مدل کسب‌وکار ما بر یک فلسفه مدرن و انعطاف‌پذیر بنا شده است: ارائه یک پلتفرم اصلی قدرتمند و امکان ارتقاء آن با قابلیت‌های مشخص از طریق سیستم ماژول‌های قابل بازگشایی. این رویکرد یک راه‌حل سفارشی، مقرون‌به‌صرفه و مقیاس‌پذیر ارائه می‌دهد.
+                        </p>
                     </div>
-                    <div className="bg-white dark:bg-gray-800 p-6 rounded-xl border border-gray-200 dark:border-gray-700">
-                        <ModularExpansionIcon className="w-10 h-10 text-blue-600 dark:text-blue-400 mb-4"/>
-                        <h3 className="text-xl font-bold text-gray-900 dark:text-white">۲. توسعه ماژولار</h3>
-                        <p className="mt-2 text-gray-600 dark:text-gray-400">کتابخانه‌ای از ویژگی‌های پیشرفته در قالب ماژول‌های فردی ارائه می‌شود که می‌توانید بر اساس نیازهای خاص خود آن‌ها را فعال کنید.</p>
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-right">
+                        <div className="bg-white dark:bg-gray-800 p-6 rounded-xl border border-gray-200 dark:border-gray-700">
+                            <CorePlatformIcon className="w-10 h-10 text-blue-600 dark:text-blue-400 mb-4"/>
+                            <h3 className="text-xl font-bold text-gray-900 dark:text-white">۱. پلتفرم اصلی</h3>
+                            <p className="mt-2 text-gray-600 dark:text-gray-400">هر کاربر به ویژگی‌های اساسی مانند داشبورد، مدیریت مخاطبین و آمار کمپین دسترسی دارد تا بتواند فوراً شروع به کار کند.</p>
+                        </div>
+                        <div className="bg-white dark:bg-gray-800 p-6 rounded-xl border border-gray-200 dark:border-gray-700">
+                            <ModularExpansionIcon className="w-10 h-10 text-blue-600 dark:text-blue-400 mb-4"/>
+                            <h3 className="text-xl font-bold text-gray-900 dark:text-white">۲. توسعه ماژولار</h3>
+                            <p className="mt-2 text-gray-600 dark:text-gray-400">کتابخانه‌ای از ویژگی‌های پیشرفته در قالب ماژول‌های فردی ارائه می‌شود که می‌توانید بر اساس نیازهای خاص خود آن‌ها را فعال کنید.</p>
+                        </div>
+                        <div className="bg-white dark:bg-gray-800 p-6 rounded-xl border border-gray-200 dark:border-gray-700">
+                            <CreditBasedUnlockingIcon className="w-10 h-10 text-blue-600 dark:text-blue-400 mb-4"/>
+                            <h3 className="text-xl font-bold text-gray-900 dark:text-white">۳. بازگشایی مبتنی بر اعتبار</h3>
+                            <p className="mt-2 text-gray-600 dark:text-gray-400">به جای طرح‌های اشتراک گران‌قیمت، از یک سیستم اعتباری یک‌باره برای باز کردن دائمی ماژول‌های مورد نیاز خود استفاده کنید.</p>
+                        </div>
                     </div>
-                    <div className="bg-white dark:bg-gray-800 p-6 rounded-xl border border-gray-200 dark:border-gray-700">
-                        <CreditBasedUnlockingIcon className="w-10 h-10 text-blue-600 dark:text-blue-400 mb-4"/>
-                        <h3 className="text-xl font-bold text-gray-900 dark:text-white">۳. بازگشایی مبتنی بر اعتبار</h3>
-                        <p className="mt-2 text-gray-600 dark:text-gray-400">به جای طرح‌های اشتراک گران‌قیمت، از یک سیستم اعتباری یک‌باره برای باز کردن دائمی ماژول‌های مورد نیاز خود استفاده کنید.</p>
+                </section>
+
+              {/* Image Section */}
+                <section>
+                    <img 
+                        src="https://crm.megamail.ir/assets/fd937622-c055-4bf2-9ab7-5dcbc54b4964"
+                        alt="نمایی از ماژول های بازاریابی ایمیل مگامیل"
+                        className="rounded-xl shadow-2xl ring-1 ring-gray-900/10 mx-auto"
+                    />
+                </section>
+
+
+                {/* Explore Modules Section */}
+                <section id="explore-modules">
+                    <div className="text-center mb-12">
+                        <h2 className="text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl">
+                            بازارچه ماژول‌های ما
+                        </h2>
+                        <p className="mt-4 max-w-3xl mx-auto text-lg text-gray-600 dark:text-gray-400">
+                            پلتفرم خود را با فعال‌سازی ماژول‌های قدرتمند، مطابق با نیازهای کسب‌وکار خود سفارشی کنید.
+                        </p>
                     </div>
-                </div>
-            </section>
 
-          {/* Image Section */}
-            <section>
-                <img 
-                    src="https://crm.megamail.ir/assets/fd937622-c055-4bf2-9ab7-5dcbc54b4964"
-                    alt="نمایی از ماژول های بازاریابی ایمیل مگامیل"
-                    className="rounded-xl shadow-2xl ring-1 ring-gray-900/10 mx-auto"
-                />
-            </section>
+                    <div className="flex justify-center border-b border-gray-200 dark:border-gray-700 mb-8">
+                        {(Object.keys(moduleCategories) as ModuleCategoryKey[]).map(key => (
+                            <button
+                                key={key}
+                                onClick={() => setActiveTab(key)}
+                                className={`px-4 sm:px-6 py-3 text-sm sm:text-base font-medium transition-colors duration-300 -mb-px border-b-2
+                                    ${activeTab === key 
+                                        ? 'border-blue-500 text-blue-600 dark:text-blue-400' 
+                                        : 'border-transparent text-gray-500 hover:text-gray-800 dark:hover:text-gray-200'
+                                    }`
+                                }
+                                aria-current={activeTab === key ? 'page' : undefined}
+                            >
+                                {moduleCategories[key].label}
+                            </button>
+                        ))}
+                    </div>
 
+                    <div className="text-center mb-12 min-h-[4rem]">
+                        <p className="text-gray-600 dark:text-gray-400">{moduleCategories[activeTab].description}</p>
+                    </div>
 
-            {/* Explore Modules Section */}
-            <section id="explore-modules">
-                <div className="text-center mb-12">
-                    <h2 className="text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl">
-                        بازارچه ماژول‌های ما
-                    </h2>
-                    <p className="mt-4 max-w-3xl mx-auto text-lg text-gray-600 dark:text-gray-400">
-                        پلتفرم خود را با فعال‌سازی ماژول‌های قدرتمند، مطابق با نیازهای کسب‌وکار خود سفارشی کنید.
-                    </p>
-                </div>
-
-                <div className="flex justify-center border-b border-gray-200 dark:border-gray-700 mb-8">
-                    {(Object.keys(moduleCategories) as ModuleCategoryKey[]).map(key => (
-                        <button
-                            key={key}
-                            onClick={() => setActiveTab(key)}
-                            className={`px-4 sm:px-6 py-3 text-sm sm:text-base font-medium transition-colors duration-300 -mb-px border-b-2
-                                ${activeTab === key 
-                                    ? 'border-blue-500 text-blue-600 dark:text-blue-400' 
-                                    : 'border-transparent text-gray-500 hover:text-gray-800 dark:hover:text-gray-200'
-                                }`
-                            }
-                            aria-current={activeTab === key ? 'page' : undefined}
-                        >
-                            {moduleCategories[key].label}
-                        </button>
-                    ))}
-                </div>
-
-                <div className="text-center mb-12 min-h-[4rem]">
-                    <p className="text-gray-600 dark:text-gray-400">{moduleCategories[activeTab].description}</p>
-                </div>
-
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                    {filteredModules.map((feature) => (
-                        <div key={feature.title} className="bg-white dark:bg-gray-800 p-6 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 flex flex-col text-right">
-                            <div className="flex-shrink-0 mb-4">
-                                <div className="w-12 h-12 rounded-lg bg-blue-100 dark:bg-blue-900/50 flex items-center justify-center">
-                                    <feature.Icon className="w-7 h-7 text-blue-600 dark:text-blue-400" />
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                        {filteredModules.map((feature) => (
+                            <div key={feature.title} className="bg-white dark:bg-gray-800 p-6 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 flex flex-col text-right">
+                                <div className="flex-shrink-0 mb-4">
+                                    <div className="w-12 h-12 rounded-lg bg-blue-100 dark:bg-blue-900/50 flex items-center justify-center">
+                                        <feature.Icon className="w-7 h-7 text-blue-600 dark:text-blue-400" />
+                                    </div>
+                                </div>
+                                <h3 className="text-lg font-bold text-gray-900 dark:text-white">{feature.title}</h3>
+                                <p className="mt-2 text-base text-gray-600 dark:text-gray-400 flex-grow">{feature.description}</p>
+                                <div className="mt-4">
+                                    <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-blue-600 bg-blue-200 dark:bg-blue-900 dark:text-blue-300">
+                                        فعال‌سازی با اعتبار
+                                    </span>
                                 </div>
                             </div>
-                            <h3 className="text-lg font-bold text-gray-900 dark:text-white">{feature.title}</h3>
-                            <p className="mt-2 text-base text-gray-600 dark:text-gray-400 flex-grow">{feature.description}</p>
-                            <div className="mt-4">
-                                <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-blue-600 bg-blue-200 dark:bg-blue-900 dark:text-blue-300">
-                                    فعال‌سازی با اعتبار
-                                </span>
-                            </div>
+                        ))}
+                    </div>
+                </section>
+
+                {/* Advantages for Startups Section */}
+                <section>
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                        <div>
+                            <StartupsIllustration />
                         </div>
-                    ))}
-                </div>
-            </section>
+                        <div className="text-right">
+                            <h2 className="text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl">مزایا برای استارتاپ‌ها</h2>
+                            <p className="mt-4 text-lg text-gray-600 dark:text-gray-400">برای استارتاپ‌ها که چابکی، کنترل بودجه و سرعت در اولویت است، مدل ماژولار ما مزایای قابل توجهی ارائه می‌دهد:</p>
+                            <ul className="mt-6 space-y-4">
+                                {startupsAdvantages.map(item => (
+                                    <li key={item.title} className="flex items-start">
+                                        <CheckIcon className="w-6 h-6 text-green-500 mt-1 flex-shrink-0" />
+                                        <div className="mr-4 rtl:mr-4 rtl:ml-0">
+                                            <h4 className="font-semibold text-gray-800 dark:text-gray-200">{item.title}</h4>
+                                            <p className="text-gray-600 dark:text-gray-400">{item.description}</p>
+                                        </div>
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+                    </div>
+                </section>
 
-            {/* Advantages for Startups Section */}
-            <section>
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                    <div>
-                        <StartupsIllustration />
+                {/* Advantages for Enterprises Section */}
+                <section>
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                        <div className="lg:order-last">
+                            <EnterprisesIllustration />
+                        </div>
+                        <div className="text-right">
+                            <h2 className="text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl">مزایا برای شرکت‌های بزرگ</h2>
+                            <p className="mt-4 text-lg text-gray-600 dark:text-gray-400">برای شرکت‌های بزرگی که سفارشی‌سازی، امنیت، کنترل هزینه و یکپارچه‌سازی را در اولویت قرار می‌دهند، این مدل به همان اندازه قدرتمند است:</p>
+                            <ul className="mt-6 space-y-4">
+                                {enterprisesAdvantages.map(item => (
+                                    <li key={item.title} className="flex items-start">
+                                        <CheckIcon className="w-6 h-6 text-green-500 mt-1 flex-shrink-0" />
+                                        <div className="mr-4 rtl:mr-4 rtl:ml-0">
+                                            <h4 className="font-semibold text-gray-800 dark:text-gray-200">{item.title}</h4>
+                                            <p className="text-gray-600 dark:text-gray-400">{item.description}</p>
+                                        </div>
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
                     </div>
-                    <div className="text-right">
-                        <h2 className="text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl">مزایا برای استارتاپ‌ها</h2>
-                        <p className="mt-4 text-lg text-gray-600 dark:text-gray-400">برای استارتاپ‌ها که چابکی، کنترل بودجه و سرعت در اولویت است، مدل ماژولار ما مزایای قابل توجهی ارائه می‌دهد:</p>
-                        <ul className="mt-6 space-y-4">
-                            {startupsAdvantages.map(item => (
-                                <li key={item.title} className="flex items-start">
-                                    <CheckIcon className="w-6 h-6 text-green-500 mt-1 flex-shrink-0" />
-                                    <div className="mr-4 rtl:mr-4 rtl:ml-0">
-                                        <h4 className="font-semibold text-gray-800 dark:text-gray-200">{item.title}</h4>
-                                        <p className="text-gray-600 dark:text-gray-400">{item.description}</p>
-                                    </div>
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
-                </div>
-            </section>
+                </section>
 
-            {/* Advantages for Enterprises Section */}
-            <section>
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                    <div className="lg:order-last">
-                        <EnterprisesIllustration />
+                {/* CTA Section */}
+                <section className="bg-gradient-to-r from-blue-600 to-cyan-500 dark:from-blue-800 dark:to-cyan-700 text-white rounded-xl shadow-2xl py-12 sm:py-16 text-center">
+                    <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight">
+                        قدرت در دستان شماست
+                    </h2>
+                    <p className="mt-4 max-w-2xl mx-auto text-lg sm:text-xl text-blue-100 dark:text-blue-200">
+                        همین حالا ثبت نام کنید و پلتفرم ایمیل مارکتینگ خود را دقیقاً مطابق با نیازهایتان شکل دهید.
+                    </p>
+                    <div className="mt-8">
+                        <a
+                            href={CTA_URL}
+                            className="inline-block bg-white text-blue-600 font-bold text-lg px-8 py-4 rounded-lg shadow-lg hover:bg-blue-50 transition-transform transform hover:scale-105"
+                        >
+                            شروع کنید و ماژول‌ها را کاوش کنید
+                        </a>
                     </div>
-                    <div className="text-right">
-                        <h2 className="text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl">مزایا برای شرکت‌های بزرگ</h2>
-                        <p className="mt-4 text-lg text-gray-600 dark:text-gray-400">برای شرکت‌های بزرگی که سفارشی‌سازی، امنیت، کنترل هزینه و یکپارچه‌سازی را در اولویت قرار می‌دهند، این مدل به همان اندازه قدرتمند است:</p>
-                        <ul className="mt-6 space-y-4">
-                            {enterprisesAdvantages.map(item => (
-                                <li key={item.title} className="flex items-start">
-                                    <CheckIcon className="w-6 h-6 text-green-500 mt-1 flex-shrink-0" />
-                                    <div className="mr-4 rtl:mr-4 rtl:ml-0">
-                                        <h4 className="font-semibold text-gray-800 dark:text-gray-200">{item.title}</h4>
-                                        <p className="text-gray-600 dark:text-gray-400">{item.description}</p>
-                                    </div>
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
-                </div>
-            </section>
-
-            {/* CTA Section */}
-            <section className="bg-gradient-to-r from-blue-600 to-cyan-500 dark:from-blue-800 dark:to-cyan-700 text-white rounded-xl shadow-2xl py-12 sm:py-16 text-center">
-                <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight">
-                    قدرت در دستان شماست
-                </h2>
-                <p className="mt-4 max-w-2xl mx-auto text-lg sm:text-xl text-blue-100 dark:text-blue-200">
-                    همین حالا ثبت نام کنید و پلتفرم ایمیل مارکتینگ خود را دقیقاً مطابق با نیازهایتان شکل دهید.
-                </p>
-                <div className="mt-8">
-                    <a
-                        href={CTA_URL}
-                        className="inline-block bg-white text-blue-600 font-bold text-lg px-8 py-4 rounded-lg shadow-lg hover:bg-blue-50 transition-transform transform hover:scale-105"
-                    >
-                        شروع کنید و ماژول‌ها را کاوش کنید
-                    </a>
-                </div>
-            </section>
-        </div>
+                </section>
+            </div>
+        </>
     );
 };
 

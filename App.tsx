@@ -9,6 +9,8 @@ import PricingPage from './pages/PricingPage';
 import TemplatesPage from './pages/TemplatesPage';
 import ModulesPage from './pages/ModulesPage';
 import ContactsPage from './pages/ContactsPage';
+import AboutPage from './pages/AboutPage';
+import SupportPage from './pages/SupportPage';
 import { Theme } from './types';
 import { logoSrc } from './components/Logo';
 
@@ -57,6 +59,8 @@ function App() {
             <Route path="/modules" element={<ModulesPage />} />
             <Route path="/templates" element={<TemplatesPage />} />
             <Route path="/contacts" element={<ContactsPage />} />
+            <Route path="/about" element={<AboutPage />} />
+            <Route path="/support" element={<SupportPage />} />
           </Routes>
         </div>
       </main>

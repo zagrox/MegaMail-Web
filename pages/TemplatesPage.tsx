@@ -2,6 +2,8 @@
 
 import React from 'react';
 import { CTA_URL } from '../constants';
+import SEO from '../components/SEO';
+import { logoSrc } from '../components/Logo';
 
 // --- SVG & Icon Components ---
 
@@ -130,192 +132,216 @@ const SendTestIcon: React.FC<{className?: string}> = (props) => (
     <svg {...props} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 2 11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
 );
 
+const organizationSchema = {
+    "@type": "Organization",
+    "name": "مگامیل",
+    "url": "https://www.megamail.ir",
+    "logo": logoSrc,
+};
+
+const serviceSchema = {
+    "@type": "Service",
+    "serviceType": "Email Marketing Platform",
+    "provider": {
+        "@type": "Organization",
+        "name": "مگامیل"
+    },
+    "name": "ویرایشگر و قالب‌های ایمیل مگامیل",
+    "description": "با ویرایشگر کشیدن و رها کردن مگامیل، ایمیل‌های حرفه‌ای و واکنش‌گرا بسازید. از قالب‌های آماده استفاده کنید یا قالب‌های سفارشی خود را برای استفاده مجدد ذخیره نمایید."
+};
 
 const TemplatesPage: React.FC = () => {
     return (
-        <div className="py-8 space-y-24 sm:space-y-32">
-            {/* Hero Section */}
-            <section className="py-12 sm:py-16">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-                    <div className="md:order-last">
-                        <TemplatesHeroIllustration />
+        <>
+            <SEO
+                title="ویرایشگر و قالب‌های ایمیل | مگامیل"
+                description="با ویرایشگر کشیدن و رها کردن مگامیل، ایمیل‌های حرفه‌ای و واکنش‌گرا بسازید. از قالب‌های آماده استفاده کنید یا قالب خود را طراحی کنید."
+                schemas={[organizationSchema, serviceSchema]}
+            />
+            <div className="py-8 space-y-24 sm:space-y-32">
+                {/* Hero Section */}
+                <section className="py-12 sm:py-16">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                        <div className="md:order-last">
+                            <TemplatesHeroIllustration />
+                        </div>
+                        <div className="text-right space-y-6">
+                            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-gray-900 dark:text-white leading-tight">
+                                <span className="block">ایمیل‌های حرفه‌ای بسازید،</span>
+                                <span className="block text-blue-600 dark:text-blue-400 mt-2">بدون نیاز به کدنویسی</span>
+                            </h1>
+                            <p className="max-w-xl text-lg sm:text-xl text-gray-600 dark:text-gray-300 ml-auto">
+                               با ویرایشگر کشیدن و رها کردن ما، ایمیل‌های زیبا و کاملاً واکنش‌گرا طراحی کنید. از قالب‌های آماده استفاده کرده یا قالب‌های خود را برای استفاده مجدد ذخیره نمایید.
+                            </p>
+                            <div className="flex justify-start pt-4">
+                                <a
+                                    href={CTA_URL}
+                                    className="inline-block bg-blue-600 text-white font-bold text-lg px-8 py-4 rounded-lg shadow-lg hover:bg-blue-700 transition-transform transform hover:scale-105"
+                                >
+                                    ویرایشگر را امتحان کنید
+                                </a>
+                            </div>
+                        </div>
                     </div>
-                    <div className="text-right space-y-6">
-                        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-gray-900 dark:text-white leading-tight">
-                            <span className="block">ایمیل‌های حرفه‌ای بسازید،</span>
-                            <span className="block text-blue-600 dark:text-blue-400 mt-2">بدون نیاز به کدنویسی</span>
-                        </h1>
-                        <p className="max-w-xl text-lg sm:text-xl text-gray-600 dark:text-gray-300 ml-auto">
-                           با ویرایشگر کشیدن و رها کردن ما، ایمیل‌های زیبا و کاملاً واکنش‌گرا طراحی کنید. از قالب‌های آماده استفاده کرده یا قالب‌های خود را برای استفاده مجدد ذخیره نمایید.
+                </section>
+
+                {/* How it works section */}
+                <section className="bg-gray-100 dark:bg-gray-800/50 rounded-2xl py-16 sm:py-20 px-4">
+                    <div className="text-center mb-16">
+                        <h2 className="text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl">
+                          سریع و آسان ایمیل بسازید
+                        </h2>
+                        <p className="mt-4 max-w-3xl mx-auto text-lg text-gray-600 dark:text-gray-400">
+                            تنها در سه مرحله ساده، از ایده تا یک ایمیل حرفه‌ای و آماده ارسال پیش بروید.
                         </p>
-                        <div className="flex justify-start pt-4">
-                            <a
-                                href={CTA_URL}
-                                className="inline-block bg-blue-600 text-white font-bold text-lg px-8 py-4 rounded-lg shadow-lg hover:bg-blue-700 transition-transform transform hover:scale-105"
-                            >
-                                ویرایشگر را امتحان کنید
-                            </a>
+                    </div>
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+                        <div className="flex flex-col items-center text-center px-4">
+                             <StepIcon number={1}>
+                                <h3 className="text-xl font-bold text-gray-900 dark:text-white">انتخاب کنید</h3>
+                            </StepIcon>
+                            <p className="mt-4 text-gray-600 dark:text-gray-400">از گالری قالب‌های آماده یکی را انتخاب کنید، از قالب‌های ذخیره شده خود استفاده نمایید یا از یک صفحه خالی شروع کنید.</p>
+                        </div>
+                        <div className="flex flex-col items-center text-center px-4">
+                             <StepIcon number={2}>
+                                <h3 className="text-xl font-bold text-gray-900 dark:text-white">طراحی کنید</h3>
+                            </StepIcon>
+                            <p className="mt-4 text-gray-600 dark:text-gray-400">با ویرایشگر بصری، محتوای خود را اضافه کرده، استایل‌ها را سفارشی کنید و پیش‌نمایش زنده را در موبایل و دسکتاپ ببینید.</p>
+                        </div>
+                        <div className="flex flex-col items-center text-center px-4">
+                             <StepIcon number={3}>
+                                <h3 className="text-xl font-bold text-gray-900 dark:text-white">ذخیره و ارسال کنید</h3>
+                            </StepIcon>
+                            <p className="mt-4 text-gray-600 dark:text-gray-400">طرح خود را به عنوان یک قالب برای استفاده‌های بعدی ذخیره کرده و آن را در کمپین‌های ایمیلی خود به کار ببرید.</p>
                         </div>
                     </div>
-                </div>
-            </section>
+                </section>
+                
+                {/* Builder Features Section */}
+                <section>
+                    <div className="text-center mb-16">
+                        <h2 className="text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl">
+                            یک ویرایشگر قدرتمند با امکانات کامل
+                        </h2>
+                        <p className="mt-4 max-w-3xl mx-auto text-lg text-gray-600 dark:text-gray-400">
+                            تمام ابزارهای لازم برای طراحی ایمیل‌های جذاب و مؤثر، از ساختار و محتوا گرفته تا استایل‌دهی و گردش کار، در اختیار شماست.
+                        </p>
+                    </div>
+                    <div className="space-y-20 md:space-y-28">
+                         {/* Feature 1: Layout */}
+                        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                            <div className="lg:order-last flex justify-center"><LayoutIllustration /></div>
+                            <div className="text-right">
+                                <div className="inline-flex items-center gap-4 mb-4">
+                                    <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-blue-100 dark:bg-blue-900/50 flex items-center justify-center"><LayoutIcon className="w-7 h-7 text-blue-600 dark:text-blue-400" /></div>
+                                    <h3 className="text-2xl font-bold text-gray-900 dark:text-white">چیدمان و ساختار</h3>
+                                </div>
+                                <ul className="space-y-3">
+                                    <li className="flex items-start"><CheckIcon className="w-5 h-5 text-green-500 mt-1 flex-shrink-0" /><span className="mr-3">ساختار چند ستونه و کاملاً واکنش‌گرا</span></li>
+                                    <li className="flex items-start"><CheckIcon className="w-5 h-5 text-green-500 mt-1 flex-shrink-0" /><span className="mr-3">بلوک‌های ساختاری از پیش تعریف شده</span></li>
+                                    <li className="flex items-start"><CheckIcon className="w-5 h-5 text-green-500 mt-1 flex-shrink-0" /><span className="mr-3">کنترل کامل بر پدینگ، مارجین و حاشیه‌ها</span></li>
+                                    <li className="flex items-start"><CheckIcon className="w-5 h-5 text-green-500 mt-1 flex-shrink-0" /><span className="mr-3">ذخیره و استفاده مجدد از ردیف‌های سفارشی</span></li>
+                                    <li className="flex items-start"><CheckIcon className="w-5 h-5 text-green-500 mt-1 flex-shrink-0" /><span className="mr-3">تنظیمات نمایش در موبایل و دسکتاپ</span></li>
+                                    <li className="flex items-start"><CheckIcon className="w-5 h-5 text-green-500 mt-1 flex-shrink-0" /><span className="mr-3">افزودن جداکننده‌های بصری و اسپیسرها</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                         {/* Feature 2: Content */}
+                        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                            <div className="flex justify-center"><ContentIllustration /></div>
+                            <div className="text-right">
+                                <div className="inline-flex items-center gap-4 mb-4">
+                                    <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-blue-100 dark:bg-blue-900/50 flex items-center justify-center"><ContentIcon className="w-7 h-7 text-blue-600 dark:text-blue-400" /></div>
+                                    <h3 className="text-2xl font-bold text-gray-900 dark:text-white">محتوا و رسانه</h3>
+                                </div>
+                                <ul className="space-y-3">
+                                    <li className="flex items-start"><CheckIcon className="w-5 h-5 text-green-500 mt-1 flex-shrink-0" /><span className="mr-3">بلوک‌های متن، تصویر، دکمه، جداکننده و HTML سفارشی</span></li>
+                                    <li className="flex items-start"><CheckIcon className="w-5 h-5 text-green-500 mt-1 flex-shrink-0" /><span className="mr-3">پشتیبانی از محتوای پویا با Merge Tags</span></li>
+                                    <li className="flex items-start"><CheckIcon className="w-5 h-5 text-green-500 mt-1 flex-shrink-0" /><span className="mr-3">مدیریت رسانه یکپارچه برای تصاویر</span></li>
+                                    <li className="flex items-start"><CheckIcon className="w-5 h-5 text-green-500 mt-1 flex-shrink-0" /><span className="mr-3">افزودن آیکون‌های شبکه‌های اجتماعی</span></li>
+                                    <li className="flex items-start"><CheckIcon className="w-5 h-5 text-green-500 mt-1 flex-shrink-0" /><span className="mr-3">بلوک ویدیو با پشتیبانی از لینک</span></li>
+                                    <li className="flex items-start"><CheckIcon className="w-5 h-5 text-green-500 mt-1 flex-shrink-0" /><span className="mr-3">تایمر شمارش معکوس برای ایجاد فوریت</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                         {/* Feature 3: Styling */}
+                        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                            <div className="lg:order-last flex justify-center"><StylingIllustration /></div>
+                            <div className="text-right">
+                                <div className="inline-flex items-center gap-4 mb-4">
+                                    <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-blue-100 dark:bg-blue-900/50 flex items-center justify-center"><StylingIcon className="w-7 h-7 text-blue-600 dark:text-blue-400" /></div>
+                                    <h3 className="text-2xl font-bold text-gray-900 dark:text-white">استایل‌دهی و سفارشی‌سازی</h3>
+                                </div>
+                                <ul className="space-y-3">
+                                    <li className="flex items-start"><CheckIcon className="w-5 h-5 text-green-500 mt-1 flex-shrink-0" /><span className="mr-3">انتخاب فونت، رنگ، اندازه و ترازبندی متن</span></li>
+                                    <li className="flex items-start"><CheckIcon className="w-5 h-5 text-green-500 mt-1 flex-shrink-0" /><span className="mr-3">استایل‌های سراسری برای هماهنگی برند</span></li>
+                                    <li className="flex items-start"><CheckIcon className="w-5 h-5 text-green-500 mt-1 flex-shrink-0" /><span className="mr-3">کنترل کامل بر رنگ پس‌زمینه و حاشیه‌ها</span></li>
+                                    <li className="flex items-start"><CheckIcon className="w-5 h-5 text-green-500 mt-1 flex-shrink-0" /><span className="mr-3">گرد کردن گوشه‌ها برای تصاویر و دکمه‌ها</span></li>
+                                    <li className="flex items-start"><CheckIcon className="w-5 h-5 text-green-500 mt-1 flex-shrink-0" /><span className="mr-3">تنظیمات پیشرفته برای فاصله بین حروف و ارتفاع خط</span></li>
+                                    <li className="flex items-start"><CheckIcon className="w-5 h-5 text-green-500 mt-1 flex-shrink-0" /><span className="mr-3">افزودن سایه به المان‌ها برای ایجاد عمق</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                         {/* Feature 4: Workflow */}
+                        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                            <div className="flex justify-center"><WorkflowIllustration /></div>
+                            <div className="text-right">
+                                <div className="inline-flex items-center gap-4 mb-4">
+                                    <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-blue-100 dark:bg-blue-900/50 flex items-center justify-center"><WorkflowIcon className="w-7 h-7 text-blue-600 dark:text-blue-400" /></div>
+                                    <h3 className="text-2xl font-bold text-gray-900 dark:text-white">گردش کار و ابزارها</h3>
+                                </div>
+                                <ul className="space-y-3">
+                                    <li className="flex items-start"><CheckIcon className="w-5 h-5 text-green-500 mt-1 flex-shrink-0" /><span className="mr-3">ذخیره و مدیریت قالب‌های سفارشی</span></li>
+                                    <li className="flex items-start"><CheckIcon className="w-5 h-5 text-green-500 mt-1 flex-shrink-0" /><span className="mr-3">پیش‌نمایش زنده برای دسکتاپ و موبایل</span></li>
+                                    <li className="flex items-start"><CheckIcon className="w-5 h-5 text-green-500 mt-1 flex-shrink-0" /><span className="mr-3">دسترسی به کد HTML برای تنظیمات پیشرفته</span></li>
+                                    <li className="flex items-start"><CheckIcon className="w-5 h-5 text-green-500 mt-1 flex-shrink-0" /><span className="mr-3">تاریخچه تغییرات با قابلیت بازگشت</span></li>
+                                    <li className="flex items-start"><CheckIcon className="w-5 h-5 text-green-500 mt-1 flex-shrink-0" /><span className="mr-3">ارسال ایمیل تست برای بررسی نهایی</span></li>
+                                    <li className="flex items-start"><CheckIcon className="w-5 h-5 text-green-500 mt-1 flex-shrink-0" /><span className="mr-3">کامنت‌گذاری و همکاری تیمی روی طرح</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
 
-            {/* How it works section */}
-            <section className="bg-gray-100 dark:bg-gray-800/50 rounded-2xl py-16 sm:py-20 px-4">
-                <div className="text-center mb-16">
-                    <h2 className="text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl">
-                      سریع و آسان ایمیل بسازید
-                    </h2>
-                    <p className="mt-4 max-w-3xl mx-auto text-lg text-gray-600 dark:text-gray-400">
-                        تنها در سه مرحله ساده، از ایده تا یک ایمیل حرفه‌ای و آماده ارسال پیش بروید.
-                    </p>
-                </div>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-                    <div className="flex flex-col items-center text-center px-4">
-                         <StepIcon number={1}>
-                            <h3 className="text-xl font-bold text-gray-900 dark:text-white">انتخاب کنید</h3>
-                        </StepIcon>
-                        <p className="mt-4 text-gray-600 dark:text-gray-400">از گالری قالب‌های آماده یکی را انتخاب کنید، از قالب‌های ذخیره شده خود استفاده نمایید یا از یک صفحه خالی شروع کنید.</p>
+                {/* Template Management Section */}
+                <section>
+                    <div className="text-center mb-16">
+                        <h2 className="text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl">
+                            مدیریت قالب‌ها: مرکز فرماندهی خلاقیت شما
+                        </h2>
+                        <p className="mt-4 max-w-3xl mx-auto text-lg text-gray-600 dark:text-gray-400">
+                            قالب‌ها فقط برای طراحی نیستند؛ آن‌ها دارایی‌های ارزشمندی هستند که به شما کمک می‌کنند تا پیام برند خود را به طور مداوم و کارآمد منتقل کنید.
+                        </p>
                     </div>
-                    <div className="flex flex-col items-center text-center px-4">
-                         <StepIcon number={2}>
-                            <h3 className="text-xl font-bold text-gray-900 dark:text-white">طراحی کنید</h3>
-                        </StepIcon>
-                        <p className="mt-4 text-gray-600 dark:text-gray-400">با ویرایشگر بصری، محتوای خود را اضافه کرده، استایل‌ها را سفارشی کنید و پیش‌نمایش زنده را در موبایل و دسکتاپ ببینید.</p>
+                    <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <BenefitCard Icon={SaveIcon} title="ذخیره طرح‌های سفارشی" description="هر ایمیلی که طراحی می‌کنید را می‌توان به عنوان یک قالب سفارشی ذخیره کرد و سنگ بنای کمپین‌های آینده شما خواهد بود." />
+                        <BenefitCard Icon={ReuseIcon} title="استفاده مجدد و صرفه‌جویی در زمان" description="به جای شروع از صفر، از قالب‌های ذخیره شده خود استفاده کنید. این کار ثبات برند را تضمین کرده و ساعت‌ها در زمان شما صرفه‌جویی می‌کند." />
+                        <BenefitCard Icon={GalleryIcon} title="گالری قالب‌های آماده" description="از مجموعه‌ای از قالب‌های حرفه‌ای و از پیش طراحی شده برای شروع سریع الهام بگیرید و آن‌ها را مطابق با نیاز خود سفارشی کنید." />
+                        <BenefitCard Icon={ResponsiveIcon} title="واکنش‌گرایی تضمین شده" description="تمام قالب‌های ساخته شده در مگامیل به طور خودکار برای نمایش بی‌نقص در هر دستگاهی، از موبایل تا دسکتاپ، بهینه‌سازی می‌شوند." />
+                        <BenefitCard Icon={CodeIcon} title="ورود و خروج HTML" description="کنترل کامل را در دست بگیرید. قالب‌های HTML خود را وارد کنید یا از طرح‌های ساخته شده در ویرایشگر ما خروجی HTML بگیرید." />
+                        <BenefitCard Icon={SendTestIcon} title="ارسال ایمیل تست" description="قبل از ارسال نهایی، یک نسخه آزمایشی از ایمیل خود را به یک یا چند آدرس ارسال کنید تا از نمایش صحیح آن در کلاینت‌های مختلف ایمیل مطمئن شوید." />
                     </div>
-                    <div className="flex flex-col items-center text-center px-4">
-                         <StepIcon number={3}>
-                            <h3 className="text-xl font-bold text-gray-900 dark:text-white">ذخیره و ارسال کنید</h3>
-                        </StepIcon>
-                        <p className="mt-4 text-gray-600 dark:text-gray-400">طرح خود را به عنوان یک قالب برای استفاده‌های بعدی ذخیره کرده و آن را در کمپین‌های ایمیلی خود به کار ببرید.</p>
-                    </div>
-                </div>
-            </section>
-            
-            {/* Builder Features Section */}
-            <section>
-                <div className="text-center mb-16">
-                    <h2 className="text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl">
-                        یک ویرایشگر قدرتمند با امکانات کامل
-                    </h2>
-                    <p className="mt-4 max-w-3xl mx-auto text-lg text-gray-600 dark:text-gray-400">
-                        تمام ابزارهای لازم برای طراحی ایمیل‌های جذاب و مؤثر، از ساختار و محتوا گرفته تا استایل‌دهی و گردش کار، در اختیار شماست.
-                    </p>
-                </div>
-                <div className="space-y-20 md:space-y-28">
-                     {/* Feature 1: Layout */}
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                        <div className="lg:order-last flex justify-center"><LayoutIllustration /></div>
-                        <div className="text-right">
-                            <div className="inline-flex items-center gap-4 mb-4">
-                                <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-blue-100 dark:bg-blue-900/50 flex items-center justify-center"><LayoutIcon className="w-7 h-7 text-blue-600 dark:text-blue-400" /></div>
-                                <h3 className="text-2xl font-bold text-gray-900 dark:text-white">چیدمان و ساختار</h3>
-                            </div>
-                            <ul className="space-y-3">
-                                <li className="flex items-start"><CheckIcon className="w-5 h-5 text-green-500 mt-1 flex-shrink-0" /><span className="mr-3">ساختار چند ستونه و کاملاً واکنش‌گرا</span></li>
-                                <li className="flex items-start"><CheckIcon className="w-5 h-5 text-green-500 mt-1 flex-shrink-0" /><span className="mr-3">بلوک‌های ساختاری از پیش تعریف شده</span></li>
-                                <li className="flex items-start"><CheckIcon className="w-5 h-5 text-green-500 mt-1 flex-shrink-0" /><span className="mr-3">کنترل کامل بر پدینگ، مارجین و حاشیه‌ها</span></li>
-                                <li className="flex items-start"><CheckIcon className="w-5 h-5 text-green-500 mt-1 flex-shrink-0" /><span className="mr-3">ذخیره و استفاده مجدد از ردیف‌های سفارشی</span></li>
-                                <li className="flex items-start"><CheckIcon className="w-5 h-5 text-green-500 mt-1 flex-shrink-0" /><span className="mr-3">تنظیمات نمایش در موبایل و دسکتاپ</span></li>
-                                <li className="flex items-start"><CheckIcon className="w-5 h-5 text-green-500 mt-1 flex-shrink-0" /><span className="mr-3">افزودن جداکننده‌های بصری و اسپیسرها</span></li>
-                            </ul>
-                        </div>
-                    </div>
-                     {/* Feature 2: Content */}
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                        <div className="flex justify-center"><ContentIllustration /></div>
-                        <div className="text-right">
-                            <div className="inline-flex items-center gap-4 mb-4">
-                                <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-blue-100 dark:bg-blue-900/50 flex items-center justify-center"><ContentIcon className="w-7 h-7 text-blue-600 dark:text-blue-400" /></div>
-                                <h3 className="text-2xl font-bold text-gray-900 dark:text-white">محتوا و رسانه</h3>
-                            </div>
-                            <ul className="space-y-3">
-                                <li className="flex items-start"><CheckIcon className="w-5 h-5 text-green-500 mt-1 flex-shrink-0" /><span className="mr-3">بلوک‌های متن، تصویر، دکمه، جداکننده و HTML سفارشی</span></li>
-                                <li className="flex items-start"><CheckIcon className="w-5 h-5 text-green-500 mt-1 flex-shrink-0" /><span className="mr-3">پشتیبانی از محتوای پویا با Merge Tags</span></li>
-                                <li className="flex items-start"><CheckIcon className="w-5 h-5 text-green-500 mt-1 flex-shrink-0" /><span className="mr-3">مدیریت رسانه یکپارچه برای تصاویر</span></li>
-                                <li className="flex items-start"><CheckIcon className="w-5 h-5 text-green-500 mt-1 flex-shrink-0" /><span className="mr-3">افزودن آیکون‌های شبکه‌های اجتماعی</span></li>
-                                <li className="flex items-start"><CheckIcon className="w-5 h-5 text-green-500 mt-1 flex-shrink-0" /><span className="mr-3">بلوک ویدیو با پشتیبانی از لینک</span></li>
-                                <li className="flex items-start"><CheckIcon className="w-5 h-5 text-green-500 mt-1 flex-shrink-0" /><span className="mr-3">تایمر شمارش معکوس برای ایجاد فوریت</span></li>
-                            </ul>
-                        </div>
-                    </div>
-                     {/* Feature 3: Styling */}
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                        <div className="lg:order-last flex justify-center"><StylingIllustration /></div>
-                        <div className="text-right">
-                            <div className="inline-flex items-center gap-4 mb-4">
-                                <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-blue-100 dark:bg-blue-900/50 flex items-center justify-center"><StylingIcon className="w-7 h-7 text-blue-600 dark:text-blue-400" /></div>
-                                <h3 className="text-2xl font-bold text-gray-900 dark:text-white">استایل‌دهی و سفارشی‌سازی</h3>
-                            </div>
-                            <ul className="space-y-3">
-                                <li className="flex items-start"><CheckIcon className="w-5 h-5 text-green-500 mt-1 flex-shrink-0" /><span className="mr-3">انتخاب فونت، رنگ، اندازه و ترازبندی متن</span></li>
-                                <li className="flex items-start"><CheckIcon className="w-5 h-5 text-green-500 mt-1 flex-shrink-0" /><span className="mr-3">استایل‌های سراسری برای هماهنگی برند</span></li>
-                                <li className="flex items-start"><CheckIcon className="w-5 h-5 text-green-500 mt-1 flex-shrink-0" /><span className="mr-3">کنترل کامل بر رنگ پس‌زمینه و حاشیه‌ها</span></li>
-                                <li className="flex items-start"><CheckIcon className="w-5 h-5 text-green-500 mt-1 flex-shrink-0" /><span className="mr-3">گرد کردن گوشه‌ها برای تصاویر و دکمه‌ها</span></li>
-                                <li className="flex items-start"><CheckIcon className="w-5 h-5 text-green-500 mt-1 flex-shrink-0" /><span className="mr-3">تنظیمات پیشرفته برای فاصله بین حروف و ارتفاع خط</span></li>
-                                <li className="flex items-start"><CheckIcon className="w-5 h-5 text-green-500 mt-1 flex-shrink-0" /><span className="mr-3">افزودن سایه به المان‌ها برای ایجاد عمق</span></li>
-                            </ul>
-                        </div>
-                    </div>
-                     {/* Feature 4: Workflow */}
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                        <div className="flex justify-center"><WorkflowIllustration /></div>
-                        <div className="text-right">
-                            <div className="inline-flex items-center gap-4 mb-4">
-                                <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-blue-100 dark:bg-blue-900/50 flex items-center justify-center"><WorkflowIcon className="w-7 h-7 text-blue-600 dark:text-blue-400" /></div>
-                                <h3 className="text-2xl font-bold text-gray-900 dark:text-white">گردش کار و ابزارها</h3>
-                            </div>
-                            <ul className="space-y-3">
-                                <li className="flex items-start"><CheckIcon className="w-5 h-5 text-green-500 mt-1 flex-shrink-0" /><span className="mr-3">ذخیره و مدیریت قالب‌های سفارشی</span></li>
-                                <li className="flex items-start"><CheckIcon className="w-5 h-5 text-green-500 mt-1 flex-shrink-0" /><span className="mr-3">پیش‌نمایش زنده برای دسکتاپ و موبایل</span></li>
-                                <li className="flex items-start"><CheckIcon className="w-5 h-5 text-green-500 mt-1 flex-shrink-0" /><span className="mr-3">دسترسی به کد HTML برای تنظیمات پیشرفته</span></li>
-                                <li className="flex items-start"><CheckIcon className="w-5 h-5 text-green-500 mt-1 flex-shrink-0" /><span className="mr-3">تاریخچه تغییرات با قابلیت بازگشت</span></li>
-                                <li className="flex items-start"><CheckIcon className="w-5 h-5 text-green-500 mt-1 flex-shrink-0" /><span className="mr-3">ارسال ایمیل تست برای بررسی نهایی</span></li>
-                                <li className="flex items-start"><CheckIcon className="w-5 h-5 text-green-500 mt-1 flex-shrink-0" /><span className="mr-3">کامنت‌گذاری و همکاری تیمی روی طرح</span></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </section>
+                </section>
 
-            {/* Template Management Section */}
-            <section>
-                <div className="text-center mb-16">
-                    <h2 className="text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl">
-                        مدیریت قالب‌ها: مرکز فرماندهی خلاقیت شما
+                {/* CTA Section */}
+                <section className="bg-gradient-to-r from-blue-600 to-cyan-500 dark:from-blue-800 dark:to-cyan-700 text-white rounded-xl shadow-2xl py-12 sm:py-16 text-center">
+                    <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight">
+                        آماده‌اید تا ایمیل‌های بهتری بسازید؟
                     </h2>
-                    <p className="mt-4 max-w-3xl mx-auto text-lg text-gray-600 dark:text-gray-400">
-                        قالب‌ها فقط برای طراحی نیستند؛ آن‌ها دارایی‌های ارزشمندی هستند که به شما کمک می‌کنند تا پیام برند خود را به طور مداوم و کارآمد منتقل کنید.
+                    <p className="mt-4 max-w-2xl mx-auto text-lg sm:text-xl text-blue-100 dark:text-blue-200">
+                        همین حالا ثبت نام کنید و به ابزارهای قدرتمند طراحی ایمیل ما دسترسی پیدا کنید.
                     </p>
-                </div>
-                <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <BenefitCard Icon={SaveIcon} title="ذخیره طرح‌های سفارشی" description="هر ایمیلی که طراحی می‌کنید را می‌توان به عنوان یک قالب سفارشی ذخیره کرد و سنگ بنای کمپین‌های آینده شما خواهد بود." />
-                    <BenefitCard Icon={ReuseIcon} title="استفاده مجدد و صرفه‌جویی در زمان" description="به جای شروع از صفر، از قالب‌های ذخیره شده خود استفاده کنید. این کار ثبات برند را تضمین کرده و ساعت‌ها در زمان شما صرفه‌جویی می‌کند." />
-                    <BenefitCard Icon={GalleryIcon} title="گالری قالب‌های آماده" description="از مجموعه‌ای از قالب‌های حرفه‌ای و از پیش طراحی شده برای شروع سریع الهام بگیرید و آن‌ها را مطابق با نیاز خود سفارشی کنید." />
-                    <BenefitCard Icon={ResponsiveIcon} title="واکنش‌گرایی تضمین شده" description="تمام قالب‌های ساخته شده در مگامیل به طور خودکار برای نمایش بی‌نقص در هر دستگاهی، از موبایل تا دسکتاپ، بهینه‌سازی می‌شوند." />
-                    <BenefitCard Icon={CodeIcon} title="ورود و خروج HTML" description="کنترل کامل را در دست بگیرید. قالب‌های HTML خود را وارد کنید یا از طرح‌های ساخته شده در ویرایشگر ما خروجی HTML بگیرید." />
-                    <BenefitCard Icon={SendTestIcon} title="ارسال ایمیل تست" description="قبل از ارسال نهایی، یک نسخه آزمایشی از ایمیل خود را به یک یا چند آدرس ارسال کنید تا از نمایش صحیح آن در کلاینت‌های مختلف ایمیل مطمئن شوید." />
-                </div>
-            </section>
-
-            {/* CTA Section */}
-            <section className="bg-gradient-to-r from-blue-600 to-cyan-500 dark:from-blue-800 dark:to-cyan-700 text-white rounded-xl shadow-2xl py-12 sm:py-16 text-center">
-                <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight">
-                    آماده‌اید تا ایمیل‌های بهتری بسازید؟
-                </h2>
-                <p className="mt-4 max-w-2xl mx-auto text-lg sm:text-xl text-blue-100 dark:text-blue-200">
-                    همین حالا ثبت نام کنید و به ابزارهای قدرتمند طراحی ایمیل ما دسترسی پیدا کنید.
-                </p>
-                <div className="mt-8">
-                    <a
-                        href={CTA_URL}
-                        className="inline-block bg-white text-blue-600 font-bold text-lg px-8 py-4 rounded-lg shadow-lg hover:bg-blue-50 transition-transform transform hover:scale-105"
-                    >
-                        شروع کنید و قالب‌ها را کاوش کنید
-                    </a>
-                </div>
-            </section>
-        </div>
+                    <div className="mt-8">
+                        <a
+                            href={CTA_URL}
+                            className="inline-block bg-white text-blue-600 font-bold text-lg px-8 py-4 rounded-lg shadow-lg hover:bg-blue-50 transition-transform transform hover:scale-105"
+                        >
+                            شروع کنید و قالب‌ها را کاوش کنید
+                        </a>
+                    </div>
+                </section>
+            </div>
+        </>
     );
 };
 

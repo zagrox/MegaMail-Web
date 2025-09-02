@@ -1,6 +1,9 @@
+
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { CTA_URL } from '../constants';
+import SEO from '../components/SEO';
+import { logoSrc } from '../components/Logo';
 
 // --- Feature Icon Components ---
 
@@ -243,6 +246,26 @@ const CampaignsIllustration: React.FC = () => (
     </svg>
 );
 
+const organizationSchema = {
+    "@type": "Organization",
+    "name": "مگامیل",
+    "url": "https://www.megamail.ir", // This should be the final, canonical domain
+    "logo": logoSrc,
+};
+
+const webSiteSchema = {
+    "@type": "WebSite",
+    "name": "مگامیل",
+    "url": "https://www.megamail.ir",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": {
+        "@type": "EntryPoint",
+        "urlTemplate": "https://www.megamail.ir/search?q={search_term_string}"
+      },
+      "query-input": "required name=search_term_string"
+    }
+};
 
 const HomePage: React.FC = () => {
   const [openAccordion, setOpenAccordion] = useState<number | null>(0);
@@ -262,228 +285,235 @@ const HomePage: React.FC = () => {
   };
 
   return (
-    <div className="py-8 space-y-24 sm:space-y-32">
-      {/* Hero Section */}
-      <section className="pt-8 sm:pt-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-            <div className="md:order-last">
-                <HeroIllustration />
-            </div>
-            <div className="text-right space-y-6">
-                <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-gray-900 dark:text-white leading-tight">
-                    <span className="block">بازاریابی ایمیلی،</span>
-                    <span className="block text-blue-600 dark:text-blue-400 mt-2">ساده، هوشمند و قدرتمند</span>
-                </h1>
-                <p className="max-w-xl text-lg sm:text-xl text-gray-600 dark:text-gray-300 ml-auto">
-                    مگامیل پلتفرمی جامع برای ساخت، ارسال و تحلیل کمپین‌های ایمیلی شماست. به هزاران کسب‌وکار موفق بپیوندید و فروش خود را افزایش دهید.
-                </p>
-                <div className="flex justify-start gap-4 pt-4">
-                    <a
-                        href={CTA_URL}
-                        className="inline-block bg-blue-600 text-white font-bold text-lg px-8 py-4 rounded-lg shadow-lg hover:bg-blue-700 transition-transform transform hover:scale-105"
-                    >
-                        شروع رایگان
-                    </a>
-                    <Link
-                        to="/features"
-                        className="inline-block bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 font-bold text-lg px-8 py-4 rounded-lg shadow-lg hover:bg-gray-300 dark:hover:bg-gray-600 transition-transform transform hover:scale-105"
-                    >
-                        آشنایی با ویژگی‌ها
-                    </Link>
-                </div>
-            </div>
-        </div>
-      </section>
-
-      {/* Features Section */}
-      <section>
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
-          {featureData.map((feature) => (
-            <div key={feature.name} className="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300">
-              <feature.icon className="w-12 h-12 text-blue-600 dark:text-blue-400 mb-4" />
-              <h3 className="text-xl font-bold text-gray-900 dark:text-white">{feature.name}</h3>
-              <p className="mt-2 text-gray-600 dark:text-gray-400">{feature.description}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* Dashboard Image */}
-      <section>
-        <div className="mt-12">
-          <img 
-            src="https://crm.megamail.ir/assets/4e840e43-9923-4441-a2cd-3a5de9d8adbd"
-            alt="نمایی از داشبورد مگامیل"
-            className="rounded-xl shadow-2xl ring-1 ring-gray-900/10 mx-auto"
-          />
-        </div>
-      </section>
-
-      {/* Contact Management Section */}
-      <section>
-        <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl">
-            مدیریت پیشرفته مخاطبین
-          </h2>
-          <p className="mt-4 text-lg text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
-            ابزارهای قدرتمند برای دسته‌بندی، هدف‌گیری و تعامل موثر با مخاطبین خود در اختیار داشته باشید.
-          </p>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-          <div>
-            <ContactsIllustration />
-          </div>
-          <div className="space-y-4">
-            {accordionData.map((item, index) => (
-              <div key={index} className="border-b border-gray-200 dark:border-gray-700">
-                <button
-                  onClick={() => toggleAccordion(index)}
-                  className="w-full flex justify-between items-center text-right py-4"
-                  aria-expanded={openAccordion === index}
-                  aria-controls={`accordion-content-${index}`}
-                >
-                  <span className="text-lg font-semibold text-gray-800 dark:text-gray-100">{item.title}</span>
-                  <span className="transition-transform duration-300">
-                    {openAccordion === index ? (
-                       <svg className="w-6 h-6 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M18 12H6" /></svg>
-                    ) : (
-                      <svg className="w-6 h-6 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" /></svg>
-                    )}
-                  </span>
-                </button>
-                <div
-                  id={`accordion-content-${index}`}
-                  role="region"
-                  className={`overflow-hidden transition-all duration-500 ease-in-out ${openAccordion === index ? 'max-h-40' : 'max-h-0'}`}
-                >
-                  <p className="pb-4 text-gray-600 dark:text-gray-400">
-                    {item.content}
+    <>
+      <SEO
+        title="مگامیل - پلتفرم هوشمند بازاریابی ایمیلی"
+        description="مگامیل پلتفرمی جامع برای ساخت، ارسال و تحلیل کمپین‌های ایمیلی شماست. با مدل پرداخت به ازای مصرف، به سادگی فروش خود را افزایش دهید."
+        schemas={[organizationSchema, webSiteSchema]}
+      />
+      <div className="py-8 space-y-24 sm:space-y-32">
+        {/* Hero Section */}
+        <section className="pt-8 sm:pt-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+              <div className="md:order-last">
+                  <HeroIllustration />
+              </div>
+              <div className="text-right space-y-6">
+                  <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-gray-900 dark:text-white leading-tight">
+                      <span className="block">بازاریابی ایمیلی،</span>
+                      <span className="block text-blue-600 dark:text-blue-400 mt-2">ساده، هوشمند و قدرتمند</span>
+                  </h1>
+                  <p className="max-w-xl text-lg sm:text-xl text-gray-600 dark:text-gray-300 ml-auto">
+                      مگامیل پلتفرمی جامع برای ساخت، ارسال و تحلیل کمپین‌های ایمیلی شماست. به هزاران کسب‌وکار موفق بپیوندید و فروش خود را افزایش دهید.
                   </p>
-                </div>
+                  <div className="flex justify-start gap-4 pt-4">
+                      <a
+                          href={CTA_URL}
+                          className="inline-block bg-blue-600 text-white font-bold text-lg px-8 py-4 rounded-lg shadow-lg hover:bg-blue-700 transition-transform transform hover:scale-105"
+                      >
+                          شروع رایگان
+                      </a>
+                      <Link
+                          to="/features"
+                          className="inline-block bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 font-bold text-lg px-8 py-4 rounded-lg shadow-lg hover:bg-gray-300 dark:hover:bg-gray-600 transition-transform transform hover:scale-105"
+                      >
+                          آشنایی با ویژگی‌ها
+                      </Link>
+                  </div>
+              </div>
+          </div>
+        </section>
+
+        {/* Features Section */}
+        <section>
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
+            {featureData.map((feature) => (
+              <div key={feature.name} className="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300">
+                <feature.icon className="w-12 h-12 text-blue-600 dark:text-blue-400 mb-4" />
+                <h3 className="text-xl font-bold text-gray-900 dark:text-white">{feature.name}</h3>
+                <p className="mt-2 text-gray-600 dark:text-gray-400">{feature.description}</p>
               </div>
             ))}
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Email Templates Section */}
-      <section>
-        <div className="text-center mb-12">
+        {/* Dashboard Image */}
+        <section>
+          <div className="mt-12">
+            <img 
+              src="https://crm.megamail.ir/assets/4e840e43-9923-4441-a2cd-3a5de9d8adbd"
+              alt="نمایی از داشبورد مگامیل"
+              className="rounded-xl shadow-2xl ring-1 ring-gray-900/10 mx-auto"
+            />
+          </div>
+        </section>
+
+        {/* Contact Management Section */}
+        <section>
+          <div className="text-center mb-12">
             <h2 className="text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl">
-            طراحی ایمیل‌های خیره‌کننده
+              مدیریت پیشرفته مخاطبین
             </h2>
             <p className="mt-4 text-lg text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
-            با ویرایشگر قدرتمند و گالری قالب‌های ما، ایمیل‌هایی بسازید که مخاطبین شما را مجذوب کند.
+              ابزارهای قدرتمند برای دسته‌بندی، هدف‌گیری و تعامل موثر با مخاطبین خود در اختیار داشته باشید.
             </p>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-            <div className="md:order-last">
-                <TemplatesIllustration />
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <div>
+              <ContactsIllustration />
             </div>
-            <div className="space-y-4 md:order-first">
-            {templateAccordionData.map((item, index) => (
+            <div className="space-y-4">
+              {accordionData.map((item, index) => (
                 <div key={index} className="border-b border-gray-200 dark:border-gray-700">
-                <button
-                    onClick={() => toggleTemplateAccordion(index)}
+                  <button
+                    onClick={() => toggleAccordion(index)}
                     className="w-full flex justify-between items-center text-right py-4"
-                    aria-expanded={openTemplateAccordion === index}
-                    aria-controls={`template-accordion-content-${index}`}
-                >
+                    aria-expanded={openAccordion === index}
+                    aria-controls={`accordion-content-${index}`}
+                  >
                     <span className="text-lg font-semibold text-gray-800 dark:text-gray-100">{item.title}</span>
                     <span className="transition-transform duration-300">
-                    {openTemplateAccordion === index ? (
-                        <svg className="w-6 h-6 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M18 12H6" /></svg>
-                    ) : (
+                      {openAccordion === index ? (
+                         <svg className="w-6 h-6 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M18 12H6" /></svg>
+                      ) : (
                         <svg className="w-6 h-6 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" /></svg>
-                    )}
+                      )}
                     </span>
-                </button>
-                <div
-                    id={`template-accordion-content-${index}`}
+                  </button>
+                  <div
+                    id={`accordion-content-${index}`}
                     role="region"
-                    className={`overflow-hidden transition-all duration-500 ease-in-out ${openTemplateAccordion === index ? 'max-h-60' : 'max-h-0'}`}
-                >
+                    className={`overflow-hidden transition-all duration-500 ease-in-out ${openAccordion === index ? 'max-h-40' : 'max-h-0'}`}
+                  >
                     <p className="pb-4 text-gray-600 dark:text-gray-400">
-                    {item.content}
+                      {item.content}
                     </p>
+                  </div>
                 </div>
-                </div>
-            ))}
+              ))}
             </div>
-        </div>
-      </section>
-
-      {/* Campaign Management Section */}
-      <section>
-        <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl">
-            کمپین‌های خود را هوشمندانه مدیریت کنید
-          </h2>
-          <p className="mt-4 text-lg text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
-            از ساخت تا ارسال و تحلیل، تمام ابزارهای مورد نیاز برای اجرای کمپین‌های موفق در اختیار شماست.
-          </p>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-          <div>
-            <CampaignsIllustration />
           </div>
-          <div className="space-y-4">
-            {campaignAccordionData.map((item, index) => (
-              <div key={index} className="border-b border-gray-200 dark:border-gray-700">
-                <button
-                  onClick={() => toggleCampaignAccordion(index)}
-                  className="w-full flex justify-between items-center text-right py-4"
-                  aria-expanded={openCampaignAccordion === index}
-                  aria-controls={`campaign-accordion-content-${index}`}
-                >
-                  <span className="text-lg font-semibold text-gray-800 dark:text-gray-100">{item.title}</span>
-                  <span className="transition-transform duration-300">
-                    {openCampaignAccordion === index ? (
-                       <svg className="w-6 h-6 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M18 12H6" /></svg>
-                    ) : (
-                      <svg className="w-6 h-6 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" /></svg>
-                    )}
-                  </span>
-                </button>
-                <div
-                  id={`campaign-accordion-content-${index}`}
-                  role="region"
-                  className={`overflow-hidden transition-all duration-500 ease-in-out ${openCampaignAccordion === index ? 'max-h-60' : 'max-h-0'}`}
-                >
-                  <p className="pb-4 text-gray-600 dark:text-gray-400">
-                    {item.content}
-                  </p>
-                </div>
+        </section>
+
+        {/* Email Templates Section */}
+        <section>
+          <div className="text-center mb-12">
+              <h2 className="text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl">
+              طراحی ایمیل‌های خیره‌کننده
+              </h2>
+              <p className="mt-4 text-lg text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
+              با ویرایشگر قدرتمند و گالری قالب‌های ما، ایمیل‌هایی بسازید که مخاطبین شما را مجذوب کند.
+              </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+              <div className="md:order-last">
+                  <TemplatesIllustration />
               </div>
-            ))}
+              <div className="space-y-4 md:order-first">
+              {templateAccordionData.map((item, index) => (
+                  <div key={index} className="border-b border-gray-200 dark:border-gray-700">
+                  <button
+                      onClick={() => toggleTemplateAccordion(index)}
+                      className="w-full flex justify-between items-center text-right py-4"
+                      aria-expanded={openTemplateAccordion === index}
+                      aria-controls={`template-accordion-content-${index}`}
+                  >
+                      <span className="text-lg font-semibold text-gray-800 dark:text-gray-100">{item.title}</span>
+                      <span className="transition-transform duration-300">
+                      {openTemplateAccordion === index ? (
+                          <svg className="w-6 h-6 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M18 12H6" /></svg>
+                      ) : (
+                          <svg className="w-6 h-6 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" /></svg>
+                      )}
+                      </span>
+                  </button>
+                  <div
+                      id={`template-accordion-content-${index}`}
+                      role="region"
+                      className={`overflow-hidden transition-all duration-500 ease-in-out ${openTemplateAccordion === index ? 'max-h-60' : 'max-h-0'}`}
+                  >
+                      <p className="pb-4 text-gray-600 dark:text-gray-400">
+                      {item.content}
+                      </p>
+                  </div>
+                  </div>
+              ))}
+              </div>
           </div>
+        </section>
+
+        {/* Campaign Management Section */}
+        <section>
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl">
+              کمپین‌های خود را هوشمندانه مدیریت کنید
+            </h2>
+            <p className="mt-4 text-lg text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
+              از ساخت تا ارسال و تحلیل، تمام ابزارهای مورد نیاز برای اجرای کمپین‌های موفق در اختیار شماست.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <div>
+              <CampaignsIllustration />
+            </div>
+            <div className="space-y-4">
+              {campaignAccordionData.map((item, index) => (
+                <div key={index} className="border-b border-gray-200 dark:border-gray-700">
+                  <button
+                    onClick={() => toggleCampaignAccordion(index)}
+                    className="w-full flex justify-between items-center text-right py-4"
+                    aria-expanded={openCampaignAccordion === index}
+                    aria-controls={`campaign-accordion-content-${index}`}
+                  >
+                    <span className="text-lg font-semibold text-gray-800 dark:text-gray-100">{item.title}</span>
+                    <span className="transition-transform duration-300">
+                      {openCampaignAccordion === index ? (
+                         <svg className="w-6 h-6 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M18 12H6" /></svg>
+                      ) : (
+                        <svg className="w-6 h-6 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" /></svg>
+                      )}
+                    </span>
+                  </button>
+                  <div
+                    id={`campaign-accordion-content-${index}`}
+                    role="region"
+                    className={`overflow-hidden transition-all duration-500 ease-in-out ${openCampaignAccordion === index ? 'max-h-60' : 'max-h-0'}`}
+                  >
+                    <p className="pb-4 text-gray-600 dark:text-gray-400">
+                      {item.content}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* CTA Section */}
+        <section className="bg-gradient-to-r from-blue-600 to-cyan-500 dark:from-blue-800 dark:to-cyan-700 text-white rounded-xl shadow-2xl py-12 sm:py-16 text-center">
+            <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight">
+              آماده شروع هستید؟
+            </h2>
+            <p className="mt-4 max-w-2xl mx-auto text-lg sm:text-xl text-blue-100 dark:text-blue-200">
+              با مدل پرداخت به ازای مصرف، بدون هیچ هزینه ماهانه و فقط برای ایمیل‌هایی که ارسال می‌کنید هزینه پرداخت کنید. همین حالا ثبت نام کنید و هدیه دریافت نمایید!
+            </p>
+            <div className="mt-8">
+              <a
+                href={CTA_URL}
+                className="inline-block bg-white text-blue-600 font-bold text-lg px-8 py-4 rounded-lg shadow-lg hover:bg-blue-50 transition-transform transform hover:scale-105"
+              >
+                دریافت هدیه ثبت نام
+              </a>
+            </div>
+        </section>
+
+        {/* eNamad Trust Seal */}
+        <div className="flex justify-center py-8">
+          <div dangerouslySetInnerHTML={{ __html: `<a referrerpolicy='origin' target='_blank' href='https://trustseal.enamad.ir/?id=641485&Code=eeZy5j3VovoLv7VfXxG8kgOU7Lysebts'><img referrerpolicy='origin' src='https://trustseal.enamad.ir/logo.aspx?id=641485&Code=eeZy5j3VovoLv7VfXxG8kgOU7Lysebts' alt='' style='cursor:pointer' code='eeZy5j3VovoLv7VfXxG8kgOU7Lysebts'></a>` }} />
         </div>
-      </section>
 
-      {/* CTA Section */}
-      <section className="bg-gradient-to-r from-blue-600 to-cyan-500 dark:from-blue-800 dark:to-cyan-700 text-white rounded-xl shadow-2xl py-12 sm:py-16 text-center">
-          <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight">
-            آماده شروع هستید؟
-          </h2>
-          <p className="mt-4 max-w-2xl mx-auto text-lg sm:text-xl text-blue-100 dark:text-blue-200">
-            با مدل پرداخت به ازای مصرف، بدون هیچ هزینه ماهانه و فقط برای ایمیل‌هایی که ارسال می‌کنید هزینه پرداخت کنید. همین حالا ثبت نام کنید و هدیه دریافت نمایید!
-          </p>
-          <div className="mt-8">
-            <a
-              href={CTA_URL}
-              className="inline-block bg-white text-blue-600 font-bold text-lg px-8 py-4 rounded-lg shadow-lg hover:bg-blue-50 transition-transform transform hover:scale-105"
-            >
-              دریافت هدیه ثبت نام
-            </a>
-          </div>
-      </section>
-
-      {/* eNamad Trust Seal */}
-      <div className="flex justify-center py-8">
-        <div dangerouslySetInnerHTML={{ __html: `<a referrerpolicy='origin' target='_blank' href='https://trustseal.enamad.ir/?id=641485&Code=eeZy5j3VovoLv7VfXxG8kgOU7Lysebts'><img referrerpolicy='origin' src='https://trustseal.enamad.ir/logo.aspx?id=641485&Code=eeZy5j3VovoLv7VfXxG8kgOU7Lysebts' alt='' style='cursor:pointer' code='eeZy5j3VovoLv7VfXxG8kgOU7Lysebts'></a>` }} />
       </div>
-
-    </div>
+    </>
   );
 };
 
