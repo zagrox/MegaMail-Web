@@ -25,6 +25,7 @@ const Footer: React.FC = () => {
             <ul className="mt-4 space-y-4">
               <li><Link to="/features" className="text-base text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white">ویژگی‌ها</Link></li>
               <li><Link to="/pricing" className="text-base text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white">تعرفه‌ها</Link></li>
+              <li><Link to="/blog" className="text-base text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white">بلاگ</Link></li>
               <li><Link to="/about" className="text-base text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white">درباره ما</Link></li>
               <li><Link to="/support" className="text-base text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white">پشتیبانی</Link></li>
             </ul>

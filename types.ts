@@ -1,3 +1,4 @@
+
 export type Theme = 'light' | 'dark';
 
 export interface NavLink {
@@ -12,4 +13,16 @@ export interface PricingPackage {
   packsize: number;
   packprice: number;
   packrate: number;
+}
+
+export interface BlogPost {
+  id: number;
+  status: string;
+  date_created: string;
+  date_updated: string;
+  blogtitle: string;
+  blogimage: string; // This is an ID
+  blogcategory: string[];
+  blogcontent: string;
+  blogslug: string;
 }

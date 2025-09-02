@@ -8,6 +8,8 @@ import FeaturesPage from './pages/FeaturesPage';
 import PricingPage from './pages/PricingPage';
 import TemplatesPage from './pages/TemplatesPage';
 import ModulesPage from './pages/ModulesPage';
+import BlogListPage from './pages/BlogListPage';
+import BlogPostPage from './pages/BlogPostPage';
 import ContactsPage from './pages/ContactsPage';
 import AboutPage from './pages/AboutPage';
 import SupportPage from './pages/SupportPage';
@@ -62,6 +64,8 @@ function App() {
             <Route path="/pricing" element={<PricingPage />} />
             <Route path="/modules" element={<ModulesPage />} />
             <Route path="/templates" element={<TemplatesPage />} />
+            <Route path="/blog" element={<BlogListPage />} />
+            <Route path="/blog/:slug" element={<BlogPostPage />} />
             <Route path="/contacts" element={<ContactsPage />} />
             <Route path="/about" element={<AboutPage />} />
             <Route path="/support" element={<SupportPage />} />

@@ -1,3 +1,4 @@
+
 import fs from 'fs';
 import path from 'path';
 
@@ -15,6 +16,7 @@ const routes = [
   '/modules',
   '/templates',
   '/contacts',
+  '/blog',
   '/about',
   '/support',
   '/terms',
