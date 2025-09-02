@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { NavLink as RouterNavLink, Link } from 'react-router-dom';
 import type { Theme } from '../types';
-import { NAV_LINKS, CTA_URL } from '../constants';
+import { NAV_LINKS, CTA_URL, LOGIN_URL } from '../constants';
 import ThemeToggle from './ThemeToggle';
 import Logo from './Logo';
 
@@ -55,7 +55,13 @@ const Header: React.FC<HeaderProps> = ({ theme, toggleTheme }) => {
             
             
             {/* Desktop CTA */}
-            <div className="hidden md:block">
+            <div className="hidden md:flex items-center space-x-reverse space-x-4">
+              <a
+                href={LOGIN_URL}
+                className="inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md text-blue-700 bg-blue-100 hover:bg-blue-200 dark:bg-blue-900/50 dark:text-blue-300 dark:hover:bg-blue-800/50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+              >
+                ورود
+              </a>
               <a
                 href={CTA_URL}
                 className="inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
@@ -105,9 +111,17 @@ const Header: React.FC<HeaderProps> = ({ theme, toggleTheme }) => {
             ))}
           </div>
           <div className="pt-4 pb-3 border-t border-gray-200 dark:border-gray-700">
-            <div className="flex items-center px-1">
+            <div className="flex items-center space-x-reverse space-x-2 px-1">
+              <a
+                href={LOGIN_URL}
+                onClick={() => setIsMenuOpen(false)}
+                className="w-full text-center inline-flex items-center justify-center px-4 py-2 border border-transparent text-base font-medium rounded-md text-blue-700 bg-blue-100 hover:bg-blue-200 dark:bg-blue-900/50 dark:text-blue-300 dark:hover:bg-blue-800/50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+              >
+                ورود
+              </a>
               <a
                 href={CTA_URL}
+                onClick={() => setIsMenuOpen(false)}
                 className="w-full text-center inline-flex items-center justify-center px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
               >
                 ثبت نام رایگان

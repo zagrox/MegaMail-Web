@@ -8,3 +8,4 @@ export const NAV_LINKS: NavLink[] = [
 ];
 
 export const CTA_URL = 'https://app.megamail.ir/?register';
+export const LOGIN_URL = 'https://app.megamail.ir';

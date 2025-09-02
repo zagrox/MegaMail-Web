@@ -508,23 +508,12 @@ const HomePage: React.FC = () => {
         </section>
 
         {/* eNamad Trust Seal */}
-        <div className="flex justify-center py-8">
-          <a
-            referrerPolicy="origin"
-            target="_blank"
-            rel="noopener noreferrer"
-            href="https://trustseal.enamad.ir/?id=641485&Code=eeZy5j3VovoLv7VfXxG8kgOU7Lysebts"
-            aria-label="نماد اعتماد الکترونیکی"
-          >
-            <img
-              src="https://crm.megamail.ir/assets/652f0381-a9fa-48a6-840e-fe041f270a1a"
-              alt="نماد اعتماد الکترونیکی"
-              style={{ cursor: 'pointer' }}
-              width="125"
-              height="136"
-            />
-          </a>
-        </div>
+        <div 
+          className="flex justify-center py-8"
+          dangerouslySetInnerHTML={{
+            __html: `<a referrerpolicy="origin" target="_blank" href="https://trustseal.enamad.ir/?id=641485&Code=eeZy5j3VovoLv7VfXxG8kgOU7Lysebts"><img referrerpolicy="origin" src="https://crm.megamail.ir/assets/652f0381-a9fa-48a6-840e-fe041f270a1a" alt="نماد اعتماد الکترونیکی" style="cursor:pointer; width: 125px;" id="eeZy5j3VovoLv7VfXxG8kgOU7Lysebts" /></a>`
+          }}
+        />
 
       </div>
     </>
