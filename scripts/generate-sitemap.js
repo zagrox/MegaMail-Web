@@ -42,10 +42,9 @@ const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 
 const sitemapPath = path.join(publicDir, 'sitemap.xml');
 
-// Ensure the scripts directory exists before writing the file
-const scriptsDir = path.dirname(import.meta.url.replace('file://', ''));
-if (!fs.existsSync(scriptsDir)) {
-  fs.mkdirSync(scriptsDir, { recursive: true });
+// Ensure the public directory exists before writing the file
+if (!fs.existsSync(publicDir)) {
+  fs.mkdirSync(publicDir, { recursive: true });
 }
 
 fs.writeFileSync(sitemapPath, sitemap);
