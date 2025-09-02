@@ -25,13 +25,61 @@ const AboutHeroIllustration: React.FC = () => (
     </svg>
 );
 
+const ZagroxIllustration: React.FC = () => (
+    <svg viewBox="0 0 500 400" role="img" aria-label="تصویر انتزاعی از شبکه شرکت زاگرس">
+        <defs>
+            <linearGradient id="zagrox-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stopColor="#818CF8" />
+                <stop offset="100%" stopColor="#4F46E5" />
+            </linearGradient>
+        </defs>
+        <path d="M 50,200 C 50,100 150,50 250,50 S 450,100 450,200 S 350,350 250,350 S 50,300 50,200 Z" className="fill-indigo-50 dark:fill-gray-800/50" />
+        <g opacity="0.5">
+            <path d="M 250 200 L 150 150" stroke="url(#zagrox-grad)" strokeWidth="2" />
+            <path d="M 250 200 L 180 280" stroke="url(#zagrox-grad)" strokeWidth="2" />
+            <path d="M 250 200 L 350 250" stroke="url(#zagrox-grad)" strokeWidth="2" />
+            <path d="M 250 200 L 320 120" stroke="url(#zagrox-grad)" strokeWidth="2" />
+            <path d="M 150 150 L 180 280" stroke="#A5B4FC" strokeWidth="1" strokeDasharray="4 4" />
+            <path d="M 350 250 L 320 120" stroke="#A5B4FC" strokeWidth="1" strokeDasharray="4 4" />
+        </g>
+        <circle cx="250" cy="200" r="25" fill="url(#zagrox-grad)" />
+        <circle cx="150" cy="150" r="15" fill="url(#zagrox-grad)" />
+        <circle cx="180" cy="280" r="15" fill="url(#zagrox-grad)" />
+        <circle cx="350" cy="250" r="15" fill="url(#zagrox-grad)" />
+        <circle cx="320" cy="120" r="15" fill="url(#zagrox-grad)" />
+    </svg>
+);
+
+const IR48Illustration: React.FC = () => (
+    <svg viewBox="0 0 500 400" role="img" aria-label="تصویر انتزاعی از زیرساخت فنی IR48">
+        <defs>
+            <linearGradient id="ir48-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stopColor="#2DD4BF" />
+                <stop offset="100%" stopColor="#0D9488" />
+            </linearGradient>
+        </defs>
+        <path d="M 100 50 H 400 A 50 50 0 0 1 400 150 H 100 A 50 50 0 0 1 100 50 Z" className="fill-teal-50 dark:fill-gray-800/50" transform="translate(0, 80)" />
+        <g transform="translate(150, 100)">
+            <rect x="0" y="0" width="200" height="200" rx="20" className="fill-white dark:fill-gray-700 stroke-gray-200 dark:stroke-gray-600"/>
+            <rect x="20" y="20" width="160" height="20" rx="5" className="fill-gray-200 dark:fill-gray-600" />
+            <rect x="20" y="50" width="160" height="20" rx="5" className="fill-gray-200 dark:fill-gray-600" />
+            <rect x="20" y="80" width="160" height="20" rx="5" className="fill-gray-200 dark:fill-gray-600" />
+            <circle cx="160" cy="30" r="5" fill="url(#ir48-grad)" />
+            <circle cx="160" cy="60" r="5" fill="url(#ir48-grad)" />
+            <circle cx="160" cy="90" r="5" className="fill-gray-400" />
+            <path d="M 20 120 L 180 120 L 160 180 L 40 180 Z" className="fill-gray-100 dark:fill-gray-800" />
+        </g>
+    </svg>
+);
+
+
 const organizationSchema = {
     "@type": "Organization",
     "name": "مگامیل",
     "url": "https://www.megamail.ir",
     "logo": logoSrc,
     "description": "مگامیل یک پلتفرم هوشمند بازاریابی ایمیلی است که به کسب‌وکارها کمک می‌کند تا با ابزارهای قدرتمند و مدلی منعطف، کمپین‌های موثری را اجرا کرده و رشد کنند.",
-    "sameAs": []
+    "sameAs": ["https://zagrox.com"]
 };
 
 const AboutPage: React.FC = () => {
@@ -90,6 +138,59 @@ const AboutPage: React.FC = () => {
                         <div className="p-6">
                             <h3 className="text-xl font-bold text-gray-900 dark:text-white">نوآوری</h3>
                             <p className="mt-2 text-gray-600 dark:text-gray-400">ما دائماً در حال کاوش و پیاده‌سازی فناوری‌های جدید هستیم تا به مشتریان خود کمک کنیم یک قدم جلوتر باشند.</p>
+                        </div>
+                    </div>
+                </section>
+
+                {/* Behind the Scenes Section */}
+                <section>
+                    <div className="text-center mb-16">
+                        <h2 className="text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl">
+                            پشت صحنه مگامیل
+                        </h2>
+                        <p className="mt-4 max-w-3xl mx-auto text-lg text-gray-600 dark:text-gray-400">
+                            مگامیل حاصل همکاری و تخصص دو مجموعه بزرگ است که با هدف ارائه بهترین خدمات گرد هم آمده‌اند.
+                        </p>
+                    </div>
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+                        {/* ZAGROX Card */}
+                        <div className="text-right">
+                            <div className="mb-8 rounded-lg overflow-hidden"><ZagroxIllustration /></div>
+                            <h3 className="text-2xl font-bold text-gray-900 dark:text-white">مجموعه اینترنتی زاگرس (ZAGROX)</h3>
+                            <p className="mt-4 text-lg text-gray-600 dark:text-gray-400">
+                                مگامیل بخشی از مجموعه اینترنتی زاگرس است. زاگرس با هدف توسعه و ارائه خدمات نوین و کاربردی در فضای وب ایران فعالیت می‌کند و مجموعه‌ای از برندهای موفق را در کارنامه خود دارد. ما در زاگرس به دنبال ساختن آینده‌ای دیجیتال و روشن برای کسب‌وکارهای ایرانی هستیم.
+                            </p>
+                            <div className="mt-6">
+                                <a
+                                    href="https://zagrox.com/about/"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="inline-flex items-center font-semibold text-blue-600 dark:text-blue-400 hover:underline"
+                                >
+                                    آشنایی بیشتر با زاگرس
+                                    <svg className="w-5 h-5 ml-2 rtl:mr-2 rtl:ml-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" /></svg>
+                                </a>
+                            </div>
+                        </div>
+
+                        {/* IR48.com Card */}
+                        <div className="text-right">
+                            <div className="mb-8 rounded-lg overflow-hidden"><IR48Illustration /></div>
+                            <h3 className="text-2xl font-bold text-gray-900 dark:text-white">فناوری و زیرساخت IR48.com</h3>
+                            <p className="mt-4 text-lg text-gray-600 dark:text-gray-400">
+                                تمام زیرساخت‌های فنی، توسعه نرم‌افزار، و خدمات پرداخت در مجموعه زاگرس، از جمله مگامیل، توسط IR48.com پشتیبانی می‌شود. IR48 به عنوان مرکز فناوری و هاب خدماتی ما، پایداری، امنیت و نوآوری مداوم سرویس‌ها را تضمین می‌کند و ستون فقرات فنی محصولات ما محسوب می‌شود.
+                            </p>
+                            <div className="mt-6">
+                                <a
+                                    href="https://ir48.com"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="inline-flex items-center font-semibold text-blue-600 dark:text-blue-400 hover:underline"
+                                >
+                                    بازدید از IR48.com
+                                    <svg className="w-5 h-5 ml-2 rtl:mr-2 rtl:ml-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" /></svg>
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </section>

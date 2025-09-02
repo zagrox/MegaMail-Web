@@ -15,6 +15,7 @@ import TermsPage from './pages/TermsPage';
 import PrivacyPage from './pages/PrivacyPage';
 import { Theme } from './types';
 import { logoSrc } from './components/Logo';
+import ScrollToTop from './components/ScrollToTop';
 
 function App() {
   const [theme, setTheme] = useState<Theme>(() => {
@@ -51,6 +52,7 @@ function App() {
 
   return (
     <div className="flex flex-col min-h-screen">
+      <ScrollToTop />
       <Header theme={theme} toggleTheme={toggleTheme} />
       <main className="flex-grow">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">

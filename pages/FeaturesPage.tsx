@@ -1,5 +1,7 @@
 
+
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { CTA_URL } from '../constants';
 import SEO from '../components/SEO';
 import { logoSrc } from '../components/Logo';
@@ -26,6 +28,11 @@ const BillingIcon: React.FC<{ className?: string }> = (props) => (
 const CheckIcon: React.FC<{ className?: string }> = ({ className }) => (
     <svg xmlns="http://www.w3.org/2000/svg" className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor">
       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+    </svg>
+);
+const ArrowLeftIcon: React.FC<{ className?: string }> = (props) => (
+    <svg {...props} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
     </svg>
 );
 
@@ -285,7 +292,9 @@ const featureCategories = [
             "مدیریت لیست‌های سرکوب (Suppression Lists)",
             "رهگیری فعالیت‌های لحظه‌ای",
             "بررسی سلامت و کیفیت مخاطبین"
-        ]
+        ],
+        detailsPagePath: '/contacts',
+        detailsPageLabel: 'آشنایی با مدیریت مخاطبان'
     },
     {
         Icon: EmailCreationIcon,
@@ -305,7 +314,9 @@ const featureCategories = [
             "بلوک‌های محتوایی قابل استفاده مجدد",
             "کنترل رهگیری کلیک و UTM",
             "پشتیبانی از AMP برای ایمیل"
-        ]
+        ],
+        detailsPagePath: '/templates',
+        detailsPageLabel: 'آشنایی با ایمیل‌ساز و قالب‌ها'
     },
     {
         Icon: AnalyticsIcon,
@@ -415,7 +426,7 @@ const FeaturesPage: React.FC = () => {
                 {/* Features Section */}
                 <section>
                     <div className="space-y-20 md:space-y-28">
-                        {featureCategories.map((category, index) => (
+                        {featureCategories.map((category: any, index) => (
                             <div key={category.title} className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                                 <div className={`lg:order-${index % 2 === 0 ? 'last' : 'first'}`}>
                                     <div className="flex items-center justify-center">
@@ -431,13 +442,24 @@ const FeaturesPage: React.FC = () => {
                                     </div>
                                     <p className="text-lg text-gray-600 dark:text-gray-400">{category.description}</p>
                                     <ul className="mt-6 grid grid-cols-2 gap-x-6 gap-y-4">
-                                        {category.features.map((feature, idx) => (
+                                        {category.features.map((feature: string, idx: number) => (
                                             <li key={idx} className="flex items-start">
                                                 <CheckIcon className="w-5 h-5 text-green-500 mt-1 flex-shrink-0" />
                                                 <span className="mr-3 rtl:mr-3 rtl:ml-0 text-gray-700 dark:text-gray-300">{feature}</span>
                                             </li>
                                         ))}
                                     </ul>
+                                    {category.detailsPagePath && (
+                                        <div className="mt-8">
+                                            <Link
+                                                to={category.detailsPagePath}
+                                                className="inline-flex items-center justify-between px-6 py-3 border border-transparent text-base font-medium rounded-lg shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-transform transform hover:scale-105"
+                                            >
+                                                <span>{category.detailsPageLabel}</span>
+                                                <ArrowLeftIcon className="w-5 h-5 mr-3" />
+                                            </Link>
+                                        </div>
+                                    )}
                                 </div>
                             </div>
                         ))}
