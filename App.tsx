@@ -11,6 +11,8 @@ import ModulesPage from './pages/ModulesPage';
 import ContactsPage from './pages/ContactsPage';
 import AboutPage from './pages/AboutPage';
 import SupportPage from './pages/SupportPage';
+import TermsPage from './pages/TermsPage';
+import PrivacyPage from './pages/PrivacyPage';
 import { Theme } from './types';
 import { logoSrc } from './components/Logo';
 
@@ -61,6 +63,8 @@ function App() {
             <Route path="/contacts" element={<ContactsPage />} />
             <Route path="/about" element={<AboutPage />} />
             <Route path="/support" element={<SupportPage />} />
+            <Route path="/terms" element={<TermsPage />} />
+            <Route path="/privacy" element={<PrivacyPage />} />
           </Routes>
         </div>
       </main>

@@ -2,6 +2,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Logo from './Logo';
+import { CTA_URL } from '../constants';
 
 const Footer: React.FC = () => {
   return (
@@ -14,36 +15,39 @@ const Footer: React.FC = () => {
               <Logo />
             </Link>
             <p className="mt-4 text-base text-gray-500 dark:text-gray-400">
-              پلتفرم هوشمند بازاریابی ایمیلی برای رشد کسب‌وکار شما.
+              پلتفرم هوشمند بازاریابی ایمیلی مگامیل
             </p>
           </div>
 
-          {/* Product */}
+          {/* MegaMail */}
           <div>
-            <h3 className="text-sm font-semibold text-gray-900 dark:text-white tracking-wider uppercase">محصول</h3>
+            <h3 className="text-sm font-semibold text-gray-900 dark:text-white tracking-wider uppercase">آشنایی</h3>
             <ul className="mt-4 space-y-4">
               <li><Link to="/features" className="text-base text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white">ویژگی‌ها</Link></li>
               <li><Link to="/pricing" className="text-base text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white">تعرفه‌ها</Link></li>
-              <li><Link to="/modules" className="text-base text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white">ماژول‌ها</Link></li>
-              <li><Link to="/templates" className="text-base text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white">ویرایشگر</Link></li>
-            </ul>
-          </div>
-          
-          {/* Company */}
-          <div>
-            <h3 className="text-sm font-semibold text-gray-900 dark:text-white tracking-wider uppercase">شرکت</h3>
-            <ul className="mt-4 space-y-4">
               <li><Link to="/about" className="text-base text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white">درباره ما</Link></li>
               <li><Link to="/support" className="text-base text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white">پشتیبانی</Link></li>
             </ul>
           </div>
           
-          {/* Legal */}
+          {/* Tools */}
           <div>
-            <h3 className="text-sm font-semibold text-gray-900 dark:text-white tracking-wider uppercase">حقوقی</h3>
+            <h3 className="text-sm font-semibold text-gray-900 dark:text-white tracking-wider uppercase">ابزارها</h3>
             <ul className="mt-4 space-y-4">
-              <li><a href="#" className="text-base text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white">قوانین و مقررات</a></li>
-              <li><a href="#" className="text-base text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white">حریم خصوصی</a></li>
+              <li><Link to="/modules" className="text-base text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white">ماژول‌ها</Link></li>
+              <li><Link to="/templates" className="text-base text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white">ویرایشگر</Link></li>
+              <li><Link to="/contacts" className="text-base text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white">مخاطبان</Link></li>
+            </ul>
+          </div>
+          
+          {/* User */}
+          <div>
+            <h3 className="text-sm font-semibold text-gray-900 dark:text-white tracking-wider uppercase">کاربری</h3>
+            <ul className="mt-4 space-y-4">
+              <li><a href="https://app.megamail.ir" target="_blank" rel="noopener noreferrer" className="text-base text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white">اپلیکیشن</a></li>
+              <li><a href={CTA_URL} className="text-base text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white">ثبت نام</a></li>
+              <li><Link to="/terms" className="text-base text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white">قوانین و مقررات</Link></li>
+              <li><Link to="/privacy" className="text-base text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white">حریم خصوصی</Link></li>
             </ul>
           </div>
         </div>
