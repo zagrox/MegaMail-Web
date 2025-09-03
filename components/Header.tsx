@@ -40,12 +40,13 @@ const Header: React.FC<HeaderProps> = ({ theme, toggleTheme }) => {
                   key={link.label}
                   to={link.path}
                   className={({ isActive }) =>
-                    `text-base font-medium transition-colors hover:text-blue-600 dark:hover:text-blue-400 ${
+                    `flex items-center gap-x-2 text-base font-medium transition-colors hover:text-blue-600 dark:hover:text-blue-400 ${
                       isActive ? 'text-blue-600 dark:text-blue-400' : 'text-gray-600 dark:text-gray-300'
                     }`
                   }
                 >
-                  {link.label}
+                  <link.icon className="w-5 h-5" />
+                  <span>{link.label}</span>
                 </RouterNavLink>
               ))}
             </nav>
@@ -99,14 +100,15 @@ const Header: React.FC<HeaderProps> = ({ theme, toggleTheme }) => {
                 to={link.path}
                 onClick={() => setIsMenuOpen(false)}
                 className={({ isActive }) =>
-                  `block px-3 py-2 rounded-md text-base font-medium transition-colors ${
+                  `flex items-center gap-x-3 px-3 py-2 rounded-md text-base font-medium transition-colors ${
                     isActive
                       ? 'bg-blue-50 dark:bg-blue-900/50 text-blue-700 dark:text-blue-300'
                       : 'text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 hover:text-gray-900 dark:hover:text-white'
                   }`
                 }
               >
-                {link.label}
+                <link.icon className="w-6 h-6" />
+                <span>{link.label}</span>
               </RouterNavLink>
             ))}
           </div>

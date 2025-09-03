@@ -1,9 +1,11 @@
+import React from 'react';
 
 export type Theme = 'light' | 'dark';
 
 export interface NavLink {
   label: string;
   path: string;
+  icon: React.FC<{ className?: string }>;
 }
 
 export interface PricingPackage {
